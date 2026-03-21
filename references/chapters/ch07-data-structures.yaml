@@ -1,0 +1,701 @@
+- id: 7
+  title: Python Data Structures
+  description: Làm chủ list, tuple, set, dict và các pattern xử lý dữ liệu thực dụng.
+  project_milestone:
+    projects:
+    - project: P1 — User Registration System
+      step: "Step 5: Data Storage với List of Dicts"
+      task: |
+        Nâng cấp registration_loop.py thành registration_system.py:
+        1. registered_users = [] — list lưu user dicts
+        2. failed_registrations = [] — list lưu failed dicts
+        3. Khi đăng ký thành công: tạo dict {"name": ..., "email": ..., "password": ..., "status": "active"}
+        4. Append dict vào registered_users
+        5. Khi đăng ký thất bại: tạo dict {"email": ..., "error": "lý do"}
+        6. Append vào failed_registrations
+        7. Check duplicate email: dùng for loop qua registered_users
+        8. Khi thoát: in toàn bộ registered_users và failed_registrations
+      concepts_used: [list of dicts, dict creation, list.append(), for loop search, "in" check]
+    - project: P2 — Expense Tracking System
+      step: "Step 4: Structured Expenses"
+      task: |
+        Nâng cấp expense_aggregator.py thành expense_system.py:
+        1. expenses = [] — list lưu expense dicts
+        2. Mỗi expense: {"amount": ..., "category": ..., "description": ...}
+        3. Thêm 5+ expenses bằng .append()
+        4. Loop qua expenses tính tổng
+        5. Loop + filter: tổng theo category (so sánh .lower())
+        6. Dùng enumerate in bảng chi tiêu có đánh số
+      concepts_used: [list of dicts, dict access ["key"], loop + filter, enumerate]
+    - project: P3 — Mini Banking System
+      step: "Step 4: Account với Nested Data"
+      task: |
+        Nâng cấp banking_loop.py thành banking_system.py:
+        1. accounts = [] — list lưu account dicts
+        2. Mỗi account: {"name": ..., "balance": ..., "transactions": []}
+        3. Mỗi transaction: {"type": "Deposit"/"Withdrawal", "amount": ...}
+        4. Khi deposit/withdraw: append transaction dict vào account["transactions"]
+        5. show_account: in name, balance, rồi loop in tất cả transactions
+        6. Tìm account bằng for loop qua accounts, so sánh name.lower()
+      concepts_used: [nested data — dict chứa list of dicts, dict mutation, list.append() nested]
+    note: "Cả 3 project giờ đã có data structure hoàn chỉnh. Chapter 8 sẽ wrap thành functions sạch + exception handling."
+  lessons:
+  - id: 22
+    title: Lists Overview
+    objective: Hiểu list là gì, khi nào dùng list, và vì sao nó là cấu trúc dữ liệu cơ bản nhất cho beginner.
+    explanation: 'List là collection có thứ tự, thay đổi được, và xuất hiện ở khắp nơi: danh sách sản phẩm, dòng dữ liệu, file names, API items. Bài này chưa sa vào method quá nhiều; mục tiêu là giúp learner nhìn bài toán và biết “cái này nên là list”.'
+    examples:
+    - 'products = [''chuột'', ''bàn phím'', ''tai nghe'']
+
+      print(products)'
+    - 'scores = [7, 8, 9]
+
+      print(len(scores))'
+    exercise: 'Tạo 3 list khác nhau: tên tướng TFT, sản phẩm shop, trạng thái đơn hàng. In độ dài từng list.'
+    hints:
+    - List dùng dấu ngoặc vuông `[]`.
+    - Các phần tử cách nhau bằng dấu phẩy.
+    sources:
+    - tier: 1
+      title: Python Tutorial - More on Lists
+      url: https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+    - tier: 2
+      title: Real Python - Lists and Tuples in Python
+      url: https://realpython.com/python-lists-tuples/
+    - tier: 1
+      title: CS50P Week 3
+      url: https://cs50.harvard.edu/python/2022/weeks/3/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Danh sách sản phẩm trong giỏ hàng.
+    - Danh sách file cần xử lý hàng loạt.
+    best_practices:
+    - Phân biệt list với string ngay từ đầu.
+    - Đặt tên list ở số nhiều nếu hợp lý.
+    - Tự hỏi dữ liệu có cần giữ thứ tự không.
+  project_applications:
+  - Favorite items list.
+  - Simple product list display.
+  first_money_drill:
+    enabled: true
+    task: "Tạo list sản phẩm shop từ input, lọc sản phẩm hết hàng (stock=0), in danh sách còn hàng."
+    input_sample: "Chuot:5\nBan_phim:0\nTai_nghe:3\nLoa:0\nWebcam:2"
+    expected_output: "CÒN HÀNG:\n- Chuot (5)\n- Tai_nghe (3)\n- Webcam (2)\n\nHẾT HÀNG: Ban_phim, Loa"
+    deliverable: "filter_stock.py"
+    delivery_package: ["filter_stock.py", "products.txt", "README.md"]
+    market_note: "Filter stock = task cơ bản nhất cho shop online, giá 300k."
+    gate_status: "Gate A+B+C approaching (đọc input + list + xuất kết quả)"
+  monetization:
+  - "List = nền của mọi script xử lý nhiều dòng dữ liệu. Bạn đang ở mốc có thể viết filter_orders.py. Tiến độ: 3/5 gates."
+  duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm list với tuple hoặc string.
+    - Không hiểu list có thể chứa nhiều kiểu dữ liệu nhưng không nên lạm dụng.
+  - id: 23
+    title: Creating & Accessing Lists
+    objective: Tạo list và truy cập phần tử bằng index dương/âm một cách chắc chắn.
+    explanation: Một list có ích khi bạn lấy được đúng phần tử mình cần. Bài này dạy tạo list, index dương, index âm, và lỗi index out of range. Đây là kỹ năng nền để các bài thêm/xóa/sửa list sau này không bị mù mờ.
+    examples:
+    - 'fruits = [''apple'', ''banana'', ''cherry'']
+
+      print(fruits[0])'
+    - 'fruits = [''apple'', ''banana'', ''cherry'']
+
+      print(fruits[-1])'
+    - 'numbers = [10, 20, 30, 40]
+
+      print(numbers[1:3])'
+    exercise: Tạo một list 5 sản phẩm rồi in ra phần tử đầu, cuối, và phần tử ở giữa.
+    hints:
+    - Index bắt đầu từ 0.
+    - Index âm đếm từ cuối.
+    sources:
+    - tier: 1
+      title: Python Tutorial - More on Lists
+      url: https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+    - tier: 2
+      title: Real Python - Python Lists
+      url: https://realpython.com/python-list/
+    - tier: 1
+      title: CS50P Week 3
+      url: https://cs50.harvard.edu/python/2022/weeks/3/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Lấy sản phẩm đầu tiên của giỏ hàng.
+    - Lấy đơn hàng mới nhất bằng index cuối.
+    best_practices:
+    - Tự vẽ index trên giấy nếu còn rối.
+    - Test với list ngắn trước khi code dài.
+    - Cẩn thận lỗi out of range.
+  project_applications:
+  - Product picker by index.
+  - Last-order viewer.
+  first_money_drill:
+    enabled: true
+    task: "Nhận list 20 mã đơn hàng, in 5 đơn mới nhất, 5 đơn cũ nhất, kiểm tra mã đơn X có tồn tại không."
+    input_sample: "DH001\nDH002\n...\nDH020"
+    expected_output: "5 ĐƠN MỚI NHẤT: DH020, DH019, DH018, DH017, DH016\n5 ĐƠN CŨ NHẤT: DH001, DH002, DH003, DH004, DH005\nDH015: CÓ trong hệ thống"
+    deliverable: "order_lookup.py"
+    delivery_package: ["order_lookup.py", "orders.txt", "README.md"]
+    market_note: "Tra cứu đơn hàng nhanh — task hỗ trợ vận hành, giá 300k."
+    gate_status: "Gate A+B unlocked (đọc input + truy cập list)"
+  monetization:
+  - "Truy cập phần tử = lấy đơn hàng mới nhất, sản phẩm cần xử lý. Mốc gần nhất: filter_orders.py — giá 300k-500k VND."
+  duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    solution_hint: ''
+    common_mistakes:
+    - Quên index bắt đầu từ 0.
+    - Truy cập phần tử không tồn tại.
+  - id: 24
+    title: Unpacking & Analyzing
+    objective: Biết unpack list và phân tích list bằng len, count, index, membership.
+    explanation: Phân tích list không chỉ là duyệt từng phần tử. Bài này dạy unpacking để lấy nhanh các phần quan trọng và dùng các method cơ bản để trả lời câu hỏi như có bao nhiêu phần tử, một item nằm ở đâu, hoặc có xuất hiện hay không. Đây là bước từ “có list” sang “đọc được list”.
+    examples:
+    - 'first, second, third = [''a'', ''b'', ''c'']
+
+      print(first, third)'
+    - 'items = [''a'', ''b'', ''a'']
+
+      print(items.count(''a''))'
+    - 'numbers = [10, 20, 30]
+
+      print(20 in numbers)
+
+      print(numbers.index(30))'
+    exercise: 'Cho một list tên học viên, hãy: unpack 2 tên đầu, kiểm tra xem tên `Luc` có trong list không, và đếm xem `An` xuất hiện bao nhiêu lần.'
+    hints:
+    - Unpack cần số biến khớp số phần tử, trừ khi dùng `*rest`.
+    - Dùng `in` để kiểm tra có tồn tại hay không.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Sequence Unpacking
+      url: https://docs.python.org/3/tutorial/datastructures.html
+    - tier: 2
+      title: Real Python - Packing and Unpacking Arguments
+      url: https://realpython.com/python-kwargs-and-args/
+    - tier: 2
+      title: Real Python - Python Lists and Tuples
+      url: https://realpython.com/python-lists-tuples/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Lấy top 3 sản phẩm bán chạy nhất.
+    - Kiểm tra một mã hàng có nằm trong danh sách cấm hay không.
+    best_practices:
+    - Dùng unpack khi cấu trúc dữ liệu ngắn, rõ.
+    - Dùng `in` trước khi `index()` nếu không chắc phần tử tồn tại.
+    - Giữ code phân tích list tách biệt khỏi code render output.
+  project_applications:
+  - Top-3 viewer.
+  - Blacklist membership checker.
+  first_money_drill:
+    enabled: true
+    task: "Phân tích danh sách đơn hàng: unpack top 3, đếm số đơn theo trạng thái, tìm vị trí đơn cần xử lý."
+    input_sample: "DH001:da_giao\nDH002:chua_thanh_toan\nDH003:da_giao\nDH004:chua_thanh_toan\nDH005:dang_xu_ly"
+    expected_output: "TOP 3: DH001 (da_giao), DH002 (chua_thanh_toan), DH003 (da_giao)\nĐã giao: 2 | Chưa TT: 2 | Đang XL: 1\nĐơn cần xử lý đầu tiên: vị trí 2 (DH002)"
+    deliverable: "analyze_orders.py"
+    delivery_package: ["analyze_orders.py", "orders.txt", "README.md"]
+    market_note: "Phân tích nhanh đơn hàng — task hỗ trợ kế toán/vận hành, giá 300k-500k."
+    gate_status: "Gate A+B unlocked (đọc + unpack + phân tích list)"
+  monetization:
+  - "Unpack + phân tích list = đọc nhanh data thật. Đủ ghép thành script phân tích đơn hàng nhỏ."
+  duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    solution_hint: ''
+    common_mistakes:
+    - Unpack sai số lượng phần tử.
+    - Gọi `index()` với item không tồn tại.
+  - id: 25
+    title: Add, Remove & Update
+    objective: Thêm, xóa, sửa phần tử trong list đúng cách và hiểu sự khác nhau giữa append, insert, remove, pop, del.
+    explanation: 'Đây là bài rất thực dụng vì mọi danh sách động đều cần thay đổi theo thời gian. Quan trọng nhất là hiểu đúng method đang làm gì: append thêm cuối, insert chèn theo index, remove xóa theo giá trị, pop lấy và xóa, del xóa theo vị trí. Nếu mơ hồ ở đây, learner sẽ sửa nhầm dữ liệu liên tục.'
+    examples:
+    - 'items = [''a'', ''b'']
+
+      items.append(''c'')
+
+      print(items)'
+    - 'items = [''a'', ''c'']
+
+      items.insert(1, ''b'')
+
+      print(items)'
+    - 'items = [''a'', ''b'', ''c'']
+
+      items.remove(''b'')
+
+      last = items.pop()
+
+      print(items, last)'
+    exercise: Tạo list giỏ hàng, thêm 2 sản phẩm, chèn 1 sản phẩm vào giữa, xóa 1 sản phẩm đã hết hàng, rồi in list cuối cùng.
+    hints:
+    - '`remove` xóa theo value, `pop` xóa theo index hoặc cuối list.'
+    - Nếu không chắc item có tồn tại, kiểm tra trước khi remove.
+    sources:
+    - tier: 1
+      title: Python Tutorial - More on Lists
+      url: https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+    - tier: 2
+      title: Real Python - Removing Items From Lists
+      url: https://realpython.com/remove-item-from-list-python/
+    - tier: 2
+      title: Real Python - Python Lists
+      url: https://realpython.com/python-list/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Cập nhật giỏ hàng của khách.
+    - Sửa danh sách task nội bộ.
+    best_practices:
+    - Phân biệt rõ xóa theo value và xóa theo index.
+    - Không xóa item bừa khi chưa chắc nó tồn tại.
+    - In trạng thái list sau mỗi bước khi đang học.
+    project_applications:
+    - Shopping cart manager.
+    - Task list updater.
+    monetization:
+    - "Thêm/xóa/sửa list = cập nhật giỏ hàng, sửa danh sách task. Rất sát tool nhập liệu đơn giản — giá 300k."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    - 24
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm `remove()` với `pop()`.
+    - Xóa phần tử khi đang lặp mà không hiểu hậu quả.
+  - id: 26
+    title: Sorting & Combining
+    objective: Biết sort, reverse, copy, và combine lists cho nhu cầu xử lý dữ liệu thường gặp.
+    explanation: Khi xử lý danh sách thật, bạn thường cần gộp nhiều nguồn dữ liệu, sắp xếp theo tiêu chí, hoặc copy để tránh sửa dữ liệu gốc. Bài này dạy `sorted()`, `.sort()`, `.reverse()`, copy list, nối list, và tư duy “dữ liệu gốc có cần giữ nguyên không?”.
+    examples:
+    - 'prices = [120, 50, 200]
+
+      print(sorted(prices))'
+    - 'items = [''b'', ''c'', ''a'']
+
+      items.sort()
+
+      print(items)'
+    - 'a = [1, 2]
+
+      b = [3, 4]
+
+      print(a + b)'
+    exercise: Gộp 2 danh sách đơn hàng, sort theo giá tăng dần, và tạo bản copy trước khi reverse danh sách.
+    hints:
+    - '`sorted()` trả list mới; `.sort()` sửa tại chỗ.'
+    - Copy bằng `list.copy()` hoặc `[:]`.
+    sources:
+    - tier: 1
+      title: Python Tutorial - More on Lists
+      url: https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+    - tier: 2
+      title: Real Python - Python Sort
+      url: https://realpython.com/python-sort/
+    - tier: 2
+      title: Real Python - Python Lists
+      url: https://realpython.com/python-list/
+    video:
+    - tier: 2
+      title: Corey Schafer - Sorting Lists, Tuples, and Objects
+      url: https://www.youtube.com/watch?v=D3JvDWO-BY4
+    extra_practice: ''
+    real_world_examples:
+    - Sắp xếp đơn hàng theo giá trị.
+    - Gộp 2 nguồn dữ liệu khách hàng thành một list.
+    best_practices:
+    - Giữ dữ liệu gốc nếu còn cần dùng lại.
+    - Chọn `sorted()` hay `.sort()` có chủ đích.
+    - Test với dữ liệu text và số riêng.
+    project_applications:
+    - Order sorter.
+    - Merged customer list cleaner.
+    monetization:
+    - "Sort + combine = gộp và sắp xếp nhiều nguồn data. Đây là thao tác chính của merge_orders.py — giá 500k-1.5m VND."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    - 24
+    - 25
+    solution_hint: ''
+    common_mistakes:
+    - Tưởng `.sort()` trả về list mới.
+    - Gán `new_list = old_list` rồi tưởng đã copy.
+  - id: 27
+    title: Iterables & Filtering
+    objective: Hiểu iterable là gì và lọc dữ liệu bằng loop, condition, và các pattern cơ bản.
+    explanation: 'Iterable là bất cứ thứ gì bạn có thể duyệt từng phần tử: list, tuple, set, string, dict. Bài này kết nối các bài list + loop để giải bài toán lọc dữ liệu thực: chỉ lấy item hợp lệ, item thỏa điều kiện, item cần xử lý. Đây là nhịp cầu trước list comprehension.'
+    examples:
+    - "numbers = [1, -2, 3, -4]\npositive = []\nfor n in numbers:\n    if n > 0:\n        positive.append(n)\nprint(positive)"
+    - "emails = ['a@gmail.com', 'b@yahoo.com']\nfor email in emails:\n    if email.endswith('gmail.com'):\n        print(email)"
+    exercise: Cho một list số, lọc ra các số chẵn dương. Sau đó với một list email, lọc ra các email gmail.
+    hints:
+    - 'Nghĩ theo pattern: duyệt -> kiểm tra -> thêm vào kết quả.'
+    - Tạo list kết quả riêng thay vì sửa list gốc khi mới học.
+    sources:
+    - tier: 1
+      title: Python Glossary - Iterable
+      url: https://docs.python.org/3/glossary.html#term-iterable
+    - tier: 2
+      title: Real Python - Python filter()
+      url: https://realpython.com/python-filter-function/
+    - tier: 2
+      title: Real Python - Python for Loops
+      url: https://realpython.com/python-for-loop/
+    video:
+    - tier: 2
+      title: Corey Schafer - Loops and Conditionals
+      url: https://www.youtube.com/watch?v=6iF8Xb7Z3wQ
+    extra_practice: ''
+    real_world_examples:
+    - Lọc danh sách khách đủ điều kiện nhận voucher.
+    - Lọc dữ liệu log chỉ giữ các dòng lỗi.
+    best_practices:
+    - Viết pattern lọc bằng loop trước khi dùng list comprehension.
+    - Giữ tên `result` hoặc `filtered_items` rõ nghĩa.
+    - Test với list rỗng và list không item nào match.
+    project_applications:
+    - Positive-even filter.
+    - Gmail-only extractor.
+    monetization:
+    - "Filter data = lọc dòng hợp lệ, bỏ rác. Kỹ năng cốt lõi của clean_csv.py — task phổ biến nhất trên freelance."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    solution_hint: ''
+    common_mistakes:
+    - Sửa list gốc khi đang duyệt.
+    - Quên tạo list kết quả trước khi append.
+  - id: 28
+    title: Lambda & List Comprehension
+    objective: Dùng list comprehension và lambda ở mức practical, không màu mè.
+    explanation: 'List comprehension giúp viết logic tạo list mới gọn hơn khi pattern đơn giản. Lambda hữu ích cho các hàm cực ngắn dùng một chỗ, nhưng lạm dụng lambda sẽ làm code khó đọc. Bài này phải đặt tiêu chuẩn đúng: comprehension cho transform/filter ngắn; lambda chỉ dùng khi thật rõ.'
+    examples:
+    - 'squares = [n * n for n in range(1, 6)]
+
+      print(squares)'
+    - 'even_squares = [n * n for n in range(1, 11) if n % 2 == 0]
+
+      print(even_squares)'
+    - 'add = lambda a, b: a + b
+
+      print(add(2, 3))'
+    exercise: Tạo list bình phương các số chẵn từ 1 đến 20 bằng list comprehension. Sau đó viết lambda cộng 2 số và gọi thử.
+    hints:
+    - Nếu comprehension quá dài, quay lại for loop thường.
+    - Lambda chỉ nên rất ngắn và rõ nghĩa.
+    sources:
+    - tier: 1
+      title: Python Tutorial - List Comprehensions
+      url: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
+    - tier: 2
+      title: Real Python - When to Use a List Comprehension in Python
+      url: https://realpython.com/list-comprehension-python/
+    - tier: 2
+      title: Real Python - Python Lambda
+      url: https://realpython.com/python-lambda/
+    video:
+    - tier: 2
+      title: Corey Schafer - List Comprehensions
+      url: https://www.youtube.com/watch?v=3dt4OGnU5sM
+    extra_practice: ''
+    real_world_examples:
+    - Tạo nhanh danh sách file `.csv` cần xử lý.
+    - Biến đổi dữ liệu thô thành output format mới.
+    best_practices:
+    - Comprehension chỉ dùng cho logic ngắn.
+    - Đừng dùng lambda nếu def đọc dễ hơn.
+    - Ưu tiên readability hơn “ngầu”.
+    project_applications:
+    - Even square generator.
+    - Quick name cleaner with comprehension.
+    monetization:
+    - "List comprehension = viết gọn logic filter/transform. Tay nghề code sạch hơn = giao bài nhanh hơn, ít bug hơn."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    - 27
+    solution_hint: ''
+    common_mistakes:
+    - Viết comprehension quá dài khó đọc.
+    - Dùng lambda cho logic nhiều nhánh.
+    first_money_drill:
+      enabled: true
+      task: "Nhận danh sách sản phẩm với giá, lọc sản phẩm giá > 500k, sort giảm dần, in top 5 bằng list comprehension."
+      input_sample: "Chuot:350000\nBan_phim:850000\nTai_nghe:1200000\nLoa:450000\nWebcam:650000\nManhinh:5500000"
+      expected_output: "TOP SẢN PHẨM (>500k, giá giảm dần):\n1. Manhinh: 5,500,000 VND\n2. Tai_nghe: 1,200,000 VND\n3. Ban_phim: 850,000 VND\n4. Webcam: 650,000 VND"
+      deliverable: "sort_products.py"
+      delivery_package: ["sort_products.py", "products.txt", "README.md"]
+      market_note: "Lọc + sort sản phẩm = task nền cho báo cáo bán hàng, giá 300k-500k."
+      gate_status: "Gate A+B+C unlocked (đọc + filter + sort + xuất report)"
+  - id: 29
+    title: Tuples
+    objective: Hiểu tuple dùng cho dữ liệu cố định và unpack tuple cơ bản.
+    explanation: Tuple rất giống list ở chỗ có thứ tự, nhưng khác ở điểm không thay đổi được. Khi một nhóm dữ liệu mang tính cố định như tọa độ, màu RGB, hoặc cặp key-value tạm, tuple rất hợp. Bài này giúp learner biết khi nào tuple phù hợp hơn list và biết unpack tuple gọn gàng.
+    examples:
+    - 'point = (10, 20)
+
+      print(point[0], point[1])'
+    - 'rgb = (255, 120, 0)
+
+      r, g, b = rgb
+
+      print(r, g, b)'
+    - 'coords = (21.0285, 105.8542)
+
+      print(coords)'
+    exercise: Tạo một tuple tọa độ và một tuple RGB. Unpack từng tuple ra biến riêng rồi in kết quả.
+    hints:
+    - Tuple dùng `()`.
+    - Có thể unpack tuple giống list.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Tuples and Sequences
+      url: https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences
+    - tier: 2
+      title: Real Python - Lists and Tuples in Python
+      url: https://realpython.com/python-lists-tuples/
+    - tier: 1
+      title: CS50P Week 3
+      url: https://cs50.harvard.edu/python/2022/weeks/3/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Lưu tọa độ địa điểm.
+    - Lưu bộ màu RGB hoặc kích thước cố định.
+    best_practices:
+    - Dùng tuple khi dữ liệu nên “khó bị sửa nhầm”.
+    - Unpack tuple để code đọc dễ hơn.
+    - Không cố sửa tuple; nếu cần sửa, chuyển sang list.
+    project_applications:
+    - RGB unpacker.
+    - Coordinate viewer.
+    monetization:
+    - "Tuple giữ data cố định — dùng cho config, tọa độ, constant. Chọn đúng cấu trúc = code ít bug hơn."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    - 24
+    solution_hint: ''
+    common_mistakes:
+    - Tưởng tuple sửa được như list.
+    - Quên tuple 1 phần tử cần dấu phẩy.
+  - id: 30
+    title: Sets
+    objective: Dùng set để bỏ trùng, kiểm tra membership nhanh, và làm toán tập hợp cơ bản.
+    explanation: Set rất mạnh cho data cleaning. Khi bài toán là “lấy unique”, “kiểm tra có tồn tại”, hoặc “so sánh 2 nhóm có giao nhau không”, set gần như là câu trả lời mặc định. Bài này thực dụng hơn list vì nó chạm ngay vào các case deduplicate trong công việc.
+    examples:
+    - 'emails = [''a@gmail.com'', ''a@gmail.com'', ''b@gmail.com'']
+
+      unique_emails = set(emails)
+
+      print(unique_emails)'
+    - 'tags_a = {''python'', ''sql''}
+
+      tags_b = {''python'', ''excel''}
+
+      print(tags_a & tags_b)'
+    - 'skills = {''python'', ''supabase''}
+
+      print(''python'' in skills)'
+    exercise: Cho 2 danh sách email khách hàng, hãy lấy tập email unique của mỗi nhóm và tìm phần giao nhau giữa hai nhóm.
+    hints:
+    - Set không giữ thứ tự.
+    - Toán giao dùng `&`, hợp dùng `|`.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Sets
+      url: https://docs.python.org/3/tutorial/datastructures.html#sets
+    - tier: 2
+      title: Real Python - Python Sets
+      url: https://realpython.com/python-sets/
+    - tier: 1
+      title: CS50P Week 3
+      url: https://cs50.harvard.edu/python/2022/weeks/3/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Xóa email trùng khi tổng hợp lead.
+    - So sánh 2 nhóm khách hàng có trùng nhau không.
+    best_practices:
+    - Dùng set cho unique/membership, không cố giữ order.
+    - Chuyển list sang set có chủ đích.
+    - Đặt tên biến phản ánh đây là tập hợp unique.
+    project_applications:
+    - Unique email cleaner.
+    - Overlap checker between two groups.
+    monetization:
+    - "Set bỏ trùng = kỹ năng đầu tiên của data cleaning. Deduplicate email, mã hàng — task rất hay gặp, giá 300k-500k."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    - 27
+    solution_hint: ''
+    common_mistakes:
+    - Tưởng set giữ thứ tự như list.
+    - Quên rằng set không chứa phần tử mutable như list.
+  - id: 31
+    title: Dictionaries
+    objective: Dùng dict để lưu dữ liệu key-value và truy cập/cập nhật dữ liệu theo khóa.
+    explanation: Dict là cấu trúc cực quan trọng vì JSON, API response, config, hồ sơ user đều gần với dict. Khi learner hiểu dict, rất nhiều thứ trong Python bắt đầu “vào form”. Bài này phải làm rõ key, value, truy cập, thêm, sửa, kiểm tra key, và vì sao dict phù hợp hơn list trong nhiều bài toán hồ sơ.
+    examples:
+    - 'user = {''name'': ''Luc'', ''age'': 25}
+
+      print(user[''name''])'
+    - 'product = {''name'': ''Bàn phím'', ''price'': 450000}
+
+      product[''stock''] = 12
+
+      print(product)'
+    - 'settings = {''theme'': ''dark''}
+
+      print(''theme'' in settings)'
+    exercise: Tạo dict hồ sơ user gồm tên, tuổi, nghề nghiệp. Sau đó thêm trường email, cập nhật tuổi, và in toàn bộ dict.
+    hints:
+    - Key thường là string với beginner.
+    - Dùng `in` để kiểm tra key tồn tại.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Dictionaries
+      url: https://docs.python.org/3/tutorial/datastructures.html#dictionaries
+    - tier: 2
+      title: Real Python - Dictionaries in Python
+      url: https://realpython.com/python-dicts/
+    - tier: 1
+      title: CS50P Week 3
+      url: https://cs50.harvard.edu/python/2022/weeks/3/
+    video:
+    - tier: 2
+      title: Corey Schafer - Dictionaries
+      url: https://www.youtube.com/watch?v=daefaLgNkw0
+    extra_practice: ''
+    real_world_examples:
+    - Lưu hồ sơ khách hàng hoặc config script.
+    - Xử lý JSON trả về từ API.
+    best_practices:
+    - Chọn key nhất quán, dễ đọc.
+    - Kiểm tra key trước khi truy cập nếu chưa chắc.
+    - Tách dict cấu hình khỏi logic xử lý.
+    project_applications:
+    - User profile manager.
+    - Simple config dictionary tool.
+    monetization:
+    - "Dict = JSON, API response, config, hồ sơ user. Hiểu dict = mở cửa automation và API integration — Level 2 đang tới."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    - 24
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm `in dict` là kiểm tra value thay vì key.
+    - Truy cập key không tồn tại rồi crash.
+    first_money_drill:
+      enabled: true
+      task: "Xây dict inventory từ file: key=mã sản phẩm, value=dict{tên, giá, stock}. Tra cứu theo mã, in sản phẩm sắp hết hàng (stock<5)."
+      input_sample: "SP001:Chuot:350000:3\nSP002:Ban_phim:850000:12\nSP003:Tai_nghe:1200000:2\nSP004:Loa:450000:8"
+      expected_output: "TRA CỨU SP001: Chuot - 350,000 VND - Còn 3\n\nSẮP HẾT HÀNG (stock<5):\n- SP001: Chuot (3)\n- SP003: Tai_nghe (2)"
+      deliverable: "inventory_lookup.py"
+      delivery_package: ["inventory_lookup.py", "inventory.txt", "README.md"]
+      market_note: "Tra cứu tồn kho = task phổ biến cho shop, kế toán kho, giá 500k-800k."
+      gate_status: "Gate A+B+C unlocked (đọc input + dict lookup + xuất report)"

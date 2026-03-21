@@ -1,0 +1,184 @@
+- id: 11
+  title: File System & Automation
+  description: "Thao tác file system bằng os/pathlib — rename, organize, automate."
+  lessons:
+  - id: 42
+    title: os & pathlib Basics
+    objective: "Duyệt folder, kiểm tra file tồn tại, lấy thông tin file bằng os và pathlib."
+    explanation: "Khi script cần tự tìm file, tạo folder, hoặc kiểm tra trước khi xử lý, os và pathlib là công cụ. pathlib cho cú pháp hiện đại, os cho backward compatibility. Bài này dạy đủ để learner viết script scan folder tự động."
+    examples:
+    - "from pathlib import Path\nfolder = Path('.')\nfor f in folder.iterdir():\n    if f.is_file():\n        print(f.name, f.suffix, f.stat().st_size)"
+    - "from pathlib import Path\ncsv_files = list(Path('.').glob('*.csv'))\nprint(f'Tim thay {len(csv_files)} file CSV')\nfor f in csv_files:\n    print(f' - {f.name}')"
+    - "import os\nif not os.path.exists('output'):\n    os.makedirs('output')\n    print('Da tao folder output')"
+    exercise: "Viết script liệt kê tất cả file .csv và .txt trong folder hiện tại, in tên + kích thước (KB), tạo folder output/ nếu chưa có."
+    hints:
+    - pathlib.Path.glob() tìm file theo pattern.
+    - stat().st_size cho size bytes.
+    - mkdir(exist_ok=True) an toàn hơn.
+    sources:
+    - tier: 1
+      title: Python pathlib module
+      url: https://docs.python.org/3/library/pathlib.html
+    - tier: 1
+      title: Python os.path module
+      url: https://docs.python.org/3/library/os.path.html
+    - tier: 2
+      title: Real Python - Python pathlib
+      url: https://realpython.com/python-pathlib/
+    video:
+    - tier: 2
+      title: Corey Schafer - Automate Rename
+      url: https://www.youtube.com/watch?v=ve2pmm5JqmI
+    real_world_examples:
+    - Scan folder tìm file cần xử lý.
+    - Tạo folder output tự động cho script.
+    best_practices:
+    - Ưu tiên pathlib cho code mới.
+    - Dùng glob thay vì tự filter.
+    - Luôn kiểm tra folder tồn tại trước khi ghi.
+    project_applications:
+    - Folder scanner.
+    - File size reporter.
+    monetization:
+    - "Scan folder = bước mở đầu của mọi script automation. Ghép với CSV/rename = job hoàn chỉnh."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 36
+    - 37
+  - id: 43
+    title: Renaming & Organizing Files
+    objective: "Rename file hàng loạt, tạo folder theo pattern, di chuyển file tự động."
+    explanation: "Rename files = HIGH DEMAND TASK. Shop online cần rename 500 ảnh sản phẩm, văn phòng cần rename hợp đồng theo pattern. Bài này dạy os.rename, pathlib.rename, và pattern an toàn: dry-run trước, rename sau."
+    examples:
+    - "from pathlib import Path\nfolder = Path('photos')\nfor i, f in enumerate(sorted(folder.glob('*.jpg')), 1):\n    new_name = f'product_{i:03d}.jpg'\n    print(f'RENAME: {f.name} -> {new_name}')\n    # f.rename(folder / new_name)  # uncomment khi chac chan"
+    - "from pathlib import Path\nimport shutil\nfor f in Path('.').glob('*.csv'):\n    dest = Path('csv_files')\n    dest.mkdir(exist_ok=True)\n    shutil.move(str(f), str(dest / f.name))\n    print(f'Moved: {f.name}')"
+    exercise: "Rename 20 file ảnh (IMG_001.jpg đến IMG_020.jpg) thành product_001.jpg đến product_020.jpg. Trước khi rename thật, in dry-run để kiểm tra."
+    hints:
+    - Luôn dry-run trước khi rename thật.
+    - enumerate() + format string cho số thứ tự.
+    - Backup folder trước khi chạy.
+    sources:
+    - tier: 1
+      title: Python pathlib module
+      url: https://docs.python.org/3/library/pathlib.html
+    - tier: 1
+      title: Python shutil module
+      url: https://docs.python.org/3/library/shutil.html
+    - tier: 2
+      title: Real Python - Working with Files
+      url: https://realpython.com/working-with-files-in-python/
+    video:
+    - tier: 2
+      title: Corey Schafer - Automate Rename
+      url: https://www.youtube.com/watch?v=ve2pmm5JqmI
+    real_world_examples:
+    - Rename 500 ảnh sản phẩm cho shop Shopee.
+    - Tổ chức file hợp đồng theo năm/tháng.
+    best_practices:
+    - LUÔN dry-run trước.
+    - Backup trước khi rename hàng loạt.
+    - Test trên 3 file trước khi chạy cả folder.
+    project_applications:
+    - Product photo renamer.
+    - File organizer by type.
+    monetization:
+    - "Rename files = task giá 300k-500k, demand rất cao. Shop online, văn phòng, photographer đều cần. POST JOB NÀY LÊN FACEBOOK."
+    duration_minutes: 25
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 36
+    - 37
+    - 42
+    first_money_drill:
+      enabled: true
+      task: "Rename 20 file ảnh từ IMG_XXXX.jpg thành product_001.jpg đến product_020.jpg. Dry-run trước, rename thật sau khi confirm."
+      input_sample: "IMG_4521.jpg\nIMG_4522.jpg\n...\nIMG_4540.jpg"
+      expected_output: "DRY-RUN:\nIMG_4521.jpg -> product_001.jpg\nIMG_4522.jpg -> product_002.jpg\n...\n\nRENAME COMPLETE: 20 files renamed."
+      deliverable: "rename_photos.py"
+      delivery_package:
+      - script: "rename_photos.py"
+      - backup_folder: "photos_backup/"
+      - readme: "README.md"
+      - test_command: "python rename_photos.py photos/ --dry-run"
+      market_note: "Đây là DRILL để tập kỹ năng. Rename files có thể bán 300k-500k VND (coach observation). Nhưng cần backup folder + dry-run default + test command."
+      gate_status: "LEVEL 1 REHEARSAL — chưa phải post job, cần hoàn thành bài 43 + deliverable package"
+  - id: 44
+    title: Building Automation Scripts
+    objective: "Ghép file I/O + CSV + os thành script automation hoàn chỉnh có argument, logging, error handling."
+    explanation: "Đây là bài tổng hợp. Một script automation thật cần nhận argument, scan folder, xử lý file, ghi output, và log kết quả. Bài này giúp learner ghép mọi thứ đã học thành 1 script chuyên nghiệp giao khách được."
+    examples:
+    - "import sys\nimport csv\nfrom pathlib import Path\n\ndef process_csv(input_path, output_path):\n    cleaned = 0\n    errors = 0\n    with open(input_path, 'r', encoding='utf-8') as fin:\n        reader = csv.DictReader(fin)\n        rows = []\n        for row in reader:\n            name = row['name'].strip().title()\n            if name:\n                rows.append({'name': name, 'email': row['email'].strip().lower()})\n                cleaned += 1\n            else:\n                errors += 1\n    with open(output_path, 'w', newline='', encoding='utf-8') as fout:\n        writer = csv.DictWriter(fout, fieldnames=['name', 'email'])\n        writer.writeheader()\n        writer.writerows(rows)\n    return cleaned, errors\n\nif __name__ == '__main__':\n    inp = sys.argv[1] if len(sys.argv) > 1 else 'input.csv'\n    out = sys.argv[2] if len(sys.argv) > 2 else 'output.csv'\n    c, e = process_csv(inp, out)\n    print(f'Done: {c} cleaned, {e} errors')"
+    exercise: "Viết script tự động: scan folder → tìm tất cả file .csv → clean mỗi file (strip, deduplicate) → ghi cleaned file vào folder output/ → in summary log."
+    hints:
+    - Ghép pathlib.glob + csv module + error handling.
+    - sys.argv cho argument từ terminal.
+    - In log rõ ràng cho từng file.
+    sources:
+    - tier: 1
+      title: Python sys module
+      url: https://docs.python.org/3/library/sys.html
+    - tier: 2
+      title: Real Python - Command Line Interfaces
+      url: https://realpython.com/command-line-interfaces-python-argparse/
+    video:
+    - tier: 2
+      title: Corey Schafer - Automate Rename
+      url: https://www.youtube.com/watch?v=ve2pmm5JqmI
+    real_world_examples:
+    - Script auto clean mọi CSV trong folder nhận từ khách.
+    - Script scan + organize + report folder hàng tháng.
+    best_practices:
+    - Tách logic xử lý thành function.
+    - Ghi log cho từng step.
+    - Luôn có dry-run mode.
+    project_applications:
+    - CSV batch cleaner.
+    - Folder automation script.
+    monetization:
+    - "Script automation hoàn chỉnh giá 500k-1.5m VND. Bạn đã ở Level 1 vững chắc, sẵn sàng nhận job."
+    duration_minutes: 30
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 32
+    - 33
+    - 35
+    - 36
+    - 37
+    - 38
+    - 39
+    - 40
+    - 42
+    first_money_drill:
+      enabled: true
+      task: "Viết auto_clean_folder.py: scan folder input/ → tìm mọi .csv → clean (strip, deduplicate, validate) → ghi vào output/ → in summary."
+      input_sample: "input/orders_jan.csv (20 dòng, 3 trùng)\ninput/orders_feb.csv (15 dòng, 1 lỗi encoding)\ninput/orders_mar.csv (25 dòng, 5 trùng)"
+      expected_output: "PROCESSING:\n- orders_jan.csv: 20 -> 17 rows (3 duplicates)\n- orders_feb.csv: 15 -> 14 rows (1 encoding fix)\n- orders_mar.csv: 25 -> 20 rows (5 duplicates)\n\nTOTAL: 60 -> 51 rows cleaned\nOutput: output/ folder"
+      deliverable: "auto_clean_folder.py"
+      delivery_package:
+      - script: "auto_clean_folder.py"
+      - sample_input: "input/"
+      - sample_output: "output/"
+      - readme: "README.md"
+      - test_command: "python auto_clean_folder.py input/ output/ --dry-run"
+      market_note: "Đây là DRILL để tập kỹ năng. Script automation batch processing có thể bán 1m-2m VND (coach observation). Nhưng cần dry-run mode + test command + log rõ ràng."
+      gate_status: "LEVEL 1-2 REHEARSAL — chưa phải post job, cần hoàn thành bài 44 + deliverable package"

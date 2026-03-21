@@ -1,0 +1,3122 @@
+curriculum_version: 4
+curriculum_name: Python Core Track 2026
+curriculum_source: Luc canonical lesson list + curated 2026-quality sources + 30 Days of Python alignment
+delivery_mode: chapter_based_full_content
+total_lessons: 50  # 47 lessons + 3 practice projects (P1-P3)
+chapters:
+- id: 1
+  title: Python Fundamentals
+  description: Nền tảng để hiểu Python là gì, chạy code, nhập dữ liệu, và nắm các kiểu dữ liệu cơ bản.
+  project_milestone:
+    project: P1 — User Registration System
+    step: "Step 1: Registration Form"
+    task: |
+      Viết script registration_form.py:
+      1. Dùng input() nhận name, email, password từ user
+      2. In lại thông tin đã nhập dạng gọn: "Tên: ..., Email: ..., Password: ..."
+      3. In thông báo "Đăng ký thành công!" (chưa cần validate)
+    concepts_used: [variables, input(), print(), data types]
+    note: "Đây là bộ khung sẽ thêm validation ở các chapter sau."
+  lessons:
+  - id: 1
+    title: What Is Python & How It Works
+    objective: Hiểu Python là gì, interpreter chạy code ra sao, và vì sao Python mạnh ở automation, web, data, AI.
+    explanation: 'Python là ngôn ngữ thông dịch, bạn viết code trong file .py rồi chạy `python file.py`. Interpreter đọc từng dòng, parse cú pháp, thực thi. Vòng lặp học hiệu quả: viết -> chạy -> đọc output -> sửa lỗi. Python có cú pháp đọc gần tiếng Anh, hệ sinh thái mạnh cho automation, web, data, AI.'
+    examples:
+    - print('Hello, Python')
+    - 'message = ''Tôi đang học Python''
+
+      print(message)'
+    - 'x = 10
+
+      y = 5
+
+      print(x + y)'
+    exercise: 'Viết file intro.py in ra 2 dòng: dòng 1 giới thiệu bạn, dòng 2 nói bạn muốn dùng Python để làm gì.'
+    hints:
+    - Chỉ cần dùng print(), chưa cần input().
+    - 'Chạy: `python intro.py` hoặc `python3 intro.py`.'
+    sources:
+    - tier: 1
+      title: Python Tutorial - Whetting Your Appetite
+      url: https://docs.python.org/3/tutorial/appetite.html
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    - tier: 2
+      title: Real Python - What Is Python?
+      url: https://realpython.com/what-can-i-do-with-python/
+    video:
+    - tier: 1
+      title: CS50P 2022 Lecture 0
+      url: https://www.youtube.com/watch?v=U5KRaW30r9M
+    real_world_examples:
+    - Script đổi tên file hàng loạt cho shop online.
+    - Tool nhỏ xử lý dữ liệu báo cáo từ CSV.
+    best_practices:
+    - Tập thói quen chạy code thật, không chỉ đọc.
+    - Mỗi lần học khái niệm, tự gõ lại ví dụ.
+    - Đọc lỗi terminal thay vì panic.
+    project_applications:
+    - Mini hello app in terminal.
+    - Script tính tổng 2 số và in kết quả.
+    monetization:
+    - "Bước 1/6 mở khóa nền tảng. Bạn vừa hiểu Python chạy thế nào — còn 5 bài nữa để viết script đầu tiên bán được."
+    duration_minutes: 20
+    prerequisites: []
+    solution_hint: ''
+    common_mistakes:
+    - Tưởng Python là IDE, không phải ngôn ngữ.
+    - Không phân biệt file .py với terminal command.
+  - id: 2
+    title: Installing Python
+    objective: Cài Python đúng cách, kiểm tra phiên bản, chạy file .py trong terminal hoặc VS Code.
+    explanation: Bạn cần biết Python đã cài chưa, phiên bản bao nhiêu, command nào hoạt động (`python` hay `python3`), và cách chạy file .py. Nếu mơ hồ, sau này bạn sẽ tưởng sai cú pháp nhưng thực tế chỉ chạy sai interpreter hoặc thư mục.
+    examples:
+    - python --version
+    - python3 --version
+    - python hello.py
+    exercise: Cài Python, mở terminal, chạy lệnh kiểm tra version, tạo file hello.py và chạy file đó thành công.
+    hints:
+    - Nếu `python` không chạy, thử `python3`.
+    - Đứng đúng thư mục chứa file rồi mới chạy.
+    sources:
+    - tier: 1
+      title: Python Downloads
+      url: https://www.python.org/downloads/
+    - tier: 1
+      title: Python Docs - Using Python
+      url: https://docs.python.org/3/using/index.html
+    - tier: 2
+      title: VS Code Python Setup
+      url: https://code.visualstudio.com/docs/python/python-tutorial
+    video:
+    - tier: 2
+      title: freeCodeCamp - Python Setup + First Program
+      url: https://www.youtube.com/watch?v=rfscVS0vtbw
+    real_world_examples:
+    - Cài môi trường đúng giúp tự chạy script automation.
+    - Biết terminal là điều kiện nhận job sửa script cho người khác.
+    best_practices:
+    - Luôn kiểm tra version trước khi debug lỗi lạ.
+    - Dùng một interpreter rõ ràng cho mỗi project.
+    - Biết thư mục hiện tại của terminal trước khi chạy file.
+    project_applications:
+    - Tạo thư mục học-python và chạy 3 file .py trong đó.
+    - Thiết lập VS Code để chạy Python bằng một nút bấm.
+    monetization:
+    - "Bước 2/6 mở khóa nền tảng. Máy đã chạy Python = bạn đã vượt qua rào cản đầu tiên mà 50% người mới bỏ cuộc."
+    duration_minutes: 15
+    prerequisites: []
+    solution_hint: ''
+    common_mistakes:
+    - Chạy file khi terminal đang ở sai thư mục.
+    - Cài Python xong nhưng không biết command nào đúng trên máy.
+  - id: 3
+    title: Comments & print()
+    objective: Biết dùng comment để ghi chú và dùng print() để xuất dữ liệu ra màn hình.
+    explanation: '`print()` là công cụ output và debug. Comment giúp ghi chú ý tưởng hoặc giải thích logic. Với beginner, print in giá trị giữa chừng giúp biết code đang chạy tới đâu, biến đang chứa gì.'
+    examples:
+    - print('Xin chào')
+    - 'name = ''Luc''
+
+      print(''Tên:'', name)'
+    - '# đây là comment
+
+      price = 150000
+
+      print(price)'
+    exercise: 'Viết chương trình có ít nhất 2 comment và 3 lệnh print: in tên, mục tiêu học Python, và một phép tính đơn giản.'
+    hints:
+    - 'Comment bắt đầu bằng dấu #.'
+    - print có thể in cả text lẫn biến.
+    sources:
+    - tier: 1
+      title: Python Docs - Input and Output
+      url: https://docs.python.org/3/tutorial/inputoutput.html
+    - tier: 1
+      title: Python Built-in print()
+      url: https://docs.python.org/3/library/functions.html#print
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    video:
+    - tier: 1
+      title: CS50P 2022 Lecture 0
+      url: https://www.youtube.com/watch?v=U5KRaW30r9M
+    real_world_examples:
+    - In log đơn giản khi xử lý đơn hàng.
+    - Debug script đổi tên file bằng cách in đường dẫn.
+    best_practices:
+    - Dùng print để debug sớm.
+    - Comment giải thích lý do, không viết điều hiển nhiên.
+    - Format output dễ đọc, có nhãn rõ.
+    project_applications:
+    - Mini profile printer in terminal.
+    - Script in bảng giá 3 sản phẩm.
+    monetization:
+    - "Bước 3/6 mở khóa nền tảng. print() + comment = debug tool. Mọi script kiếm tiền đều cần 2 thứ này."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    solution_hint: ''
+    common_mistakes:
+    - Quên dấu nháy cho text.
+    - Comment quá nhiều thứ vô nghĩa.
+  - id: 4
+    title: Variables
+    objective: Tạo biến, gán lại giá trị, đặt tên biến đúng chuẩn, và hiểu biến chỉ là nhãn trỏ tới dữ liệu.
+    explanation: Biến lưu dữ liệu để dùng lại. Tên biến tốt giúp code đọc như tiếng Anh; tên mơ hồ khiến code rối. Beginner hay đặt tên mơ hồ hoặc đè built-in (`list`, `sum`, `str`). Biến không phải hộp thần bí, là nhãn trỏ dữ liệu.
+    examples:
+    - 'username = ''luc''
+
+      age = 25
+
+      print(username, age)'
+    - 'price = 120000
+
+      price = price - 20000
+
+      print(price)'
+    - 'total_orders = 15
+
+      print(total_orders)'
+    exercise: Tạo biến lưu tên, tuổi, nghề nghiệp, mục tiêu học Python và in ra thành 1 đoạn giới thiệu gọn.
+    hints:
+    - 'Tên biến nên đọc được: `user_name`, `birth_year`.'
+    - Đừng dùng `sum`, `list`, `str` làm tên biến.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Using Python as a Calculator
+      url: https://docs.python.org/3/tutorial/introduction.html#using-python-as-a-calculator
+    - tier: 2
+      title: Real Python - Variables in Python
+      url: https://realpython.com/python-variables/
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    video:
+    - tier: 2
+      title: Corey Schafer - Python Variables
+      url: https://www.youtube.com/watch?v=Z1Yd7upQsXY
+    real_world_examples:
+    - Lưu thông tin khách hàng tạm thời trong script xử lý form.
+    - Lưu giá, số lượng, discount để tính tiền đơn hàng.
+    best_practices:
+    - Tên biến phải mô tả ý nghĩa, không phải kiểu dữ liệu.
+    - Giảm hardcode bằng biến có tên rõ.
+    - Không lạm dụng tên quá ngắn trừ loop rất ngắn.
+    project_applications:
+    - Mini order summary calculator.
+    - Script lưu và in profile người dùng.
+    monetization:
+    - "Bước 4/6 mở khóa nền tảng. Variables = lưu data. Từ đây mỗi bài đều build lên script hoàn chỉnh dần."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    solution_hint: ''
+    common_mistakes:
+    - Đặt tên biến có dấu gạch ngang.
+    - Dùng tên built-in làm tên biến.
+  - id: 5
+    title: User input()
+    objective: Lấy dữ liệu từ người dùng bằng input() và chuyển kiểu đúng để dùng tiếp.
+    explanation: '`input()` là lúc chương trình bắt đầu tương tác thật. Quan trọng: `input()` luôn trả về chuỗi. Nếu muốn cộng số, tính tuổi, tính tiền, phải ép kiểu sang `int` hoặc `float`. Bài này là cầu nối từ code tĩnh sang script có input -> xử lý -> output.'
+    examples:
+    - 'name = input(''Tên của bạn: '')
+
+      print(''Xin chào'', name)'
+    - 'age = int(input(''Tuổi: ''))
+
+      print(age + 1)'
+    - 'price = float(input(''Giá: ''))
+
+      print(price * 0.9)'
+    exercise: Viết chương trình hỏi tên và năm sinh, sau đó in ra lời chào và tuổi dự kiến của người dùng.
+    hints:
+    - Nhớ ép `year` sang int nếu muốn tính toán.
+    - Bạn có thể dùng f-string để in đẹp hơn.
+    sources:
+    - tier: 1
+      title: Python Built-in input()
+      url: https://docs.python.org/3/library/functions.html#input
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    - tier: 2
+      title: Real Python - User Input in Python
+      url: https://realpython.com/python-input-output/
+    video:
+    - tier: 1
+      title: CS50P 2022 Lecture 0
+      url: https://www.youtube.com/watch?v=U5KRaW30r9M
+    real_world_examples:
+    - Tạo terminal form nhập tên khách và số điện thoại.
+    - Viết script hỏi số lượng sản phẩm rồi tính tổng tiền.
+    best_practices:
+    - Luôn nhớ input trả về str.
+    - Validate input số khi chuẩn bị học error handling.
+    - Prompt của input phải rõ để user không nhập sai.
+    project_applications:
+    - Age calculator.
+    - Discount calculator with user input.
+    monetization:
+    - "Bước 5/6 mở khóa nền tảng. input() = nhận data từ user. Script tương tác là nền của tool nội bộ."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    solution_hint: ''
+    common_mistakes:
+    - Quên ép kiểu trước khi tính toán.
+    - Prompt nhập quá mơ hồ khiến người dùng nhập sai.
+  - id: 6
+    title: Python Data Types
+    objective: Phân biệt các kiểu dữ liệu cơ bản trong Python và biết khi nào nên dùng từng kiểu.
+    explanation: Data type quyết định dữ liệu có thể làm gì. Số nguyên khác số thực, chuỗi khác boolean, list khác dict. Nếu không nắm type, sẽ viết code đoán mò và dính TypeError liên tục. Bài này giúp learner nhìn dữ liệu và đoán đúng kiểu, hiểu tại sao type quan trọng, và biết dùng `type()` chỉ để học/debug.
+    examples:
+    - 'name = ''Luc''
+
+      print(type(name))'
+    - 'score = 8.5
+
+      print(type(score))'
+    - 'is_active = True
+
+      print(type(is_active))'
+    exercise: 'Tạo 8 biến đại diện cho: tên, tuổi, chiều cao, trạng thái đang học, danh sách môn học, tuple tọa độ, set tag, dict hồ sơ. In type của từng biến.'
+    hints:
+    - str là text, int là số nguyên, float là số thập phân, bool là True/False.
+    - list, tuple, set, dict là collection types.
+    sources:
+    - tier: 1
+      title: Python Standard Types
+      url: https://docs.python.org/3/library/stdtypes.html
+    - tier: 2
+      title: Real Python - Python Data Types
+      url: https://realpython.com/python-data-types/
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    video:
+    - tier: 2
+      title: Corey Schafer - Python Data Types
+      url: https://www.youtube.com/watch?v=khKv-8q7YmY
+    real_world_examples:
+    - Biết type giúp parse dữ liệu API đúng cách.
+    - Phân biệt list/dict giúp xử lý JSON dễ hơn rất nhiều.
+    best_practices:
+    - Nhìn dữ liệu rồi đoán type trước khi code.
+    - Dùng `type()` để học và debug, không phải giải pháp kiến trúc.
+    - Tránh trộn string với number nếu chưa ép kiểu rõ ràng.
+    project_applications:
+    - Profile inspector script.
+    - Simple typed data summary.
+    monetization:
+    - "Bước 6/6 — XONG NỀN TẢNG! Bạn đã hiểu types, variables, input/output. Từ bài tiếp theo bắt đầu ghép thành script gần job thật."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm `"10"` với `10`.
+    - Không phân biệt bool với string `"True"`.
+- id: 2
+  title: Python Strings
+  description: 'Làm chủ chuỗi: tạo chuỗi, truy cập ký tự, cắt chuỗi, tìm kiếm, validate, đổi chữ hoa/thường.'
+  project_milestone:
+    project: P1 — User Registration System
+    step: "Step 2: Name & Email Validation"
+    task: |
+      Mở rộng registration_form.py từ Chapter 1:
+      1. Kiểm tra name có >= 3 ký tự không (dùng len())
+      2. Kiểm tra email chứa "@" và "." (dùng "in" operator)
+      3. In "Name hợp lệ" / "Name quá ngắn" tương ứng
+      4. In "Email hợp lệ" / "Email sai format" tương ứng
+      5. Thử .strip() và .title() để chuẩn hóa name trước khi in
+    concepts_used:
+    - len()
+    - 'in" operator'
+    - string methods — strip(), title(), lower()
+    example: |
+      name = input("Tên: ")
+      if len(name) >= 3:
+          print("Name hợp lệ:", name.strip().title())
+      else:
+          print("Name quá ngắn, cần ít nhất 3 ký tự")
+    note: "Chapter 5 sẽ dạy if/else chính thức. Ở đây learner được 'nếm thử' để thấy ứng dụng thật."
+  lessons:
+  - id: 7
+    title: String Basics & Transformations
+    objective: Làm chủ tạo chuỗi, nối chuỗi, format chuỗi, và những biến đổi cơ bản với text.
+    explanation: 'String là kiểu dữ liệu bạn dùng liên tục: tên người dùng, email, file path, prompt, message, report. Bài này tập trung vào các thao tác cốt lõi nhất: tạo chuỗi, nối chuỗi, f-string, lower/upper/strip/replace. Nếu làm tốt bài này, learner bắt đầu viết được output đẹp, sạch, và đỡ xử lý text một cách vụng về.'
+    examples:
+    - 'first = ''Luc''
+
+      last = ''Nguyen''
+
+      print(first + '' '' + last)'
+    - 'name = ''luc''
+
+      print(name.upper())
+
+      print(name.title())'
+    - 'product = ''Bàn phím''
+
+      price = 450000
+
+      print(f''{product}: {price} VND'')'
+    exercise: Tạo một chuỗi giới thiệu sản phẩm gồm tên, giá, trạng thái còn hàng bằng f-string; đồng thời chuẩn hóa tên sản phẩm sang title case.
+    hints:
+    - Ưu tiên f-string thay vì nối chuỗi dài bằng +.
+    - Dùng `.strip()` nếu có khoảng trắng thừa.
+    sources:
+    - tier: 1
+      title: Python String Methods
+      url: https://docs.python.org/3/library/stdtypes.html#string-methods
+    - tier: 2
+      title: Real Python - Python Strings
+      url: https://realpython.com/python-strings/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - String Methods
+      url: https://www.youtube.com/watch?v=k9TUPpGqYTo
+    extra_practice: ''
+    real_world_examples:
+    - Chuẩn hóa tên khách hàng trước khi lưu file CSV.
+    - Tạo dòng tiêu đề cho báo cáo tự động gửi mỗi ngày.
+    best_practices:
+    - Dùng f-string cho output mới.
+    - Normalize input text trước khi so sánh.
+    - Tránh tạo chuỗi khó đọc bằng quá nhiều dấu +.
+    project_applications:
+    - Product label formatter.
+    - Simple profile summary generator.
+    monetization:
+    - "Kỹ năng format text dùng trực tiếp trong clean_names.py — task phổ biến nhất trên freelance. Tiến độ: 2/6 bước đến first-money script."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    solution_hint: ''
+    common_mistakes:
+    - Nối string với number mà không ép kiểu hoặc f-string.
+    - Không strip khoảng trắng đầu/cuối trước khi xử lý.
+  - id: 8
+    title: Indexing & Slicing
+    objective: Truy cập ký tự bằng index, cắt chuỗi bằng slice, và đảo chuỗi khi cần.
+    explanation: Indexing và slicing giúp bạn đọc đúng phần dữ liệu mình cần thay vì xử lý cả chuỗi. Đây là kỹ năng rất thực dụng khi làm username, mã đơn hàng, file extension, hay text parsing đơn giản. Bài này không chỉ là cú pháp `[start:end]` mà còn là tư duy “tôi muốn lấy đúng phần nào của chuỗi”.
+    examples:
+    - 'text = ''Python''
+
+      print(text[0])
+
+      print(text[-1])'
+    - 'sku = ''SKU-2026-001''
+
+      print(sku[:3])
+
+      print(sku[-3:])'
+    - 'word = "level"
+    # Đảo ngược chuỗi bằng hàm reversed() (cách viết rõ ràng)
+    print("".join(reversed(word)))'
+    exercise: Cho một username, in ra ký tự đầu, 3 ký tự cuối, và chuỗi đảo ngược của username.
+    hints:
+    - Index âm đếm từ cuối chuỗi.
+    - Slice end là loại trừ.
+    sources:
+    - tier: 1
+      title: Python Text Sequence Type str
+      url: https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str
+    - tier: 2
+      title: Real Python - Python String Slicing
+      url: https://realpython.com/lessons/string-slicing/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - String Slicing
+      url: https://www.youtube.com/watch?v=k9TUPpGqYTo
+    extra_practice: ''
+    real_world_examples:
+    - Lấy 4 ký tự cuối để kiểm tra đuôi file `.csv`.
+    - Tách mã sản phẩm từ một chuỗi có format cố định.
+    best_practices:
+    - Viết ví dụ nhỏ để tự kiểm tra slice.
+    - Đọc kỹ quy tắc start inclusive, end exclusive.
+    - Dùng tên biến rõ phần bạn đang cắt.
+    project_applications:
+    - Username analyzer.
+    - Simple file extension checker.
+    monetization:
+    - "Slicing dùng để tách mã đơn hàng, mã sản phẩm từ chuỗi. Tiến độ: Gate A đang mở (đọc và xử lý text input)."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    solution_hint: ''
+    common_mistakes:
+    - Quên rằng end bị loại trừ.
+    - Nhầm index âm với index dương.
+  - id: 9
+    title: Search, Validation & Case Conversion
+    objective: Tìm kiếm trong chuỗi, validate dữ liệu text cơ bản, và chuyển đổi hoa/thường đúng chỗ.
+    explanation: Xử lý text thực tế không chỉ là in đẹp mà còn là kiểm tra dữ liệu có hợp lệ không. Bài này tập trung vào `in`, `.find()`, `.startswith()`, `.endswith()`, `.isalpha()`, `.isdigit()`, lower/upper/title. Đây là lớp kỹ năng rất gần thực tế vì form nhập liệu, search keyword, email, username đều cần validation cơ bản.
+    examples:
+    - 'email = ''luc@example.com''
+
+      print(''@'' in email)'
+    - 'name = ''  lUc nGuYeN  ''
+
+      print(name.strip().title())'
+    - 'code = ''A123''
+
+      print(code.startswith(''A''))'
+    exercise: Viết chương trình nhận một email, kiểm tra có chứa `@` và dấu `.` hay không, rồi chuẩn hóa tên người dùng về lower case.
+    hints:
+    - Validation ở đây là cơ bản, chưa phải regex.
+    - Dùng `.strip()` trước khi xử lý text người dùng nhập.
+    sources:
+    - tier: 1
+      title: Python String Methods
+      url: https://docs.python.org/3/library/stdtypes.html#string-methods
+    - tier: 2
+      title: Real Python - How to Confirm a String Contains Another String
+      url: https://realpython.com/python-string-contains-substring/
+    - tier: 2
+      title: Real Python - Python String Formatting and Manipulation
+      url: https://realpython.com/python-strings/
+    video:
+    - tier: 2
+      title: Corey Schafer - String Methods
+      url: https://www.youtube.com/watch?v=k9TUPpGqYTo
+    extra_practice: ''
+    real_world_examples:
+    - Validate email đơn giản trước khi lưu lead khách hàng.
+    - Chuẩn hóa tên sản phẩm từ nhiều nguồn nhập tay.
+    best_practices:
+    - Luôn normalize dữ liệu text trước khi compare.
+    - Bắt đầu bằng validation cơ bản trước khi dùng regex.
+    - Tách rõ bước kiểm tra và bước biến đổi.
+    project_applications:
+    - Email sanity checker.
+    - Keyword search tool cho tiêu đề sản phẩm.
+    monetization:
+    - "Validation text = bước đầu tiên của mọi data cleaning job. Tiến độ: Gate A+B đã mở (đọc input + xử lý có điều kiện)."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    solution_hint: ''
+    common_mistakes:
+    - Dùng `.find()` nhưng quên -1 nghĩa là không thấy.
+    - Không strip dữ liệu trước khi validate.
+    first_money_drill:
+      enabled: true
+      task: "Nhận file text chứa danh sách tên khách hàng bẩn (thừa space, viết hoa lung tung), chuẩn hóa tất cả về Title Case, bỏ khoảng trắng thừa."
+      input_sample: "  nguyen van a \nTRAN THI B\n  le van c  \n PHAM   THI   D "
+      expected_output: "Nguyen Van A\nTran Thi B\nLe Van C\nPham Thi D"
+      deliverable: "clean_names.py"
+      delivery_package: ["clean_names.py", "sample_input.txt", "README.md"]
+      market_note: "Task này giá 300k-500k trên Facebook groups. Khách hàng: shop nhỏ cần chuẩn hóa danh sách khách/sản phẩm."
+      gate_status: "Gate A+B unlocked (đọc input text + xử lý chuỗi có điều kiện)"
+- id: 3
+  title: Python Numbers
+  description: Hiểu số trong Python, phép toán, làm tròn, và module math cho tác vụ thường gặp.
+  project_milestone:
+    project: P2 — Expense Tracking System
+    step: "Step 1: Expense Calculator"
+    task: |
+      Viết script expense_calc.py:
+      1. Tạo 4-5 biến expense: food = 50000, transport = 20000, coffee = 15000, ...
+      2. Tính tổng tất cả expenses
+      3. Tính trung bình (tổng / số expense)
+      4. Làm tròn trung bình bằng round()
+      5. In: "Tổng chi: X VND", "Trung bình: Y VND"
+    concepts_used: [int, float, math operators (+, /, //), round()]
+    example: |
+      food = 50000
+      transport = 20000
+      coffee = 15000
+      total = food + transport + coffee
+      average = round(total / 3)
+      print(f"Tổng chi: {total} VND")
+      print(f"Trung bình: {average} VND")
+    note: "Chapter 6 sẽ dạy loop để tự động tính tổng list. Bây giờ tính bằng tay trước."
+  lessons:
+  - id: 10
+    title: Numeric Data Types & Math Operators
+    objective: Hiểu int, float, các toán tử số học, và dùng chúng để tính toán đúng.
+    explanation: Numbers là phần lõi của hầu hết script tính tiền, tính điểm, phần trăm, tồn kho. Bài này dạy int/float, cộng trừ nhân chia, chia lấy dư, lũy thừa, và tư duy đọc biểu thức. Không cần thần thánh hóa toán học; điều cần là learner viết được phép tính đúng và hiểu dữ liệu đầu ra là gì.
+    examples:
+    - 'a = 7
+
+      b = 3
+
+      print(a + b, a - b, a * b)'
+    - 'print(7 / 3)
+
+      print(7 // 3)
+
+      print(7 % 3)'
+    - 'price = 120000
+
+      discount = 0.1
+
+      print(price * (1 - discount))'
+    exercise: Viết mini calculator nhận 2 số từ user và in ra tổng, hiệu, tích, thương, chia lấy dư.
+    hints:
+    - Phân biệt `/` và `//`.
+    - Nếu nhận input, nhớ ép kiểu.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Numbers
+      url: https://docs.python.org/3/tutorial/introduction.html#numbers
+    - tier: 2
+      title: Real Python - Numbers in Python
+      url: https://realpython.com/python-numbers/
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    video:
+    - tier: 2
+      title: Corey Schafer - Operators and Expressions
+      url: https://www.youtube.com/watch?v=v5Jkf4PD3fQ
+    extra_practice: ''
+    real_world_examples:
+    - Tính tiền sau giảm giá.
+    - Tính số hộp cần đóng gói nếu mỗi hộp chứa tối đa N sản phẩm.
+    best_practices:
+    - Đặt tên biến cho ý nghĩa business chứ không chỉ a, b.
+    - Test với số âm và số lẻ.
+    - Đọc kỹ ý nghĩa phép chia lấy dư trong bài toán thực tế.
+    project_applications:
+    - Discount calculator.
+    - Packaging calculator.
+    monetization:
+    - "Tính giá, tổng đơn, phần trăm — mọi script báo cáo đều cần. Tiến độ: 4/6 bước đến first-money."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm giữa `/` và `//`.
+    - Không ép kiểu input trước khi tính.
+  - id: 11
+    title: Rounding & Advanced Math
+    objective: Biết làm tròn, lấy giá trị tuyệt đối, căn bậc hai, và dùng math cho tính toán sạch hơn.
+    explanation: Trong thực tế, số liệu hiếm khi đẹp. Bạn sẽ cần làm tròn giá, tỷ lệ, trung bình, đo khoảng cách, hoặc tính toán có căn/mũ. Bài này giúp learner dùng `round()`, `abs()`, `pow()`, và module `math` để viết các phép tính đàng hoàng hơn thay vì tự chế công thức rối.
+    examples:
+    - print(round(3.14159, 2))
+    - 'print(abs(-15))
+
+      print(pow(2, 3))'
+    - 'import math
+
+      print(math.sqrt(49))
+
+      print(math.ceil(3.2))'
+    exercise: Tính diện tích hình tròn từ bán kính nhập vào, làm tròn 2 chữ số; sau đó in thêm chu vi.
+    hints:
+    - Nhớ `import math` nếu dùng `math.pi`.
+    - Dùng `round(value, 2)` cho 2 chữ số thập phân.
+    sources:
+    - tier: 1
+      title: Python Built-in round()
+      url: https://docs.python.org/3/library/functions.html#round
+    - tier: 1
+      title: Python math module
+      url: https://docs.python.org/3/library/math.html
+    - tier: 2
+      title: Real Python - Python Rounding
+      url: https://realpython.com/python-rounding/
+    video:
+    - tier: 2
+      title: Corey Schafer - Math Module
+      url: https://www.youtube.com/watch?v=GxB-ZXk8Q1Y
+    extra_practice: ''
+    real_world_examples:
+    - Làm tròn báo giá cho khách hàng.
+    - Tính phần trăm tăng trưởng và làm tròn để lên dashboard.
+    best_practices:
+    - Làm tròn ở lớp output, không làm tròn sớm nếu còn tính tiếp.
+    - Dùng module math thay vì tự viết công thức dễ sai.
+    - Đặt rõ đơn vị của số liệu.
+    project_applications:
+    - Circle calculator.
+    - Profit margin calculator.
+    monetization:
+    - "Làm tròn báo giá, tính margin — kỹ năng cần cho script report. Tiến độ: 5/6 bước."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 10
+    solution_hint: ''
+    common_mistakes:
+    - Làm tròn quá sớm gây sai số.
+    - Quên import math.
+    first_money_drill:
+      enabled: true
+      task: "Nhận danh sách sản phẩm với giá gốc và % giảm giá, tính giá sau giảm và tổng đơn hàng, làm tròn 0 chữ số thập phân."
+      input_sample: "Chuot:350000:10\nBan_phim:850000:15\nTai_nghe:1200000:5"
+      expected_output: "Chuot: 315,000 VND\nBan_phim: 722,500 VND\nTai_nghe: 1,140,000 VND\nTong: 2,177,500 VND"
+      deliverable: "price_calculator.py"
+      delivery_package: ["price_calculator.py", "products.txt", "README.md"]
+      market_note: "Script tính giá/báo giá tự động — task phổ biến cho shop online, giá 300k-500k."
+      gate_status: "Gate A+B unlocked (đọc input số + tính toán có công thức)"
+- id: 4
+  title: Python Booleans
+  description: Nắm True/False, so sánh, logic, membership, identity để chuẩn bị cho conditionals.
+  project_milestone:
+    projects:
+    - project: P1 — User Registration System
+      step: "Step 3: Password Strength Check"
+      task: |
+        Mở rộng registration_form.py:
+        1. Kiểm tra len(password) >= 8
+        2. Kiểm tra có chữ hoa: any(c.isupper() for c in password)
+        3. Kiểm tra có chữ số: any(c.isdigit() for c in password)
+        4. Kết hợp: is_valid = has_length and has_upper and has_digit
+        5. In True/False cho từng điều kiện và kết quả cuối
+      concepts_used: [bool, comparison operators, logical operators (and), any()]
+    - project: P3 — Mini Banking System
+      step: "Step 1: Balance Check"
+      task: |
+        Viết script balance_check.py:
+        1. Tạo biến balance = 1000000
+        2. Tạo biến withdraw_amount = 500000
+        3. Kiểm tra: can_withdraw = balance >= withdraw_amount
+        4. Kiểm tra: is_positive = withdraw_amount > 0
+        5. In kết quả True/False cho mỗi check
+      concepts_used: ["bool", "comparison (>=, >)", "logical operators"]
+    note: "Bây giờ chỉ in True/False. Chapter 5 sẽ dạy if/else để phản ứng theo kết quả."
+  lessons:
+  - id: 12
+    title: Boolean Values
+    objective: Hiểu True/False, truthy/falsy và biết Python đánh giá điều kiện ra sao.
+    explanation: Boolean là xương sống của mọi quyết định trong code. Bài này giúp learner hiểu `True`, `False`, và những giá trị bị Python xem là falsy như `0`, `""`, `[]`, `None`. Không cần đi quá triết học; chỉ cần hiểu giá trị nào làm điều kiện pass hay fail và vì sao.
+    examples:
+    - 'print(True)
+
+      print(False)'
+    - 'print(bool(0))
+
+      print(bool(1))'
+    - 'print(bool(''''))
+
+      print(bool(''hello''))'
+    exercise: Dự đoán rồi kiểm tra kết quả của `bool(0)`, `bool(1)`, `bool("")`, `bool("python")`, `bool([])`, `bool([1])`.
+    hints:
+    - Falsy không có nghĩa là “xấu”, chỉ nghĩa là Python coi là False trong condition.
+    - Dùng `bool()` để tự test nhanh.
+    sources:
+    - tier: 1
+      title: Python Truth Value Testing
+      url: https://docs.python.org/3/library/stdtypes.html#truth-value-testing
+    - tier: 2
+      title: Real Python - Python Booleans
+      url: https://realpython.com/python-boolean/
+    - tier: 1
+      title: CS50P Week 1
+      url: https://cs50.harvard.edu/python/2022/weeks/1/
+    video:
+    - tier: 1
+      title: CS50P 2022 Lecture 1
+      url: https://www.youtube.com/watch?v=_b6NgY_pMdw
+    extra_practice: ''
+    real_world_examples:
+    - Kiểm tra giỏ hàng rỗng hay không trước khi checkout.
+    - Kiểm tra user có nhập nội dung hay bỏ trống form.
+    best_practices:
+    - Hiểu falsy để viết condition ngắn gọn nhưng vẫn rõ.
+    - Đừng lạm dụng truthy nếu làm code khó đọc.
+    - Tự test bool() với nhiều kiểu dữ liệu.
+    project_applications:
+    - Empty input checker.
+    - Cart validation mini script.
+    monetization:
+    - "Kiểm tra giỏ hàng rỗng, form bỏ trống — logic nền của mọi validation tool. Gate B đang mở."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm `"False"` là False thật.
+    - Không hiểu vì sao list rỗng vào if lại fail.
+  - id: 13
+    title: Comparison & Logical Operators
+    objective: Dùng toán tử so sánh và logic để viết điều kiện nhiều bước một cách rõ ràng.
+    explanation: Khi business rule bắt đầu có điều kiện, bạn cần so sánh và kết hợp logic. Bài này tập trung vào `==`, `!=`, `>`, `<`, `>=`, `<=`, `and`, `or`, `not`. Mục tiêu không phải viết condition thật ngắn, mà là viết condition đúng và đọc được. Code logic mơ hồ sẽ thành ổ bug rất nhanh.
+    examples:
+    - 'age = 20
+
+      print(age >= 18)'
+    - 'score = 85
+
+      print(score >= 80 and score <= 100)'
+    - 'email_verified = False
+
+      print(not email_verified)'
+    exercise: Viết chương trình kiểm tra user có đủ điều kiện nhận voucher nếu tuổi >= 18 và điểm >= 80 hoặc là thành viên VIP.
+    hints:
+    - Tách điều kiện ra biến nếu biểu thức dài.
+    - Dùng ngoặc nếu muốn làm rõ ý.
+    sources:
+    - tier: 1
+      title: Python Expressions - Comparisons
+      url: https://docs.python.org/3/reference/expressions.html#comparisons
+    - tier: 2
+      title: Real Python - Operators and Expressions in Python
+      url: https://realpython.com/python-operators-expressions/
+    - tier: 1
+      title: CS50P Week 1
+      url: https://cs50.harvard.edu/python/2022/weeks/1/
+    video:
+    - tier: 2
+      title: Corey Schafer - Conditionals and Booleans
+      url: https://www.youtube.com/watch?v=DZwmZ8Usvnk
+    extra_practice: ''
+    real_world_examples:
+    - Xét điều kiện duyệt ưu đãi cho khách hàng.
+    - Kiểm tra đơn hàng có hợp lệ theo nhiều rule.
+    best_practices:
+    - Ưu tiên rõ ràng hơn ngắn gọn.
+    - Dùng biến trung gian cho logic business phức tạp.
+    - Test với input biên như 17, 18, 80, 81.
+    project_applications:
+    - Voucher eligibility checker.
+    - Simple login rule validator.
+    monetization:
+    - "Logic so sánh và kết hợp = xương sống của filter dữ liệu. Mốc gần nhất: filter_orders.py."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 12
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm `=` với `==`.
+    - Viết điều kiện dài mà không dùng ngoặc hoặc biến trung gian.
+  - id: 14
+    title: Membership & Identity Operators
+    objective: Phân biệt membership operators với identity operators và dùng chúng đúng ngữ cảnh.
+    explanation: '`in` kiểm tra một giá trị có nằm trong collection hay chuỗi không. `is` kiểm tra hai biến có trỏ cùng object hay không. Beginner rất hay dùng `is` để so sánh string/number vì thấy “chạy được vài lần”, nhưng đó là thói quen nguy hiểm. Bài này phải giúp learner hiểu đúng từ đầu để không mang bug lặt vặt vào code sau này.'
+    examples:
+    - 'skills = [''python'', ''sql'']
+
+      print(''python'' in skills)'
+    - 'text = ''python coach''
+
+      print(''coach'' in text)'
+    - 'value = None
+
+      print(value is None)'
+    exercise: Viết chương trình kiểm tra một keyword có nằm trong tiêu đề sản phẩm hay không; đồng thời kiểm tra một biến có phải None hay không bằng cách đúng.
+    hints:
+    - Dùng `in` cho membership.
+    - Dùng `is None` khi kiểm tra None.
+    sources:
+    - tier: 1
+      title: Python Membership Test Operations
+      url: https://docs.python.org/3/reference/expressions.html#membership-test-operations
+    - tier: 1
+      title: Python Identity Comparisons
+      url: https://docs.python.org/3/reference/expressions.html#is-not
+    - tier: 2
+      title: Real Python - Python Identity vs Equality
+      url: https://realpython.com/python-is-identity-vs-equality/
+    video:
+    - tier: 2
+      title: Real Python - is vs ==
+      url: https://realpython.com/courses/python-is-identity-vs-equality/
+    extra_practice: ''
+    real_world_examples:
+    - Kiểm tra từ khóa có nằm trong title sản phẩm.
+    - Kiểm tra cấu hình có thiếu giá trị hay đang là None.
+    best_practices:
+    - Chỉ dùng `is` với None/True/False trong các case rõ ràng.
+    - Dùng `in` cho strings, lists, sets, dict keys.
+    - Tự test sự khác nhau giữa `==` và `is`.
+    project_applications:
+    - Keyword checker for product titles.
+    - Config validator for optional values.
+    monetization:
+    - "Kiểm tra keyword trong title, check None trong config — thao tác hàng ngày của data cleaning."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 12
+    - 13
+    solution_hint: ''
+    common_mistakes:
+    - Dùng `is` để so sánh string hoặc số.
+    - Không hiểu dict dùng `in` để kiểm tra key, không phải value.
+- id: 5
+  title: Python Conditional Statements
+  description: 'Viết điều kiện từ cơ bản đến nâng cao: if/elif/else, nested, inline if, match case.'
+  project_milestone:
+    projects:
+    - project: P2 — Expense Tracking System
+      step: "Step 2: Expense Validator"
+      task: |
+        Viết script expense_validator.py:
+        1. Nhận amount từ input(), convert sang float
+        2. Nhận category từ input()
+        3. if amount <= 0: in "Số tiền không hợp lệ"
+        4. elif category not in ["Food", "Transport", "Entertainment"]: in "Category không hợp lệ"
+        5. else: in "Expense hợp lệ: {category} - {amount} VND"
+      concepts_used: [if/elif/else, comparison, "not in", nested conditions]
+    - project: P3 — Mini Banking System
+      step: "Step 2: Transaction Menu"
+      task: |
+        Viết script banking_menu.py:
+        1. balance = 1000000
+        2. Nhận action từ input(): "deposit", "withdraw", "check"
+        3. if action == "deposit": nhận amount, balance += amount
+        4. elif action == "withdraw":
+           - Nhận amount
+           - if amount > balance: "Không đủ tiền"
+           - else: balance -= amount
+        5. elif action == "check": in balance
+        6. else: "Hành động không hợp lệ"
+      concepts_used: [if/elif/else, nested if, comparison operators]
+    note: "Chapter 6 sẽ dạy loop để user có thể thao tác nhiều lần liên tục."
+  lessons:
+  - id: 15
+    title: If, Else, Elif
+    objective: Viết điều kiện cơ bản bằng if, elif, else.
+    explanation: Conditional statements là nơi chương trình bắt đầu “ra quyết định”. Bài này tập trung vào cấu trúc if/elif/else rõ ràng, không lồng sâu vô ích, và dùng để biến dữ liệu đầu vào thành kết quả có ý nghĩa. Nếu learner làm vững bài này, từ đây có thể viết các rule rất gần với công việc thật.
+    examples:
+    - "score = 92\nif score >= 90:\n    print('A')\nelif score >= 80:\n    print('B')\nelse:\n    print('C hoặc thấp hơn')"
+    - "age = 17\nif age >= 18:\n    print('Adult')\nelse:\n    print('Minor')"
+    exercise: Viết chương trình nhận điểm số và xếp loại A/B/C/D/F.
+    hints:
+    - Xếp các điều kiện từ cao xuống thấp.
+    - Nhớ thụt lề 4 spaces.
+    sources:
+    - tier: 1
+      title: Python Tutorial - if Statements
+      url: https://docs.python.org/3/tutorial/controlflow.html#if-statements
+    - tier: 2
+      title: Real Python - Conditional Statements in Python
+      url: https://realpython.com/python-conditional-statements/
+    - tier: 1
+      title: CS50P Week 1
+      url: https://cs50.harvard.edu/python/2022/weeks/1/
+    video:
+    - tier: 2
+      title: Corey Schafer - If, Elif, Else
+      url: https://www.youtube.com/watch?v=DZwmZ8Usvnk
+    extra_practice: ''
+    real_world_examples:
+    - Xếp loại khách hàng theo điểm.
+    - Phân loại đơn hàng theo trạng thái thanh toán.
+    best_practices:
+    - Đặt rule từ cụ thể đến tổng quát.
+    - Giữ nhánh điều kiện ngắn, dễ đọc.
+    - Test với giá trị biên.
+    project_applications:
+    - Grade classifier.
+    - Order status classifier.
+    monetization:
+    - "Xếp loại đơn hàng, phân loại khách — logic này xuất hiện trong mọi script business. Còn 5 bài để ghép thành tool giao khách."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 12
+    - 13
+    solution_hint: ''
+    common_mistakes:
+    - Thụt lề sai.
+    - Viết điều kiện chồng chéo làm kết quả sai.
+  - id: 16
+    title: Nested & Advanced Conditions
+    objective: Viết nested conditions và conditions phức hợp mà vẫn đọc được.
+    explanation: 'Khi rule nghiệp vụ bắt đầu nhiều lớp, learner thường viết condition thành bức tường khó đọc. Bài này dạy hai hướng: nested conditions khi thật sự cần, và tách điều kiện thành biến trung gian để code bớt rối. Mục tiêu là giải bài toán thực chứ không khoe viết một dòng.'
+    examples:
+    - "age = 20\nemail_verified = True\nif age >= 18:\n    if email_verified:\n        print('Approved')\n    else:\n        print('Verify email first')"
+    - 'age = 20
+
+      email_verified = True
+
+      is_eligible = age >= 18 and email_verified
+
+      print(is_eligible)'
+    exercise: Viết chương trình duyệt tài khoản nếu người dùng đủ tuổi, đã xác thực email và không bị khóa.
+    hints:
+    - 'So sánh 2 cách: nested if và biến trung gian.'
+    - Nếu condition dài, tách ra biến.
+    sources:
+    - tier: 1
+      title: Python Tutorial - if Statements
+      url: https://docs.python.org/3/tutorial/controlflow.html#if-statements
+    - tier: 2
+      title: Real Python - Conditional Statements in Python
+      url: https://realpython.com/python-conditional-statements/
+    - tier: 1
+      title: CS50P Week 1
+      url: https://cs50.harvard.edu/python/2022/weeks/1/
+    video:
+    - tier: 2
+      title: Corey Schafer - Conditionals
+      url: https://www.youtube.com/watch?v=DZwmZ8Usvnk
+    extra_practice: ''
+    real_world_examples:
+    - Duyệt tài khoản user theo nhiều rule.
+    - Xác định khách đủ điều kiện hoàn tiền hay không.
+    best_practices:
+    - Ưu tiên readability hơn “gói một dòng”.
+    - Tách điều kiện business phức tạp thành biến có tên rõ.
+    - Chỉ nested khi thật sự có cấu trúc cha-con.
+    project_applications:
+    - Account approval checker.
+    - Refund eligibility checker.
+    monetization:
+    - "Duyệt tài khoản, kiểm tra hoàn tiền — logic nhiều lớp là đúng pattern job thật. Gate B locked in."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 12
+    - 13
+    - 15
+    solution_hint: ''
+    common_mistakes:
+    - Nested quá sâu mà không tách biến.
+    - Dùng or/and sai precedence.
+  - id: 17
+    title: Inline If & Match Case
+    objective: Dùng inline if và match-case ở mức thực dụng, không lạm dụng.
+    explanation: 'Conditional expression (`x if cond else y`) hữu ích khi logic ngắn và rõ. `match-case` mạnh khi bạn xử lý nhiều lựa chọn cố định như menu, command, trạng thái. Điểm quan trọng: chỉ dùng khi nó làm code rõ hơn, không phải để trông “pro” hơn. Bài này giúp learner biết khi nào nên dùng và khi nào nên giữ if/elif bình thường.'
+    examples:
+    - 'score = 8
+
+      label = ''pass'' if score >= 5 else ''fail''
+
+      print(label)'
+    - "command = 'start'\nmatch command:\n    case 'start':\n        print('Run')\n    case 'stop':\n        print('Stop')\n    case _:\n        print('Unknown')"
+    exercise: Dùng inline if để gán nhãn pass/fail cho điểm. Sau đó viết một menu đơn giản bằng match-case cho 4 lựa chọn.
+    hints:
+    - Inline if chỉ nên dùng khi rất ngắn.
+    - Dùng `case _` cho nhánh mặc định.
+    sources:
+    - tier: 1
+      title: Python Conditional Expressions
+      url: https://docs.python.org/3/reference/expressions.html#conditional-expressions
+    - tier: 1
+      title: Python Tutorial - match Statements
+      url: https://docs.python.org/3/tutorial/controlflow.html#match-statements
+    - tier: 2
+      title: Real Python - Structural Pattern Matching
+      url: https://realpython.com/structural-pattern-matching/
+    video:
+    - tier: 2
+      title: Real Python - Structural Pattern Matching
+      url: https://realpython.com/courses/structural-pattern-matching/
+    extra_practice: ''
+    real_world_examples:
+    - Xử lý command terminal nội bộ.
+    - Map trạng thái đơn hàng từ mã ngắn sang hành động.
+    best_practices:
+    - Không ép mọi if thành inline if.
+    - Dùng match-case cho enum-like values.
+    - Giữ mỗi case ngắn và rõ.
+    project_applications:
+    - Menu CLI mini.
+    - Status handler bằng match-case.
+    monetization:
+    - "Match-case xử lý menu/command — dùng trong CLI tool nội bộ. Nền đã vững, sắp bước vào loops."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 12
+    - 13
+    - 15
+    - 16
+    solution_hint: ''
+    common_mistakes:
+    - Dùng inline if cho logic dài khó đọc.
+    - Quên case mặc định `_`.
+    first_money_drill:
+      enabled: true
+      task: "Nhận danh sách đơn hàng với trạng thái và số tiền, phân loại thành: cần xử lý gấp (>1M + chưa thanh toán), bình thường, đã hoàn thành."
+      input_sample: "DH001:1500000:chua_thanh_toan\nDH002:300000:da_thanh_toan\nDH003:2000000:chua_thanh_toan\nDH004:500000:da_giao"
+      expected_output: "CẦN XỬ LÝ GẤP:\n- DH001: 1,500,000 VND\n- DH003: 2,000,000 VND\n\nĐÃ HOÀN THÀNH:\n- DH002: 300,000 VND\n- DH004: 500,000 VND"
+      deliverable: "order_classifier.py"
+      delivery_package: ["order_classifier.py", "orders.txt", "README.md"]
+      market_note: "Phân loại đơn hàng tự động — task rất phổ biến cho team vận hành shop, giá 500k-800k."
+      gate_status: "Gate A+B+partial C unlocked (đọc input + logic phân loại + xuất báo cáo text)"
+- id: 6
+  title: Python Loops
+  description: Lặp dữ liệu với for/while và kiểm soát vòng lặp bằng break, continue, pass, for-else.
+  project_milestone:
+    projects:
+    - project: P2 — Expense Tracking System
+      step: "Step 3: Expense Aggregator"
+      task: |
+        Viết script expense_aggregator.py:
+        1. Tạo list expenses (hardcoded): [50000, 20000, 100000, 15000, 30000]
+        2. Tạo list categories: ["Food", "Transport", "Food", "Coffee", "Food"]
+        3. Dùng for loop tính tổng tất cả expenses
+        4. Dùng for loop + if đếm số expense thuộc "Food"
+        5. Dùng for + enumerate in: "1. Food - 50000 VND"
+      concepts_used: [for loop, enumerate, accumulator pattern, loop + if filter]
+    - project: P3 — Mini Banking System
+      step: "Step 3: Multi-Transaction Loop"
+      task: |
+        Mở rộng banking_menu.py thành banking_loop.py:
+        1. balance = 1000000
+        2. transactions = [] (list rỗng, sẽ append string mô tả mỗi giao dịch)
+        3. while True: hỏi action
+        4. if action == "exit": break
+        5. Xử lý deposit/withdraw/check như Chapter 5
+        6. Mỗi giao dịch thành công: transactions.append("Deposit 500000")
+        7. Khi exit: for loop in tất cả transactions
+      concepts_used: [while True + break, for loop, list.append(), accumulator]
+    - project: P1 — User Registration System
+      step: "Step 4: Multi-User Registration Loop"
+      task: |
+        Mở rộng registration_form.py thành registration_loop.py:
+        1. while True: hỏi user muốn đăng ký hay thoát
+        2. Nếu đăng ký: nhập name/email/password, validate (dùng code từ Ch.2 + Ch.4)
+        3. Nếu hợp lệ: in "Đăng ký thành công"
+        4. Nếu không: in lý do fail
+        5. Nếu thoát: break và in tổng số lần đăng ký thành công/thất bại
+      concepts_used: [while True + break, counter variables, loop + conditionals]
+    note: "Bây giờ 3 project đều chạy được nhiều lần. Chapter 7 sẽ nâng cấp lên lưu data bằng dicts."
+  lessons:
+  - id: 18
+    title: For Loops
+    objective: Dùng for loop để lặp qua range và iterable phổ biến.
+    explanation: For loop là công cụ mặc định khi bạn biết mình cần duyệt qua một tập phần tử. Đây là xương sống của xử lý danh sách, file lines, rows, API items. Bài này tập trung vào range, strings, lists, và tư duy “mỗi vòng lặp thì đang xử lý phần tử nào?”.
+    examples:
+    - "for i in range(5):\n    print(i)"
+    - "for ch in 'abc':\n    print(ch)"
+    - "products = ['chuột', 'bàn phím', 'tai nghe']\nfor product in products:\n    print(product)"
+    exercise: In danh sách 5 khách hàng có đánh số thứ tự bắt đầu từ 1.
+    hints:
+    - Bạn có thể dùng `range` hoặc `enumerate`.
+    - Tên biến loop phải có nghĩa.
+    sources:
+    - tier: 1
+      title: Python Tutorial - for Statements
+      url: https://docs.python.org/3/tutorial/controlflow.html#for-statements
+    - tier: 2
+      title: Real Python - Python for Loops
+      url: https://realpython.com/python-for-loop/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - For Loops and Iterables
+      url: https://www.youtube.com/watch?v=6iF8Xb7Z3wQ
+    extra_practice: ''
+    real_world_examples:
+    - Duyệt tất cả đơn hàng trong ngày để in báo cáo.
+    - Duyệt danh sách file cần đổi tên.
+    best_practices:
+    - Đặt tên biến loop có nghĩa.
+    - Mỗi vòng lặp chỉ làm một việc rõ.
+    - In debug giá trị loop khi chưa hiểu code chạy thế nào.
+    project_applications:
+    - Numbered customer list.
+    - Bulk product name printer.
+    monetization:
+    - "For loop = xử lý hàng loạt. Mọi job rename files, clean CSV, scan data đều bắt đầu từ đây. Gate B+C đang mở."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 13
+    - 15
+    solution_hint: ''
+    common_mistakes:
+    - Dùng range sai biên.
+    - Đặt tên biến loop mơ hồ rồi tự rối.
+  - id: 19
+    title: Break, Continue, Pass
+    objective: Biết khi nào dùng break, continue, pass để kiểm soát vòng lặp.
+    explanation: Ba từ khóa này nhìn nhỏ nhưng cực thực dụng. `break` dừng vòng lặp ngay; `continue` bỏ qua lượt hiện tại; `pass` giữ chỗ khi chưa viết gì. Nếu không hiểu rõ ba thứ này, learner sẽ viết loop hoặc quá vụng hoặc quá dài. Điểm quan trọng là dùng đúng chỗ và có lý do rõ ràng.
+    examples:
+    - "for n in [1, 2, 0, 3]:\n    if n == 0:\n        break\n    print(n)"
+    - "for n in [1, -2, 3]:\n    if n < 0:\n        continue\n    print(n)"
+    - "for item in []:\n    pass"
+    exercise: 'Duyệt danh sách số: bỏ qua số âm, dừng khi gặp số 0, in các số dương trước đó.'
+    hints:
+    - break là stop hẳn.
+    - continue là skip lượt hiện tại rồi lặp tiếp.
+    sources:
+    - tier: 1
+      title: Python Tutorial - break and continue
+      url: https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops
+    - tier: 2
+      title: Real Python - break, continue, and pass
+      url: https://realpython.com/python-break/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - Break Continue Pass
+      url: https://www.youtube.com/watch?v=HGOBQPFzWKo
+    extra_practice: ''
+    real_world_examples:
+    - Dừng quét file khi tìm thấy đúng file cần.
+    - Bỏ qua dòng dữ liệu lỗi nhưng vẫn xử lý phần còn lại.
+    best_practices:
+    - Chỉ dùng break/continue khi làm luồng rõ hơn.
+    - Comment ngắn nếu continue/break xuất hiện ở logic khó.
+    - Test nhiều nhánh dữ liệu để chắc loop chạy đúng.
+    project_applications:
+    - Positive-number scanner.
+    - First-match finder in a list.
+    monetization:
+    - "Break/continue = kiểm soát flow xử lý dữ liệu. Biết dừng đúng lúc khi scan 10k dòng."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    solution_hint: ''
+    common_mistakes:
+    - Dùng break nhầm chỗ làm mất dữ liệu cần xử lý.
+    - Dùng continue mà quên logic sau nó sẽ không chạy.
+  - id: 20
+    title: For-Else & Nested Loops
+    objective: Hiểu for-else và nested loops ở mức thực dụng.
+    explanation: '`for-else` trong Python ít người dùng nhưng rất hợp cho bài toán “tìm thấy thì break, không thấy thì else”. Nested loops thì cần khi xử lý bảng, ma trận, hoặc mọi cặp kết hợp. Bài này không nhằm làm learner code phức tạp hơn, mà để thấy đúng pattern cho đúng bài toán.'
+    examples:
+    - "items = ['a', 'b', 'c']\ntarget = 'd'\nfor item in items:\n    if item == target:\n        print('Found')\n        break\nelse:\n    print('Not found')"
+    - "for row in range(2):\n    for col in range(3):\n        print(row, col)"
+    exercise: Viết chương trình tìm một sản phẩm trong list bằng for-else; nếu không thấy thì in thông báo. Sau đó in bảng cửu chương 2x3 bằng nested loops.
+    hints:
+    - Else của for chỉ chạy nếu không break.
+    - 'Nested loop cần tên biến rõ: row, col.'
+    sources:
+    - tier: 1
+      title: Python Tutorial - break and continue with else on loops
+      url: https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops
+    - tier: 2
+      title: Real Python - Nested Loops in Python
+      url: https://realpython.com/nested-loops-python/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - Loops
+      url: https://www.youtube.com/watch?v=6iF8Xb7Z3wQ
+    extra_practice: ''
+    real_world_examples:
+    - Tìm khách hàng đầu tiên khớp điều kiện.
+    - Duyệt từng hàng và từng cột của bảng dữ liệu.
+    best_practices:
+    - Dùng for-else đúng pattern search.
+    - Tránh nested loop sâu nếu chưa thật cần.
+    - Đặt biến loop theo ý nghĩa bảng/hàng/cột.
+    project_applications:
+    - Product searcher.
+    - Mini grid printer.
+    monetization:
+    - "For-else tìm item, nested loop duyệt bảng — pattern thật của scan data. Gate B+C locked in."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 19
+    solution_hint: ''
+    common_mistakes:
+    - Không hiểu else của for chạy khi nào.
+    - Nested loop nhưng không biết vòng trong phụ thuộc gì vào vòng ngoài.
+  - id: 21
+    title: While Loops
+    objective: Dùng while loop đúng chỗ, đặc biệt cho menu và input lặp lại.
+    explanation: While loop phù hợp khi bạn chưa biết trước số lần lặp, ví dụ menu lặp tới khi user thoát, retry nhập liệu, hoặc đọc dữ liệu tới khi gặp điều kiện dừng. Đây là công cụ mạnh nhưng cũng là nơi beginner hay tạo infinite loop. Bài này phải giúp learner kiểm soát điều kiện dừng thật rõ.
+    examples:
+    - "count = 0\nwhile count < 3:\n    print(count)\n    count += 1"
+    - "while True:\n    cmd = input('Nhập q để thoát: ')\n    if cmd == 'q':\n        break"
+    exercise: Viết menu lặp lại cho tới khi user nhập `q`; mỗi lượt in ra lời nhắc và số lần đã nhập.
+    hints:
+    - Phải có điều kiện thoát rõ ràng.
+    - Nếu dùng biến đếm, nhớ cập nhật nó trong loop.
+    sources:
+    - tier: 1
+      title: Python Tutorial - First Steps Towards Programming
+      url: https://docs.python.org/3/tutorial/introduction.html#first-steps-towards-programming
+    - tier: 2
+      title: Real Python - Python while Loops
+      url: https://realpython.com/python-while-loop/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - While Loops
+      url: https://www.youtube.com/watch?v=6iF8Xb7Z3wQ
+    extra_practice: ''
+    real_world_examples:
+    - Viết menu terminal cho công cụ nội bộ.
+    - Cho phép nhập lại dữ liệu đến khi hợp lệ.
+    best_practices:
+    - Luôn chỉ rõ điều kiện thoát trước khi code while.
+    - In debug trạng thái loop khi cần.
+    - Không dùng while khi for/range đã đủ.
+    project_applications:
+    - Retry-until-valid input tool.
+    - Simple CLI menu.
+    monetization:
+    - "While loop = menu tool, retry input — script tương tác cần. Xong loops = đã đủ logic cho script đơn giản."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 19
+    - 20
+    solution_hint: ''
+    common_mistakes:
+    - Infinite loop do quên update biến.
+    - Dùng while khi for đơn giản hơn nhiều.
+    first_money_drill:
+      enabled: true
+      task: "Nhận danh sách 50 dòng dữ liệu đơn hàng, tìm dòng lỗi (thiếu tên, số âm, email sai format), in danh sách dòng lỗi kèm lý do."
+      input_sample: "Nguyen Van A|500000|a@gmail.com\n|300000|b@gmail.com\nTran B|-100000|c@yahoo.com\nLe C|200000|invalid_email"
+      expected_output: "DÒNG LỖI:\n- Dòng 2: thiếu tên khách\n- Dòng 3: số tiền âm (-100000)\n- Dòng 4: email không hợp lệ (invalid_email)\n\nTổng: 3/4 dòng lỗi"
+      deliverable: "find_invalid_rows.py"
+      delivery_package: ["find_invalid_rows.py", "sample_orders.txt", "README.md"]
+      market_note: "Tìm dòng lỗi trong data — task cực phổ biến khi nhận file bẩn từ khách, giá 300k-500k."
+      gate_status: "Gate A+B+C unlocked (đọc input + lặp + kiểm tra + xuất report)"
+- id: 7
+  title: Python Data Structures
+  description: Làm chủ list, tuple, set, dict và các pattern xử lý dữ liệu thực dụng.
+  project_milestone:
+    projects:
+    - project: P1 — User Registration System
+      step: "Step 5: Data Storage với List of Dicts"
+      task: |
+        Nâng cấp registration_loop.py thành registration_system.py:
+        1. registered_users = [] — list lưu user dicts
+        2. failed_registrations = [] — list lưu failed dicts
+        3. Khi đăng ký thành công: tạo dict {"name": ..., "email": ..., "password": ..., "status": "active"}
+        4. Append dict vào registered_users
+        5. Khi đăng ký thất bại: tạo dict {"email": ..., "error": "lý do"}
+        6. Append vào failed_registrations
+        7. Check duplicate email: dùng for loop qua registered_users
+        8. Khi thoát: in toàn bộ registered_users và failed_registrations
+      concepts_used: [list of dicts, dict creation, list.append(), for loop search, "in" check]
+    - project: P2 — Expense Tracking System
+      step: "Step 4: Structured Expenses"
+      task: |
+        Nâng cấp expense_aggregator.py thành expense_system.py:
+        1. expenses = [] — list lưu expense dicts
+        2. Mỗi expense: {"amount": ..., "category": ..., "description": ...}
+        3. Thêm 5+ expenses bằng .append()
+        4. Loop qua expenses tính tổng
+        5. Loop + filter: tổng theo category (so sánh .lower())
+        6. Dùng enumerate in bảng chi tiêu có đánh số
+      concepts_used: [list of dicts, dict access ["key"], loop + filter, enumerate]
+    - project: P3 — Mini Banking System
+      step: "Step 4: Account với Nested Data"
+      task: |
+        Nâng cấp banking_loop.py thành banking_system.py:
+        1. accounts = [] — list lưu account dicts
+        2. Mỗi account: {"name": ..., "balance": ..., "transactions": []}
+        3. Mỗi transaction: {"type": "Deposit"/"Withdrawal", "amount": ...}
+        4. Khi deposit/withdraw: append transaction dict vào account["transactions"]
+        5. show_account: in name, balance, rồi loop in tất cả transactions
+        6. Tìm account bằng for loop qua accounts, so sánh name.lower()
+      concepts_used: [nested data — dict chứa list of dicts, dict mutation, list.append() nested]
+    note: "Cả 3 project giờ đã có data structure hoàn chỉnh. Chapter 8 sẽ wrap thành functions sạch + exception handling."
+  lessons:
+  - id: 22
+    title: Lists Overview
+    objective: Hiểu list là gì, khi nào dùng list, và vì sao nó là cấu trúc dữ liệu cơ bản nhất cho beginner.
+    explanation: 'List là collection có thứ tự, thay đổi được, và xuất hiện ở khắp nơi: danh sách sản phẩm, dòng dữ liệu, file names, API items. Bài này chưa sa vào method quá nhiều; mục tiêu là giúp learner nhìn bài toán và biết “cái này nên là list”.'
+    examples:
+    - 'products = [''chuột'', ''bàn phím'', ''tai nghe'']
+
+      print(products)'
+    - 'scores = [7, 8, 9]
+
+      print(len(scores))'
+    exercise: 'Tạo 3 list khác nhau: tên tướng TFT, sản phẩm shop, trạng thái đơn hàng. In độ dài từng list.'
+    hints:
+    - List dùng dấu ngoặc vuông `[]`.
+    - Các phần tử cách nhau bằng dấu phẩy.
+    sources:
+    - tier: 1
+      title: Python Tutorial - More on Lists
+      url: https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+    - tier: 2
+      title: Real Python - Lists and Tuples in Python
+      url: https://realpython.com/python-lists-tuples/
+    - tier: 1
+      title: CS50P Week 3
+      url: https://cs50.harvard.edu/python/2022/weeks/3/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Danh sách sản phẩm trong giỏ hàng.
+    - Danh sách file cần xử lý hàng loạt.
+    best_practices:
+    - Phân biệt list với string ngay từ đầu.
+    - Đặt tên list ở số nhiều nếu hợp lý.
+    - Tự hỏi dữ liệu có cần giữ thứ tự không.
+  project_applications:
+  - Favorite items list.
+  - Simple product list display.
+  first_money_drill:
+    enabled: true
+    task: "Tạo list sản phẩm shop từ input, lọc sản phẩm hết hàng (stock=0), in danh sách còn hàng."
+    input_sample: "Chuot:5\nBan_phim:0\nTai_nghe:3\nLoa:0\nWebcam:2"
+    expected_output: "CÒN HÀNG:\n- Chuot (5)\n- Tai_nghe (3)\n- Webcam (2)\n\nHẾT HÀNG: Ban_phim, Loa"
+    deliverable: "filter_stock.py"
+    delivery_package: ["filter_stock.py", "products.txt", "README.md"]
+    market_note: "Filter stock = task cơ bản nhất cho shop online, giá 300k."
+    gate_status: "Gate A+B+C approaching (đọc input + list + xuất kết quả)"
+  monetization:
+  - "List = nền của mọi script xử lý nhiều dòng dữ liệu. Bạn đang ở mốc có thể viết filter_orders.py. Tiến độ: 3/5 gates."
+  duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm list với tuple hoặc string.
+    - Không hiểu list có thể chứa nhiều kiểu dữ liệu nhưng không nên lạm dụng.
+  - id: 23
+    title: Creating & Accessing Lists
+    objective: Tạo list và truy cập phần tử bằng index dương/âm một cách chắc chắn.
+    explanation: Một list có ích khi bạn lấy được đúng phần tử mình cần. Bài này dạy tạo list, index dương, index âm, và lỗi index out of range. Đây là kỹ năng nền để các bài thêm/xóa/sửa list sau này không bị mù mờ.
+    examples:
+    - 'fruits = [''apple'', ''banana'', ''cherry'']
+
+      print(fruits[0])'
+    - 'fruits = [''apple'', ''banana'', ''cherry'']
+
+      print(fruits[-1])'
+    - 'numbers = [10, 20, 30, 40]
+
+      print(numbers[1:3])'
+    exercise: Tạo một list 5 sản phẩm rồi in ra phần tử đầu, cuối, và phần tử ở giữa.
+    hints:
+    - Index bắt đầu từ 0.
+    - Index âm đếm từ cuối.
+    sources:
+    - tier: 1
+      title: Python Tutorial - More on Lists
+      url: https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+    - tier: 2
+      title: Real Python - Python Lists
+      url: https://realpython.com/python-list/
+    - tier: 1
+      title: CS50P Week 3
+      url: https://cs50.harvard.edu/python/2022/weeks/3/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Lấy sản phẩm đầu tiên của giỏ hàng.
+    - Lấy đơn hàng mới nhất bằng index cuối.
+    best_practices:
+    - Tự vẽ index trên giấy nếu còn rối.
+    - Test với list ngắn trước khi code dài.
+    - Cẩn thận lỗi out of range.
+  project_applications:
+  - Product picker by index.
+  - Last-order viewer.
+  first_money_drill:
+    enabled: true
+    task: "Nhận list 20 mã đơn hàng, in 5 đơn mới nhất, 5 đơn cũ nhất, kiểm tra mã đơn X có tồn tại không."
+    input_sample: "DH001\nDH002\n...\nDH020"
+    expected_output: "5 ĐƠN MỚI NHẤT: DH020, DH019, DH018, DH017, DH016\n5 ĐƠN CŨ NHẤT: DH001, DH002, DH003, DH004, DH005\nDH015: CÓ trong hệ thống"
+    deliverable: "order_lookup.py"
+    delivery_package: ["order_lookup.py", "orders.txt", "README.md"]
+    market_note: "Tra cứu đơn hàng nhanh — task hỗ trợ vận hành, giá 300k."
+    gate_status: "Gate A+B unlocked (đọc input + truy cập list)"
+  monetization:
+  - "Truy cập phần tử = lấy đơn hàng mới nhất, sản phẩm cần xử lý. Mốc gần nhất: filter_orders.py — giá 300k-500k VND."
+  duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    solution_hint: ''
+    common_mistakes:
+    - Quên index bắt đầu từ 0.
+    - Truy cập phần tử không tồn tại.
+  - id: 24
+    title: Unpacking & Analyzing
+    objective: Biết unpack list và phân tích list bằng len, count, index, membership.
+    explanation: Phân tích list không chỉ là duyệt từng phần tử. Bài này dạy unpacking để lấy nhanh các phần quan trọng và dùng các method cơ bản để trả lời câu hỏi như có bao nhiêu phần tử, một item nằm ở đâu, hoặc có xuất hiện hay không. Đây là bước từ “có list” sang “đọc được list”.
+    examples:
+    - 'first, second, third = [''a'', ''b'', ''c'']
+
+      print(first, third)'
+    - 'items = [''a'', ''b'', ''a'']
+
+      print(items.count(''a''))'
+    - 'numbers = [10, 20, 30]
+
+      print(20 in numbers)
+
+      print(numbers.index(30))'
+    exercise: 'Cho một list tên học viên, hãy: unpack 2 tên đầu, kiểm tra xem tên `Luc` có trong list không, và đếm xem `An` xuất hiện bao nhiêu lần.'
+    hints:
+    - Unpack cần số biến khớp số phần tử, trừ khi dùng `*rest`.
+    - Dùng `in` để kiểm tra có tồn tại hay không.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Sequence Unpacking
+      url: https://docs.python.org/3/tutorial/datastructures.html
+    - tier: 2
+      title: Real Python - Packing and Unpacking Arguments
+      url: https://realpython.com/python-kwargs-and-args/
+    - tier: 2
+      title: Real Python - Python Lists and Tuples
+      url: https://realpython.com/python-lists-tuples/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Lấy top 3 sản phẩm bán chạy nhất.
+    - Kiểm tra một mã hàng có nằm trong danh sách cấm hay không.
+    best_practices:
+    - Dùng unpack khi cấu trúc dữ liệu ngắn, rõ.
+    - Dùng `in` trước khi `index()` nếu không chắc phần tử tồn tại.
+    - Giữ code phân tích list tách biệt khỏi code render output.
+  project_applications:
+  - Top-3 viewer.
+  - Blacklist membership checker.
+  first_money_drill:
+    enabled: true
+    task: "Phân tích danh sách đơn hàng: unpack top 3, đếm số đơn theo trạng thái, tìm vị trí đơn cần xử lý."
+    input_sample: "DH001:da_giao\nDH002:chua_thanh_toan\nDH003:da_giao\nDH004:chua_thanh_toan\nDH005:dang_xu_ly"
+    expected_output: "TOP 3: DH001 (da_giao), DH002 (chua_thanh_toan), DH003 (da_giao)\nĐã giao: 2 | Chưa TT: 2 | Đang XL: 1\nĐơn cần xử lý đầu tiên: vị trí 2 (DH002)"
+    deliverable: "analyze_orders.py"
+    delivery_package: ["analyze_orders.py", "orders.txt", "README.md"]
+    market_note: "Phân tích nhanh đơn hàng — task hỗ trợ kế toán/vận hành, giá 300k-500k."
+    gate_status: "Gate A+B unlocked (đọc + unpack + phân tích list)"
+  monetization:
+  - "Unpack + phân tích list = đọc nhanh data thật. Đủ ghép thành script phân tích đơn hàng nhỏ."
+  duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    solution_hint: ''
+    common_mistakes:
+    - Unpack sai số lượng phần tử.
+    - Gọi `index()` với item không tồn tại.
+  - id: 25
+    title: Add, Remove & Update
+    objective: Thêm, xóa, sửa phần tử trong list đúng cách và hiểu sự khác nhau giữa append, insert, remove, pop, del.
+    explanation: 'Đây là bài rất thực dụng vì mọi danh sách động đều cần thay đổi theo thời gian. Quan trọng nhất là hiểu đúng method đang làm gì: append thêm cuối, insert chèn theo index, remove xóa theo giá trị, pop lấy và xóa, del xóa theo vị trí. Nếu mơ hồ ở đây, learner sẽ sửa nhầm dữ liệu liên tục.'
+    examples:
+    - 'items = [''a'', ''b'']
+
+      items.append(''c'')
+
+      print(items)'
+    - 'items = [''a'', ''c'']
+
+      items.insert(1, ''b'')
+
+      print(items)'
+    - 'items = [''a'', ''b'', ''c'']
+
+      items.remove(''b'')
+
+      last = items.pop()
+
+      print(items, last)'
+    exercise: Tạo list giỏ hàng, thêm 2 sản phẩm, chèn 1 sản phẩm vào giữa, xóa 1 sản phẩm đã hết hàng, rồi in list cuối cùng.
+    hints:
+    - '`remove` xóa theo value, `pop` xóa theo index hoặc cuối list.'
+    - Nếu không chắc item có tồn tại, kiểm tra trước khi remove.
+    sources:
+    - tier: 1
+      title: Python Tutorial - More on Lists
+      url: https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+    - tier: 2
+      title: Real Python - Removing Items From Lists
+      url: https://realpython.com/remove-item-from-list-python/
+    - tier: 2
+      title: Real Python - Python Lists
+      url: https://realpython.com/python-list/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Cập nhật giỏ hàng của khách.
+    - Sửa danh sách task nội bộ.
+    best_practices:
+    - Phân biệt rõ xóa theo value và xóa theo index.
+    - Không xóa item bừa khi chưa chắc nó tồn tại.
+    - In trạng thái list sau mỗi bước khi đang học.
+    project_applications:
+    - Shopping cart manager.
+    - Task list updater.
+    monetization:
+    - "Thêm/xóa/sửa list = cập nhật giỏ hàng, sửa danh sách task. Rất sát tool nhập liệu đơn giản — giá 300k."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    - 24
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm `remove()` với `pop()`.
+    - Xóa phần tử khi đang lặp mà không hiểu hậu quả.
+  - id: 26
+    title: Sorting & Combining
+    objective: Biết sort, reverse, copy, và combine lists cho nhu cầu xử lý dữ liệu thường gặp.
+    explanation: Khi xử lý danh sách thật, bạn thường cần gộp nhiều nguồn dữ liệu, sắp xếp theo tiêu chí, hoặc copy để tránh sửa dữ liệu gốc. Bài này dạy `sorted()`, `.sort()`, `.reverse()`, copy list, nối list, và tư duy “dữ liệu gốc có cần giữ nguyên không?”.
+    examples:
+    - 'prices = [120, 50, 200]
+
+      print(sorted(prices))'
+    - 'items = [''b'', ''c'', ''a'']
+
+      items.sort()
+
+      print(items)'
+    - 'a = [1, 2]
+
+      b = [3, 4]
+
+      print(a + b)'
+    exercise: Gộp 2 danh sách đơn hàng, sort theo giá tăng dần, và tạo bản copy trước khi reverse danh sách.
+    hints:
+    - '`sorted()` trả list mới; `.sort()` sửa tại chỗ.'
+    - Copy bằng `list.copy()` hoặc `[:]`.
+    sources:
+    - tier: 1
+      title: Python Tutorial - More on Lists
+      url: https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+    - tier: 2
+      title: Real Python - Python Sort
+      url: https://realpython.com/python-sort/
+    - tier: 2
+      title: Real Python - Python Lists
+      url: https://realpython.com/python-list/
+    video:
+    - tier: 2
+      title: Corey Schafer - Sorting Lists, Tuples, and Objects
+      url: https://www.youtube.com/watch?v=D3JvDWO-BY4
+    extra_practice: ''
+    real_world_examples:
+    - Sắp xếp đơn hàng theo giá trị.
+    - Gộp 2 nguồn dữ liệu khách hàng thành một list.
+    best_practices:
+    - Giữ dữ liệu gốc nếu còn cần dùng lại.
+    - Chọn `sorted()` hay `.sort()` có chủ đích.
+    - Test với dữ liệu text và số riêng.
+    project_applications:
+    - Order sorter.
+    - Merged customer list cleaner.
+    monetization:
+    - "Sort + combine = gộp và sắp xếp nhiều nguồn data. Đây là thao tác chính của merge_orders.py — giá 500k-1.5m VND."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    - 24
+    - 25
+    solution_hint: ''
+    common_mistakes:
+    - Tưởng `.sort()` trả về list mới.
+    - Gán `new_list = old_list` rồi tưởng đã copy.
+  - id: 27
+    title: Iterables & Filtering
+    objective: Hiểu iterable là gì và lọc dữ liệu bằng loop, condition, và các pattern cơ bản.
+    explanation: 'Iterable là bất cứ thứ gì bạn có thể duyệt từng phần tử: list, tuple, set, string, dict. Bài này kết nối các bài list + loop để giải bài toán lọc dữ liệu thực: chỉ lấy item hợp lệ, item thỏa điều kiện, item cần xử lý. Đây là nhịp cầu trước list comprehension.'
+    examples:
+    - "numbers = [1, -2, 3, -4]\npositive = []\nfor n in numbers:\n    if n > 0:\n        positive.append(n)\nprint(positive)"
+    - "emails = ['a@gmail.com', 'b@yahoo.com']\nfor email in emails:\n    if email.endswith('gmail.com'):\n        print(email)"
+    exercise: Cho một list số, lọc ra các số chẵn dương. Sau đó với một list email, lọc ra các email gmail.
+    hints:
+    - 'Nghĩ theo pattern: duyệt -> kiểm tra -> thêm vào kết quả.'
+    - Tạo list kết quả riêng thay vì sửa list gốc khi mới học.
+    sources:
+    - tier: 1
+      title: Python Glossary - Iterable
+      url: https://docs.python.org/3/glossary.html#term-iterable
+    - tier: 2
+      title: Real Python - Python filter()
+      url: https://realpython.com/python-filter-function/
+    - tier: 2
+      title: Real Python - Python for Loops
+      url: https://realpython.com/python-for-loop/
+    video:
+    - tier: 2
+      title: Corey Schafer - Loops and Conditionals
+      url: https://www.youtube.com/watch?v=6iF8Xb7Z3wQ
+    extra_practice: ''
+    real_world_examples:
+    - Lọc danh sách khách đủ điều kiện nhận voucher.
+    - Lọc dữ liệu log chỉ giữ các dòng lỗi.
+    best_practices:
+    - Viết pattern lọc bằng loop trước khi dùng list comprehension.
+    - Giữ tên `result` hoặc `filtered_items` rõ nghĩa.
+    - Test với list rỗng và list không item nào match.
+    project_applications:
+    - Positive-even filter.
+    - Gmail-only extractor.
+    monetization:
+    - "Filter data = lọc dòng hợp lệ, bỏ rác. Kỹ năng cốt lõi của clean_csv.py — task phổ biến nhất trên freelance."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    solution_hint: ''
+    common_mistakes:
+    - Sửa list gốc khi đang duyệt.
+    - Quên tạo list kết quả trước khi append.
+  - id: 28
+    title: Lambda & List Comprehension
+    objective: Dùng list comprehension và lambda ở mức practical, không màu mè.
+    explanation: 'List comprehension giúp viết logic tạo list mới gọn hơn khi pattern đơn giản. Lambda hữu ích cho các hàm cực ngắn dùng một chỗ, nhưng lạm dụng lambda sẽ làm code khó đọc. Bài này phải đặt tiêu chuẩn đúng: comprehension cho transform/filter ngắn; lambda chỉ dùng khi thật rõ.'
+    examples:
+    - 'squares = [n * n for n in range(1, 6)]
+
+      print(squares)'
+    - 'even_squares = [n * n for n in range(1, 11) if n % 2 == 0]
+
+      print(even_squares)'
+    - 'add = lambda a, b: a + b
+
+      print(add(2, 3))'
+    exercise: Tạo list bình phương các số chẵn từ 1 đến 20 bằng list comprehension. Sau đó viết lambda cộng 2 số và gọi thử.
+    hints:
+    - Nếu comprehension quá dài, quay lại for loop thường.
+    - Lambda chỉ nên rất ngắn và rõ nghĩa.
+    sources:
+    - tier: 1
+      title: Python Tutorial - List Comprehensions
+      url: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
+    - tier: 2
+      title: Real Python - When to Use a List Comprehension in Python
+      url: https://realpython.com/list-comprehension-python/
+    - tier: 2
+      title: Real Python - Python Lambda
+      url: https://realpython.com/python-lambda/
+    video:
+    - tier: 2
+      title: Corey Schafer - List Comprehensions
+      url: https://www.youtube.com/watch?v=3dt4OGnU5sM
+    extra_practice: ''
+    real_world_examples:
+    - Tạo nhanh danh sách file `.csv` cần xử lý.
+    - Biến đổi dữ liệu thô thành output format mới.
+    best_practices:
+    - Comprehension chỉ dùng cho logic ngắn.
+    - Đừng dùng lambda nếu def đọc dễ hơn.
+    - Ưu tiên readability hơn “ngầu”.
+    project_applications:
+    - Even square generator.
+    - Quick name cleaner with comprehension.
+    monetization:
+    - "List comprehension = viết gọn logic filter/transform. Tay nghề code sạch hơn = giao bài nhanh hơn, ít bug hơn."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    - 27
+    solution_hint: ''
+    common_mistakes:
+    - Viết comprehension quá dài khó đọc.
+    - Dùng lambda cho logic nhiều nhánh.
+    first_money_drill:
+      enabled: true
+      task: "Nhận danh sách sản phẩm với giá, lọc sản phẩm giá > 500k, sort giảm dần, in top 5 bằng list comprehension."
+      input_sample: "Chuot:350000\nBan_phim:850000\nTai_nghe:1200000\nLoa:450000\nWebcam:650000\nManhinh:5500000"
+      expected_output: "TOP SẢN PHẨM (>500k, giá giảm dần):\n1. Manhinh: 5,500,000 VND\n2. Tai_nghe: 1,200,000 VND\n3. Ban_phim: 850,000 VND\n4. Webcam: 650,000 VND"
+      deliverable: "sort_products.py"
+      delivery_package: ["sort_products.py", "products.txt", "README.md"]
+      market_note: "Lọc + sort sản phẩm = task nền cho báo cáo bán hàng, giá 300k-500k."
+      gate_status: "Gate A+B+C unlocked (đọc + filter + sort + xuất report)"
+  - id: 29
+    title: Tuples
+    objective: Hiểu tuple dùng cho dữ liệu cố định và unpack tuple cơ bản.
+    explanation: Tuple rất giống list ở chỗ có thứ tự, nhưng khác ở điểm không thay đổi được. Khi một nhóm dữ liệu mang tính cố định như tọa độ, màu RGB, hoặc cặp key-value tạm, tuple rất hợp. Bài này giúp learner biết khi nào tuple phù hợp hơn list và biết unpack tuple gọn gàng.
+    examples:
+    - 'point = (10, 20)
+
+      print(point[0], point[1])'
+    - 'rgb = (255, 120, 0)
+
+      r, g, b = rgb
+
+      print(r, g, b)'
+    - 'coords = (21.0285, 105.8542)
+
+      print(coords)'
+    exercise: Tạo một tuple tọa độ và một tuple RGB. Unpack từng tuple ra biến riêng rồi in kết quả.
+    hints:
+    - Tuple dùng `()`.
+    - Có thể unpack tuple giống list.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Tuples and Sequences
+      url: https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences
+    - tier: 2
+      title: Real Python - Lists and Tuples in Python
+      url: https://realpython.com/python-lists-tuples/
+    - tier: 1
+      title: CS50P Week 3
+      url: https://cs50.harvard.edu/python/2022/weeks/3/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Lưu tọa độ địa điểm.
+    - Lưu bộ màu RGB hoặc kích thước cố định.
+    best_practices:
+    - Dùng tuple khi dữ liệu nên “khó bị sửa nhầm”.
+    - Unpack tuple để code đọc dễ hơn.
+    - Không cố sửa tuple; nếu cần sửa, chuyển sang list.
+    project_applications:
+    - RGB unpacker.
+    - Coordinate viewer.
+    monetization:
+    - "Tuple giữ data cố định — dùng cho config, tọa độ, constant. Chọn đúng cấu trúc = code ít bug hơn."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    - 24
+    solution_hint: ''
+    common_mistakes:
+    - Tưởng tuple sửa được như list.
+    - Quên tuple 1 phần tử cần dấu phẩy.
+  - id: 30
+    title: Sets
+    objective: Dùng set để bỏ trùng, kiểm tra membership nhanh, và làm toán tập hợp cơ bản.
+    explanation: Set rất mạnh cho data cleaning. Khi bài toán là “lấy unique”, “kiểm tra có tồn tại”, hoặc “so sánh 2 nhóm có giao nhau không”, set gần như là câu trả lời mặc định. Bài này thực dụng hơn list vì nó chạm ngay vào các case deduplicate trong công việc.
+    examples:
+    - 'emails = [''a@gmail.com'', ''a@gmail.com'', ''b@gmail.com'']
+
+      unique_emails = set(emails)
+
+      print(unique_emails)'
+    - 'tags_a = {''python'', ''sql''}
+
+      tags_b = {''python'', ''excel''}
+
+      print(tags_a & tags_b)'
+    - 'skills = {''python'', ''supabase''}
+
+      print(''python'' in skills)'
+    exercise: Cho 2 danh sách email khách hàng, hãy lấy tập email unique của mỗi nhóm và tìm phần giao nhau giữa hai nhóm.
+    hints:
+    - Set không giữ thứ tự.
+    - Toán giao dùng `&`, hợp dùng `|`.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Sets
+      url: https://docs.python.org/3/tutorial/datastructures.html#sets
+    - tier: 2
+      title: Real Python - Python Sets
+      url: https://realpython.com/python-sets/
+    - tier: 1
+      title: CS50P Week 3
+      url: https://cs50.harvard.edu/python/2022/weeks/3/
+    video:
+    - tier: 2
+      title: Corey Schafer - Lists, Tuples, and Sets
+      url: https://www.youtube.com/watch?v=W8KRzm-HUcc
+    extra_practice: ''
+    real_world_examples:
+    - Xóa email trùng khi tổng hợp lead.
+    - So sánh 2 nhóm khách hàng có trùng nhau không.
+    best_practices:
+    - Dùng set cho unique/membership, không cố giữ order.
+    - Chuyển list sang set có chủ đích.
+    - Đặt tên biến phản ánh đây là tập hợp unique.
+    project_applications:
+    - Unique email cleaner.
+    - Overlap checker between two groups.
+    monetization:
+    - "Set bỏ trùng = kỹ năng đầu tiên của data cleaning. Deduplicate email, mã hàng — task rất hay gặp, giá 300k-500k."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    - 27
+    solution_hint: ''
+    common_mistakes:
+    - Tưởng set giữ thứ tự như list.
+    - Quên rằng set không chứa phần tử mutable như list.
+  - id: 31
+    title: Dictionaries
+    objective: Dùng dict để lưu dữ liệu key-value và truy cập/cập nhật dữ liệu theo khóa.
+    explanation: Dict là cấu trúc cực quan trọng vì JSON, API response, config, hồ sơ user đều gần với dict. Khi learner hiểu dict, rất nhiều thứ trong Python bắt đầu “vào form”. Bài này phải làm rõ key, value, truy cập, thêm, sửa, kiểm tra key, và vì sao dict phù hợp hơn list trong nhiều bài toán hồ sơ.
+    examples:
+    - 'user = {''name'': ''Luc'', ''age'': 25}
+
+      print(user[''name''])'
+    - 'product = {''name'': ''Bàn phím'', ''price'': 450000}
+
+      product[''stock''] = 12
+
+      print(product)'
+    - 'settings = {''theme'': ''dark''}
+
+      print(''theme'' in settings)'
+    exercise: Tạo dict hồ sơ user gồm tên, tuổi, nghề nghiệp. Sau đó thêm trường email, cập nhật tuổi, và in toàn bộ dict.
+    hints:
+    - Key thường là string với beginner.
+    - Dùng `in` để kiểm tra key tồn tại.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Dictionaries
+      url: https://docs.python.org/3/tutorial/datastructures.html#dictionaries
+    - tier: 2
+      title: Real Python - Dictionaries in Python
+      url: https://realpython.com/python-dicts/
+    - tier: 1
+      title: CS50P Week 3
+      url: https://cs50.harvard.edu/python/2022/weeks/3/
+    video:
+    - tier: 2
+      title: Corey Schafer - Dictionaries
+      url: https://www.youtube.com/watch?v=daefaLgNkw0
+    extra_practice: ''
+    real_world_examples:
+    - Lưu hồ sơ khách hàng hoặc config script.
+    - Xử lý JSON trả về từ API.
+    best_practices:
+    - Chọn key nhất quán, dễ đọc.
+    - Kiểm tra key trước khi truy cập nếu chưa chắc.
+    - Tách dict cấu hình khỏi logic xử lý.
+    project_applications:
+    - User profile manager.
+    - Simple config dictionary tool.
+    monetization:
+    - "Dict = JSON, API response, config, hồ sơ user. Hiểu dict = mở cửa automation và API integration — Level 2 đang tới."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 22
+    - 23
+    - 24
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm `in dict` là kiểm tra value thay vì key.
+    - Truy cập key không tồn tại rồi crash.
+    first_money_drill:
+      enabled: true
+      task: "Xây dict inventory từ file: key=mã sản phẩm, value=dict{tên, giá, stock}. Tra cứu theo mã, in sản phẩm sắp hết hàng (stock<5)."
+      input_sample: "SP001:Chuot:350000:3\nSP002:Ban_phim:850000:12\nSP003:Tai_nghe:1200000:2\nSP004:Loa:450000:8"
+      expected_output: "TRA CỨU SP001: Chuot - 350,000 VND - Còn 3\n\nSẮP HẾT HÀNG (stock<5):\n- SP001: Chuot (3)\n- SP003: Tai_nghe (2)"
+      deliverable: "inventory_lookup.py"
+      delivery_package: ["inventory_lookup.py", "inventory.txt", "README.md"]
+      market_note: "Tra cứu tồn kho = task phổ biến cho shop, kế toán kho, giá 500k-800k."
+      gate_status: "Gate A+B+C unlocked (đọc input + dict lookup + xuất report)"
+- id: 8
+  title: Python Functions
+  description: Tách logic thành hàm sạch, có tham số, trả về giá trị, và viết code dễ tái sử dụng.
+  project_milestone:
+    projects:
+    - project: P1 — User Registration System
+      step: "Step 6 (FINAL): Complete System với Functions + Exception Handling"
+      task: |
+        Hoàn thiện registration_system.py:
+        1. validate_name(name) → return True/False
+        2. validate_email(email) → return True/False
+        3. validate_password(password) → return True/False (dùng any())
+        4. validate_user_data(name, email, password) → gọi 3 hàm trên, raise ValueError nếu fail
+        5. create_user_account(name, email, password) → try/except, check duplicate, return dict hoặc None
+        6. run_tests() → test 5 case: valid, duplicate, invalid name/email/password
+      concepts_used: [functions, parameters, return, raise ValueError, try/except, clean function design]
+      solution_ref: "references/project-step-solutions.md#chapter-8--p1-final-complete-user-registration-system"
+    - project: P2 — Expense Tracking System
+      step: "Step 5 (FINAL): Complete System với Functions"
+      task: |
+        Hoàn thiện expense_system.py:
+        1. add_expense(amount, category, description) → validate amount > 0, raise ValueError, return dict
+        2. calculate_total_expenses() → loop + return total
+        3. calculate_total_by_category(category) → filter + return total
+        4. show_expenses() → enumerate + formatted output
+        5. run_tests() → thêm expenses (gồm 1 invalid), in tổng, in theo category, show all
+      concepts_used: [functions, validation, raise/try-except, aggregation in functions]
+      solution_ref: "references/project-step-solutions.md#chapter-8--p2-final-complete-expense-tracking-system"
+    - project: P3 — Mini Banking System
+      step: "Step 5 (FINAL): Complete System với Functions + Helper Functions"
+      task: |
+        Hoàn thiện banking_system.py:
+        1. find_account(name) → helper, return dict hoặc None
+        2. create_account(name, initial_balance) → validate, check duplicate, return dict
+        3. deposit(name, amount) → validate, find account, update balance + transactions
+        4. withdraw(name, amount) → validate, check sufficient funds, update
+        5. show_account(name) → in summary + tất cả transactions
+        6. run_tests() → tạo account, deposit, withdraw, test overdraft, test duplicate
+      concepts_used: [functions, helper functions, raise/try-except, nested data mutation, clean design]
+      solution_ref: "references/project-step-solutions.md#chapter-8--p3-final-complete-mini-banking-system"
+    note: "Xong Chapter 8 = hoàn thành cả 3 project. So sánh code của bạn với solution file."
+  lessons:
+  - id: 32
+    title: Functions Introduction
+    objective: Hiểu vì sao cần hàm và biết định nghĩa/gọi hàm cơ bản.
+    explanation: Functions là bước chuyển từ code chắp vá sang code có cấu trúc. Khi bạn thấy mình copy-paste cùng một logic nhiều lần, đó là tín hiệu cần hàm. Bài này phải giúp learner hiểu function không phải “trang trí”, mà là cách đóng gói một công việc có tên và tái sử dụng được.
+    examples:
+    - "def greet():\n    print('Xin chào')\n\ngreet()"
+    - "def show_total():\n    total = 10 + 5\n    print(total)\n\nshow_total()"
+    exercise: 'Viết 2 hàm: `greet()` in lời chào và `show_goal()` in mục tiêu học Python của bạn. Gọi cả hai hàm.'
+    hints:
+    - Bắt đầu bằng `def ten_ham():`.
+    - Muốn chạy hàm thì phải gọi tên hàm kèm `()`.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Defining Functions
+      url: https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+    - tier: 2
+      title: Real Python - Defining Your Own Python Function
+      url: https://realpython.com/defining-your-own-python-function/
+    - tier: 1
+      title: CS50P Week 4
+      url: https://cs50.harvard.edu/python/2022/weeks/4/
+    video:
+    - tier: 2
+      title: Corey Schafer - Functions
+      url: https://www.youtube.com/watch?v=9Os0o3wzS_I
+    extra_practice: ''
+    real_world_examples:
+    - Đóng gói logic in báo cáo để dùng lại.
+    - Tạo hàm xử lý từng bước trong tool nội bộ.
+    best_practices:
+    - Tên hàm nên là động từ.
+    - Một hàm làm một việc.
+    - Gọi hàm để test ngay sau khi viết.
+    project_applications:
+    - Greeting function pack.
+    - Mini helper functions script.
+    monetization:
+    - "Function = đóng gói logic tái sử dụng. Từ đây bạn viết script có cấu trúc, giao được cho khách. Level 1 cận kề."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 15
+    - 18
+    solution_hint: ''
+    common_mistakes:
+    - Viết hàm xong quên gọi.
+    - Nhét quá nhiều việc vào một hàm.
+  - id: 33
+    title: Function Parameters & Return
+    objective: Dùng parameters, return, default values, keyword arguments đúng cách.
+    explanation: 'Một hàm chỉ thật sự mạnh khi nhận input và trả output. Bài này là mốc rất quan trọng vì từ đây learner có thể viết những khối logic tái sử dụng cho bài toán thật: tính tiền, format dữ liệu, validate đầu vào. `return` là điểm cần làm chắc: hàm không chỉ in ra, mà còn trả dữ liệu về cho phần khác dùng tiếp.'
+    examples:
+    - "def add(a, b):\n    return a + b\n\nprint(add(2, 3))"
+    - "def calculate_total(price, qty, discount=0):\n    return price * qty * (1 - discount)\n\nprint(calculate_total(100, 2, 0.1))"
+    - "def greet(name, city='Hanoi'):\n    return f'Xin chào {name} từ {city}'"
+    exercise: Viết hàm `calculate_total(price, qty, discount=0)` và dùng nó để tính tiền cho 3 đơn hàng khác nhau.
+    hints:
+    - Nếu muốn dùng kết quả tiếp, phải `return` thay vì chỉ `print`.
+    - Default parameter nên đặt ở cuối.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Defining Functions
+      url: https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+    - tier: 2
+      title: Real Python - The Python return Statement
+      url: https://realpython.com/python-return-statement/
+    - tier: 2
+      title: Real Python - Python Optional Arguments
+      url: https://realpython.com/python-optional-arguments/
+    video:
+    - tier: 2
+      title: Corey Schafer - Functions
+      url: https://www.youtube.com/watch?v=9Os0o3wzS_I
+    extra_practice: ''
+    real_world_examples:
+    - Viết hàm tính tổng đơn hàng để dùng lại nhiều nơi.
+    - Viết hàm format dữ liệu CSV trước khi xuất file.
+    best_practices:
+    - Dùng return cho dữ liệu, print cho debug/output cuối.
+    - Parameter name phải nói rõ ý nghĩa.
+    - Default args phải an toàn, đừng dùng mutable mặc định.
+    project_applications:
+    - Order total calculator function.
+    - Reusable discount function pack.
+    monetization:
+    - "Parameters + return = hàm nhận input, trả output. Đây là cột mốc: bạn đã viết được khối logic tái sử dụng cho script hoàn chỉnh. Level 1 đã mở nếu hoàn thành 1 project."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 32
+    solution_hint: ''
+    common_mistakes:
+    - Quên return nên kết quả là None.
+    - Đặt mutable object làm default arg.
+  - id: 34
+    title: Types of Python Functions
+    objective: Phân biệt các kiểu hàm phổ biến trong Python và dùng chúng đúng ngữ cảnh.
+    explanation: Không phải hàm nào cũng giống nhau. Có hàm không tham số, hàm có tham số, hàm trả về giá trị, hàm có default args, *args, **kwargs, và hàm nhận hàm khác làm đối số. Bài này giúp learner nhìn bức tranh tổng quát nhưng vẫn bám practical, không đi lan man vào functional programming nặng đầu.
+    examples:
+    - "def say_hi():\n    return 'hi'"
+    - "def total(*numbers):\n    return sum(numbers)"
+    - "def profile(**info):\n    return info\n\nprint(profile(name='Luc', role='Learner'))"
+    exercise: Viết 1 hàm không tham số, 1 hàm nhận *args để tính tổng, và 1 hàm nhận **kwargs để in hồ sơ user.
+    hints:
+    - '*args gom positional args, **kwargs gom named args.'
+    - Không cần dùng mấy kiểu này nếu function thường đã đủ.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Arbitrary Argument Lists
+      url: https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists
+    - tier: 2
+      title: Real Python - *args and **kwargs in Python
+      url: https://realpython.com/python-kwargs-and-args/
+    - tier: 2
+      title: Real Python - Defining Your Own Python Function
+      url: https://realpython.com/defining-your-own-python-function/
+    video:
+    - tier: 2
+      title: Corey Schafer - Args and Kwargs Tutorial
+      url: https://www.youtube.com/watch?v=84IOtc05TuA
+    extra_practice: ''
+    real_world_examples:
+    - Viết hàm gộp nhiều cột dữ liệu linh hoạt.
+    - Viết helper nhận nhiều config tùy chọn.
+    best_practices:
+    - Chỉ dùng *args/**kwargs khi thật sự cần linh hoạt.
+    - Ưu tiên signature rõ ràng với beginner.
+    - Giữ ví dụ nhỏ để hiểu bản chất.
+    project_applications:
+    - Flexible total calculator.
+    - Profile builder with kwargs.
+    monetization:
+    - "*args/**kwargs = hàm mềm dẻo hơn cho tool thật. Nâng tay nghề function = dễ maintain, dễ mở rộng."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 32
+    - 33
+    solution_hint: ''
+    common_mistakes:
+    - Dùng *args/**kwargs quá sớm làm code khó hiểu.
+    - Không biết hàm thật sự nhận gì.
+  - id: 35
+    title: Writing Clean Functions
+    objective: 'Viết hàm sạch: ngắn, rõ tên, rõ input/output, dễ test và dễ ghép thành script hoàn chỉnh.'
+    explanation: 'Đây là bài chốt phần functions. “Clean functions” nghe có vẻ mềm, nhưng thực ra là kỹ năng cực thực dụng: hàm ngắn hơn, bug ít hơn, test dễ hơn, bàn giao cho người khác đỡ khổ hơn. Nếu learner muốn tiến tới script nhận job nhỏ, đây là mindset bắt buộc.'
+    examples:
+    - "def normalize_name(name):\n    return name.strip().title()"
+    - "def calculate_line_total(price, qty):\n    return price * qty"
+    - "def build_order_summary(customer_name, total):\n    return f'{customer_name}: {total} VND'"
+    exercise: 'Refactor một đoạn script dài tính đơn hàng thành 3 hàm nhỏ: chuẩn hóa tên khách, tính tổng tiền, tạo summary output.'
+    hints:
+    - Mỗi hàm chỉ nên làm một việc duy nhất.
+    - Tên hàm phải nói rõ hàm đó làm gì.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Defining Functions
+      url: https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+    - tier: 2
+      title: Real Python - Defining Your Own Python Function
+      url: https://realpython.com/defining-your-own-python-function/
+    video:
+    - tier: 2
+      title: Corey Schafer - Functions
+      url: https://www.youtube.com/watch?v=9Os0o3wzS_I
+    extra_practice: ''
+    real_world_examples:
+    - Viết script báo cáo đơn hàng gọn, dễ bàn giao.
+    - Refactor code cũ thành hàm nhỏ để maintain.
+    best_practices:
+    - Một hàm = một việc.
+    - Tên hàm là động từ mô tả hành động.
+    - Return dữ liệu thay vì print trực tiếp.
+    project_applications:
+    - Order report generator.
+    - Clean function refactoring exercise.
+    monetization:
+    - "Clean functions = code ngắn, rõ, dễ test, dễ bàn giao. Mindset bắt buộc để nhận job. Xong chapter này → sẵn sàng File I/O."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 32
+    - 33
+    - 34
+    solution_hint: ''
+    common_mistakes:
+    - Hàm quá dài, làm nhiều việc.
+    - Tên hàm không rõ nghĩa.
+    first_money_drill:
+      enabled: true
+      task: "Refactor script tính đơn hàng thành 3 hàm sạch: normalize_name(), calculate_total(), build_report(). Nhận file đơn hàng, xuất report text."
+      input_sample: "  nguyen van a |Chuot:2:350000|Ban_phim:1:850000\n TRAN THI B  |Tai_nghe:1:1200000"
+      expected_output: "BÁO CÁO ĐƠN HÀNG:\n\nKhách: Nguyen Van A\n- Chuot x2: 700,000 VND\n- Ban_phim x1: 850,000 VND\nTổng: 1,550,000 VND\n\nKhách: Tran Thi B\n- Tai_nghe x1: 1,200,000 VND\nTổng: 1,200,000 VND\n\nTỔNG DOANH THU: 2,750,000 VND"
+      deliverable: "report_generator.py"
+      delivery_package: ["report_generator.py", "orders.txt", "README.md"]
+      market_note: "Script báo cáo đơn hàng = task Level 1 hoàn chỉnh, giá 500k-1m VND. Đây là first real deliverable."
+      gate_status: "ALL GATES UNLOCKED — ready for first-money job"
+
+# ============================================================
+# PRACTICE PROJECTS — Progressive Build across Chapters 1-8
+# Mỗi chapter có project_milestone riêng. Learner xây dần
+# từng phần nhỏ, đến hết Chapter 8 thì hoàn thành cả 3 project.
+#
+# Progression Map:
+#   Ch.1 → P1 Step 1: Registration form (input/print)
+#   Ch.2 → P1 Step 2: Name & email validation (string methods)
+#   Ch.3 → P2 Step 1: Expense calculator (numbers/math)
+#   Ch.4 → P1 Step 3 + P3 Step 1: Password check + balance check (booleans)
+#   Ch.5 → P2 Step 2 + P3 Step 2: Validators + banking menu (conditionals)
+#   Ch.6 → P1 Step 4 + P2 Step 3 + P3 Step 3: Multi-iteration loops
+#   Ch.7 → P1 Step 5 + P2 Step 4 + P3 Step 4: List of dicts assembly
+#   Ch.8 → P1 Step 6 + P2 Step 5 + P3 Step 5: Functions + exception handling (FINAL)
+#
+# Solution files:
+#   P1: Project 1 Building a Secure User Registration System/158. Project Solution.md
+#   P2: Project 2 Building an Expense Tracking System/160. Project Solution.md
+#   P3: Project 3 Building a Mini Banking System/162. Project Solution.md
+# ============================================================
+
+- id: 9
+  title: File I/O
+  description: "Đọc, ghi, và xử lý file text — kỹ năng bắt buộc để làm job thật."
+  lessons:
+  - id: 36
+    title: Reading & Writing Text Files
+    objective: "Đọc file text bằng open()/with, ghi file mới, hiểu context manager."
+    explanation: "Đây là bài mở cửa first-money. Mọi job data cleaning, report, automation đều bắt đầu từ đọc file. `with open()` là pattern an toàn mặc định. Bài này phải giúp learner đọc được file thật, ghi được output thật, không chỉ print ra terminal."
+    evidence:
+    - claim: "Đọc/ghi file = kỹ năng bắt buộc cho mọi job data"
+      type: "coach heuristic"
+      source: "internal market observation from Luc + Facebook groups freelance listings"
+    - claim: "Corey Schafer File Objects video"
+      type: "verified direct"
+      source: "https://www.youtube.com/watch?v=Uh2ebFW8OYM — 2M views, 24:00, verified 2026-03-21"
+    examples:
+    - "with open('input.txt', 'r', encoding='utf-8') as f:\n content = f.read()\nprint(content)"
+    - "with open('output.txt', 'w', encoding='utf-8') as f:\n f.write('Dong 1\\n')\n f.write('Dong 2\\n')"
+    - "with open('data.txt', 'r', encoding='utf-8') as f:\n for line in f:\n print(line.strip())"
+    exercise: "Đọc file chứa danh sách tên khách hàng (mỗi dòng 1 tên), chuẩn hóa về Title Case, ghi ra file mới."
+    hints:
+    - Luôn dùng with open.
+    - "Nhớ encoding='utf-8' cho tiếng Việt."
+    - strip() mỗi dòng trước khi xử lý.
+    sources:
+    - tier: 1
+    title: Python Tutorial - Reading and Writing Files
+    url: https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+    - tier: 2
+    title: Real Python - Reading and Writing Files
+    url: https://realpython.com/read-write-files-python/
+    - tier: 1
+    title: CS50P Week 6
+    url: https://cs50.harvard.edu/python/2022/weeks/6/
+    video:
+    - tier: 2
+    title: Corey Schafer - File Objects
+    url: https://www.youtube.com/watch?v=Uh2ebFW8OYM
+    views: "2M"
+    duration: "24:00"
+    real_world_examples:
+    - Đọc danh sách khách hàng từ file text.
+    - Ghi báo cáo kết quả ra file text.
+    best_practices:
+    - Luôn dùng context manager (with).
+    - Chỉ định encoding rõ ràng.
+    - Đóng file tự động bằng with thay vì f.close().
+    project_applications:
+    - Customer name cleaner.
+    - Text file processor.
+    monetization:
+      framing: "pre-money rehearsal"
+      note: "Đây là bài mở khóa kỹ năng đọc/ghi file. MỌI job first-money đều cần skill này. Nhưng bài 36-41 là rehearsal — chưa phải lúc post job. Mốc thật: hoàn thành bài 40-41 (CSV processing) thì mới đủ package giao khách."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 15
+    - 18
+    - 32
+    - 33
+    first_money_drill:
+      enabled: true
+      task: "Đọc file chứa 30 tên khách hàng bẩn, strip + Title Case, ghi ra file sạch."
+      input_sample: " nguyen van a \nTRAN THI B\n le van c \n PHAM THI D "
+      expected_output: "Nguyen Van A\nTran Thi B\nLe Van C\nPham Thi D"
+      deliverable: "read_and_clean_names.py"
+      delivery_package:
+      - script: "read_and_clean_names.py"
+      - sample_input: "raw_names.txt"
+      - sample_output: "cleaned_names.txt"
+      - readme: "README.md"
+      - test_command: "python read_and_clean_names.py raw_names.txt cleaned_names.txt"
+      market_note: "Đây là DRILL, chưa phải job post được. Job thật bắt đầu từ bài 40-41 (CSV cleaning). Giá market cho task loại này: 300k-500k VND (coach observation)."
+      gate_status: "Gate A+B+C UNLOCKED — đọc file + xử lý text + ghi file output"
+  - id: 37
+    title: File Encoding & Error Handling
+    objective: "Xử lý encoding UTF-8/BOM, try/except cơ bản cho file operations."
+    explanation: "File tiếng Việt hay bị lỗi encoding. File từ Excel save CSV thường có BOM. Bài này dạy cách xử lý những vấn đề thực tế khi đọc file từ khách hàng — không phải lý thuyết encoding mà là \"làm sao để script không crash khi nhận file lạ\"."
+    examples:
+    - "try:\n    with open('data.txt', 'r', encoding='utf-8') as f:\n        content = f.read()\nexcept FileNotFoundError:\n    print('File khong ton tai')\nexcept UnicodeDecodeError:\n    print('Loi encoding, thu utf-8-sig')"
+    - "with open('data.csv', 'r', encoding='utf-8-sig') as f:\n    content = f.read()\nprint(content[:100])"
+    - "import os\nif os.path.exists('input.txt'):\n    print('File ton tai')\nelse:\n    print('Khong tim thay file')"
+    exercise: "Viết script đọc file CSV tiếng Việt, xử lý cả trường hợp file không tồn tại và lỗi encoding. In 5 dòng đầu nếu thành công, in thông báo lỗi rõ ràng nếu fail."
+    hints:
+    - utf-8-sig xử lý BOM.
+    - try/except bắt lỗi cụ thể trước khi bắt Exception chung.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Errors and Exceptions
+      url: https://docs.python.org/3/tutorial/errors.html
+    - tier: 2
+      title: Real Python - Python Exceptions
+      url: https://realpython.com/python-exceptions/
+    video:
+    - tier: 2
+      title: Corey Schafer - File Objects
+      url: https://www.youtube.com/watch?v=Uh2ebFW8OYM
+    real_world_examples:
+    - Đọc CSV tiếng Việt từ Excel export.
+    - Xử lý file không tồn tại khi chạy script cho khách.
+    best_practices:
+    - Bắt lỗi cụ thể.
+    - Luôn test với file thật từ khách.
+    - Ghi log lỗi thay vì im lặng.
+    project_applications:
+    - Robust file reader.
+    - CSV encoding fixer.
+    monetization:
+    - "Script không crash khi nhận file lạ = chuyên nghiệp. Đây là điểm khác biệt giữa script amateur và script giao khách được."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 36
+  - id: 38
+    title: Working with Multiple Files
+    objective: "Đọc nhiều file, gộp nội dung, ghi file tổng hợp."
+    explanation: "Job thật hiếm khi chỉ có 1 file. Shop có 3 file đơn hàng từ 3 sàn, kế toán có 12 file report tháng. Bài này dạy pattern đọc nhiều file + gộp + ghi output — đây chính là merge_orders.py mà market đang cần."
+    examples:
+    - "files = ['file1.txt', 'file2.txt', 'file3.txt']\nall_lines = []\nfor fname in files:\n    with open(fname, 'r', encoding='utf-8') as f:\n        all_lines.extend(f.readlines())\nprint(f'Tong: {len(all_lines)} dong')"
+    - "with open('merged.txt', 'w', encoding='utf-8') as out:\n    for fname in files:\n        with open(fname, 'r', encoding='utf-8') as f:\n            out.write(f'--- {fname} ---\\n')\n            out.write(f.read())\n            out.write('\\n')"
+    exercise: "Gộp 3 file text báo cáo (report_jan.txt, report_feb.txt, report_mar.txt) thành 1 file merged_report.txt, mỗi section có header tên file gốc."
+    hints:
+    - Dùng loop qua list file names.
+    - Dùng extend() hoặc write() tùy mục đích.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Reading and Writing Files
+      url: https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+    - tier: 2
+      title: Real Python - Working with Files
+      url: https://realpython.com/working-with-files-in-python/
+    video:
+    - tier: 2
+      title: Corey Schafer - File Objects
+      url: https://www.youtube.com/watch?v=Uh2ebFW8OYM
+    real_world_examples:
+    - Gộp báo cáo từ nhiều chi nhánh.
+    - "Gộp đơn hàng từ Shopee + Lazada + Tiki."
+    best_practices:
+    - Validate file tồn tại trước khi đọc.
+    - Ghi header/separator giữa các file để dễ trace.
+    - Test với 2-3 file trước khi chạy 100 file.
+    project_applications:
+    - Multi-file merger.
+    - Report consolidator.
+    monetization:
+    - "Gộp nhiều file = pattern chính của merge_orders.py. Task này giá 500k-1.5m VND tùy complexity. Bạn gần như đã đủ skill."
+    duration_minutes: 25
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 36
+    - 37
+    first_money_drill:
+      enabled: true
+      task: "Gộp 3 file báo cáo text thành 1 file tổng hợp, mỗi section có header gốc, cuối file có tổng số dòng."
+      input_sample: "report_jan.txt (10 dòng)\nreport_feb.txt (8 dòng)\nreport_mar.txt (12 dòng)"
+      expected_output: "--- report_jan.txt ---\n[10 dòng nội dung]\n--- report_feb.txt ---\n[8 dòng nội dung]\n--- report_mar.txt ---\n[12 dòng nội dung]\n\nTổng: 30 dòng từ 3 file"
+      deliverable: "merge_reports.py"
+      delivery_package: ["merge_reports.py", "report_jan.txt", "report_feb.txt", "report_mar.txt", "README.md"]
+      market_note: "Gộp báo cáo = job rất phổ biến cho kế toán, vận hành shop. Giá 500k-1m."
+      gate_status: "Gate A+B+C FULLY UNLOCKED — đọc nhiều file + xử lý + ghi output tổng hợp"
+- id: 10
+  title: CSV & Data Processing
+  description: "Đọc, ghi, clean CSV — kỹ năng gần tiền nhất cho beginner Python."
+  lessons:
+  - id: 39
+    title: Reading CSV Files
+    objective: "Dùng csv module và DictReader đọc file CSV đúng cách."
+    explanation: "CSV là format phổ biến nhất khi nhận data từ khách. csv.reader đọc theo row, DictReader đọc theo column name — sạch hơn và dễ dùng hơn cho beginner. Bài này phải giúp learner mở được file CSV thật, hiểu header, lấy được data cần thiết."
+    examples:
+    - "import csv\nwith open('orders.csv', 'r', encoding='utf-8') as f:\n    reader = csv.reader(f)\n    header = next(reader)\n    print('Columns:', header)\n    for row in reader:\n        print(row)"
+    - "import csv\nwith open('orders.csv', 'r', encoding='utf-8') as f:\n    reader = csv.DictReader(f)\n    for row in reader:\n        print(row['name'], row['total'])"
+    exercise: "Đọc file orders.csv (có header: name, product, quantity, price), in 5 dòng đầu dạng đẹp, in tổng số đơn hàng."
+    hints:
+    - DictReader dùng header row làm key tự động.
+    - Nhớ encoding cho tiếng Việt.
+    sources:
+    - tier: 1
+      title: Python csv module
+      url: https://docs.python.org/3/library/csv.html
+    - tier: 2
+      title: Real Python - Reading and Writing CSV Files
+      url: https://realpython.com/python-csv/
+    video:
+    - tier: 2
+      title: Corey Schafer - CSV Module
+      url: https://www.youtube.com/watch?v=q5uM4VKywbA
+    real_world_examples:
+    - Đọc file đơn hàng từ Shopee export.
+    - Đọc danh sách sản phẩm từ Excel save as CSV.
+    best_practices:
+    - Dùng DictReader cho code dễ đọc hơn.
+    - Luôn kiểm tra header trước khi xử lý.
+    - Test với 5 dòng trước khi chạy cả file.
+    project_applications:
+    - CSV viewer.
+    - Order data reader.
+    monetization:
+    - "Đọc CSV = bước 1 của MỌI job data cleaning. Bạn đã đủ skill để nhận job clean CSV nhỏ. Mốc: clean_csv.py ở bài sau."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 31
+    - 36
+    - 37
+  - id: 40
+    title: Writing & Cleaning CSV
+    objective: "Ghi CSV sạch, clean data (strip, deduplicate, validate rows)."
+    explanation: "Đây là bài tập trung kỹ năng để làm first-money task. Clean CSV = nhận file bẩn từ khách → bỏ trùng, strip spaces, validate data → ghi ra file sạch. Nhưng chưa phải lúc post job. Hoàn thành package script + sample input/output + README + test command thì mới giao được."
+    evidence:
+    - claim: "Corey Schafer CSV Module video"
+      type: "verified direct"
+      source: "https://www.youtube.com/watch?v=q5uM4VKywbA — 1.4M views, 16:00, verified 2026-03-21"
+    examples:
+    - "import csv\nwith open('clean.csv', 'w', newline='', encoding='utf-8') as f:\n writer = csv.writer(f)\n writer.writerow(['name', 'email', 'total'])\n writer.writerow(['Luc', 'luc@example.com', 500000])"
+    - "import csv\nrows_seen = set()\ncleaned = []\nwith open('dirty.csv', 'r', encoding='utf-8') as f:\n reader = csv.DictReader(f)\n for row in reader:\n key = row['email'].strip().lower()\n if key not in rows_seen:\n rows_seen.add(key)\n cleaned.append({\n 'name': row['name'].strip().title(),\n 'email': key,\n 'total': row['total'].strip()\n })\nprint(f'Cleaned: {len(cleaned)} rows (removed {len(rows_seen)} duplicates)')"
+    exercise: "Nhận file dirty_orders.csv có data bẩn (tên thừa space, email trùng, số âm), clean và ghi ra cleaned_orders.csv. In summary: bao nhiêu dòng gốc, bao nhiêu dòng sạch, bao nhiêu dòng bị loại."
+    hints:
+    - Dùng set() để track duplicates.
+    - strip() + lower() cho normalize.
+    - Validate số > 0 trước khi giữ.
+    sources:
+    - tier: 1
+      title: Python csv module
+      url: https://docs.python.org/3/library/csv.html
+    - tier: 2
+      title: Real Python - Reading and Writing CSV Files
+      url: https://realpython.com/python-csv/
+    video:
+    - tier: 2
+      title: Corey Schafer - CSV Module
+      url: https://www.youtube.com/watch?v=q5uM4VKywbA
+    real_world_examples:
+    - Clean danh sách khách hàng cho shop.
+    - Loại đơn hàng trùng trước khi nhập hệ thống.
+    best_practices:
+    - Giữ file gốc, ghi ra file mới.
+    - In summary trước/sau clean.
+    - Test với sample nhỏ trước.
+    project_applications:
+    - CSV cleaner.
+    - Data deduplicator.
+    monetization:
+      framing: "pre-money rehearsal"
+      note: "Đây là DRILL để tập kỹ năng. Script clean CSV hoàn chỉnh có thể bán 300k-800k VND (coach observation từ Facebook groups). Nhưng learner cần hoàn thành bài 40-41, có deliverable package đầy đủ (script + sample input/output + README + test command) mới nên post job."
+    duration_minutes: 25
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 18
+    - 22
+    - 27
+    - 30
+    - 36
+    - 37
+    - 39
+    first_money_drill:
+      enabled: true
+      task: "Nhận file dirty_customers.csv (50 dòng, có trùng email, tên bẩn, phone sai format), clean và ghi ra cleaned_customers.csv với summary."
+      input_sample: "name,email,phone\n Nguyen Van A ,a@gmail.com,0901234567\nTRAN THI B,b@gmail.com,+849****4568\n nguyen van a ,a@gmail.com,0901234567\nLe Van C,invalid_email,abc"
+      expected_output: "SUMMARY:\n- Gốc: 4 dòng\n- Trùng: 1\n- Email lỗi: 1\n- Phone lỗi: 1\n- Sạch: 2 dòng\n\nFile cleaned_customers.csv đã ghi."
+      deliverable: "clean_customers.py"
+      delivery_package:
+      - script: "clean_customers.py"
+      - sample_input: "dirty_customers.csv"
+      - sample_output: "cleaned_customers.csv"
+      - error_log: "error_log.csv"
+      - readme: "README.md"
+      - test_command: "python clean_customers.py dirty_customers.csv cleaned_customers.csv"
+      market_note: "Đây là DRILL để tập kỹ năng. Khi hoàn thành package đầy đủ, learner có thể post job clean CSV. Giá market: 300k-800k VND (coach observation)."
+      gate_status: "LEVEL 1 REHEARSAL — chưa phải post job, cần hoàn thành bài 41 + deliverable package"
+  - id: 41
+    title: CSV Analysis & Simple Reports
+    objective: "Tính tổng, trung bình, đếm, group từ CSV. Xuất báo cáo text/CSV."
+    explanation: "Sau khi clean data, bước tiếp là phân tích và tạo report. Bài này dạy tính toán cơ bản trên CSV data + xuất report có format rõ ràng. Đây là upgrade từ clean → analyze → report, mỗi bước tăng giá trị deliverable."
+    examples:
+    - "import csv\ntotal = 0\ncount = 0\nwith open('orders.csv', 'r', encoding='utf-8') as f:\n    reader = csv.DictReader(f)\n    for row in reader:\n        total += int(row['amount'])\n        count += 1\nprint(f'Tong: {total:,} VND')\nprint(f'Trung binh: {total//count:,} VND')"
+    - "# Group by date\nfrom collections import defaultdict\nimport csv\ndaily = defaultdict(int)\nwith open('orders.csv', 'r', encoding='utf-8') as f:\n    for row in csv.DictReader(f):\n        daily[row['date']] += int(row['amount'])\nfor date, total in sorted(daily.items()):\n    print(f'{date}: {total:,} VND')"
+    exercise: "Từ file orders.csv, tạo báo cáo: tổng doanh thu, trung bình/đơn, ngày cao nhất, top 3 khách mua nhiều nhất. Ghi report ra file."
+    hints:
+    - defaultdict giúp group dễ.
+    - sorted() + key để sort dict.
+    - "Format số bằng f'{x:,}'."
+    sources:
+    - tier: 1
+      title: Python csv module
+      url: https://docs.python.org/3/library/csv.html
+    - tier: 1
+      title: Python collections module
+      url: https://docs.python.org/3/library/collections.html
+    - tier: 2
+      title: Real Python - defaultdict
+      url: https://realpython.com/python-defaultdict/
+    video:
+    - tier: 2
+      title: Corey Schafer - CSV Module
+      url: https://www.youtube.com/watch?v=q5uM4VKywbA
+    real_world_examples:
+    - Báo cáo doanh thu ngày cho shop.
+    - Thống kê đơn hàng theo khách hàng.
+    best_practices:
+    - Validate data trước khi tính.
+    - Format số có dấu phẩy cho VND.
+    - Ghi cả report text lẫn CSV nếu khách cần.
+    project_applications:
+    - Daily revenue report.
+    - Customer analytics.
+    monetization:
+    - "Script report từ CSV giá 500k-1.5m VND. Bạn đã có thể nhận job: clean data + tạo báo cáo. Package: script + sample + README."
+    duration_minutes: 25
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 31
+    - 36
+    - 37
+    - 39
+    - 40
+    first_money_drill:
+      enabled: true
+      task: "Từ file orders.csv (100 dòng), tạo daily_report.txt: tổng doanh thu, trung bình/đơn, top 3 ngày bán chạy nhất, top 5 khách mua nhiều nhất."
+      input_sample: "date,customer,product,amount\n2026-03-01,Nguyen A,Chuot,350000\n2026-03-01,Tran B,Ban phim,850000\n2026-03-02,Nguyen A,Tai nghe,1200000"
+      expected_output: "BÁO CÁO DOANH THU\n\nTổng: 2,400,000 VND\nTrung bình/đơn: 800,000 VND\n\nTOP 3 NGÀY:\n1. 2026-03-02: 1,200,000 VND\n2. 2026-03-01: 1,200,000 VND\n\nTOP 5 KHÁCH:\n1. Nguyen A: 1,550,000 VND (2 đơn)\n2. Tran B: 850,000 VND (1 đơn)"
+      deliverable: "daily_report.py"
+      delivery_package:
+      - script: "daily_report.py"
+      - sample_input: "orders.csv"
+      - sample_output: "daily_report.txt"
+      - readme: "README.md"
+      - test_command: "python daily_report.py orders.csv daily_report.txt"
+      market_note: "Đây là DRILL để tập kỹ năng. Script report CSV có thể bán 500k-1.5m VND (coach observation). Nhưng cần hoàn thành bài 41 + deliverable package."
+      gate_status: "LEVEL 1 REHEARSAL — chưa phải post job, cần hoàn thành bài 41 + deliverable package"
+- id: 11
+  title: File System & Automation
+  description: "Thao tác file system bằng os/pathlib — rename, organize, automate."
+  lessons:
+  - id: 42
+    title: os & pathlib Basics
+    objective: "Duyệt folder, kiểm tra file tồn tại, lấy thông tin file bằng os và pathlib."
+    explanation: "Khi script cần tự tìm file, tạo folder, hoặc kiểm tra trước khi xử lý, os và pathlib là công cụ. pathlib cho cú pháp hiện đại, os cho backward compatibility. Bài này dạy đủ để learner viết script scan folder tự động."
+    examples:
+    - "from pathlib import Path\nfolder = Path('.')\nfor f in folder.iterdir():\n    if f.is_file():\n        print(f.name, f.suffix, f.stat().st_size)"
+    - "from pathlib import Path\ncsv_files = list(Path('.').glob('*.csv'))\nprint(f'Tim thay {len(csv_files)} file CSV')\nfor f in csv_files:\n    print(f' - {f.name}')"
+    - "import os\nif not os.path.exists('output'):\n    os.makedirs('output')\n    print('Da tao folder output')"
+    exercise: "Viết script liệt kê tất cả file .csv và .txt trong folder hiện tại, in tên + kích thước (KB), tạo folder output/ nếu chưa có."
+    hints:
+    - pathlib.Path.glob() tìm file theo pattern.
+    - stat().st_size cho size bytes.
+    - mkdir(exist_ok=True) an toàn hơn.
+    sources:
+    - tier: 1
+      title: Python pathlib module
+      url: https://docs.python.org/3/library/pathlib.html
+    - tier: 1
+      title: Python os.path module
+      url: https://docs.python.org/3/library/os.path.html
+    - tier: 2
+      title: Real Python - Python pathlib
+      url: https://realpython.com/python-pathlib/
+    video:
+    - tier: 2
+      title: Corey Schafer - Automate Rename
+      url: https://www.youtube.com/watch?v=ve2pmm5JqmI
+    real_world_examples:
+    - Scan folder tìm file cần xử lý.
+    - Tạo folder output tự động cho script.
+    best_practices:
+    - Ưu tiên pathlib cho code mới.
+    - Dùng glob thay vì tự filter.
+    - Luôn kiểm tra folder tồn tại trước khi ghi.
+    project_applications:
+    - Folder scanner.
+    - File size reporter.
+    monetization:
+    - "Scan folder = bước mở đầu của mọi script automation. Ghép với CSV/rename = job hoàn chỉnh."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 36
+    - 37
+  - id: 43
+    title: Renaming & Organizing Files
+    objective: "Rename file hàng loạt, tạo folder theo pattern, di chuyển file tự động."
+    explanation: "Rename files = HIGH DEMAND TASK. Shop online cần rename 500 ảnh sản phẩm, văn phòng cần rename hợp đồng theo pattern. Bài này dạy os.rename, pathlib.rename, và pattern an toàn: dry-run trước, rename sau."
+    examples:
+    - "from pathlib import Path\nfolder = Path('photos')\nfor i, f in enumerate(sorted(folder.glob('*.jpg')), 1):\n    new_name = f'product_{i:03d}.jpg'\n    print(f'RENAME: {f.name} -> {new_name}')\n    # f.rename(folder / new_name)  # uncomment khi chac chan"
+    - "from pathlib import Path\nimport shutil\nfor f in Path('.').glob('*.csv'):\n    dest = Path('csv_files')\n    dest.mkdir(exist_ok=True)\n    shutil.move(str(f), str(dest / f.name))\n    print(f'Moved: {f.name}')"
+    exercise: "Rename 20 file ảnh (IMG_001.jpg đến IMG_020.jpg) thành product_001.jpg đến product_020.jpg. Trước khi rename thật, in dry-run để kiểm tra."
+    hints:
+    - Luôn dry-run trước khi rename thật.
+    - enumerate() + format string cho số thứ tự.
+    - Backup folder trước khi chạy.
+    sources:
+    - tier: 1
+      title: Python pathlib module
+      url: https://docs.python.org/3/library/pathlib.html
+    - tier: 1
+      title: Python shutil module
+      url: https://docs.python.org/3/library/shutil.html
+    - tier: 2
+      title: Real Python - Working with Files
+      url: https://realpython.com/working-with-files-in-python/
+    video:
+    - tier: 2
+      title: Corey Schafer - Automate Rename
+      url: https://www.youtube.com/watch?v=ve2pmm5JqmI
+    real_world_examples:
+    - Rename 500 ảnh sản phẩm cho shop Shopee.
+    - Tổ chức file hợp đồng theo năm/tháng.
+    best_practices:
+    - LUÔN dry-run trước.
+    - Backup trước khi rename hàng loạt.
+    - Test trên 3 file trước khi chạy cả folder.
+    project_applications:
+    - Product photo renamer.
+    - File organizer by type.
+    monetization:
+    - "Rename files = task giá 300k-500k, demand rất cao. Shop online, văn phòng, photographer đều cần. POST JOB NÀY LÊN FACEBOOK."
+    duration_minutes: 25
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 36
+    - 37
+    - 42
+    first_money_drill:
+      enabled: true
+      task: "Rename 20 file ảnh từ IMG_XXXX.jpg thành product_001.jpg đến product_020.jpg. Dry-run trước, rename thật sau khi confirm."
+      input_sample: "IMG_4521.jpg\nIMG_4522.jpg\n...\nIMG_4540.jpg"
+      expected_output: "DRY-RUN:\nIMG_4521.jpg -> product_001.jpg\nIMG_4522.jpg -> product_002.jpg\n...\n\nRENAME COMPLETE: 20 files renamed."
+      deliverable: "rename_photos.py"
+      delivery_package:
+      - script: "rename_photos.py"
+      - backup_folder: "photos_backup/"
+      - readme: "README.md"
+      - test_command: "python rename_photos.py photos/ --dry-run"
+      market_note: "Đây là DRILL để tập kỹ năng. Rename files có thể bán 300k-500k VND (coach observation). Nhưng cần backup folder + dry-run default + test command."
+      gate_status: "LEVEL 1 REHEARSAL — chưa phải post job, cần hoàn thành bài 43 + deliverable package"
+  - id: 44
+    title: Building Automation Scripts
+    objective: "Ghép file I/O + CSV + os thành script automation hoàn chỉnh có argument, logging, error handling."
+    explanation: "Đây là bài tổng hợp. Một script automation thật cần nhận argument, scan folder, xử lý file, ghi output, và log kết quả. Bài này giúp learner ghép mọi thứ đã học thành 1 script chuyên nghiệp giao khách được."
+    examples:
+    - "import sys\nimport csv\nfrom pathlib import Path\n\ndef process_csv(input_path, output_path):\n    cleaned = 0\n    errors = 0\n    with open(input_path, 'r', encoding='utf-8') as fin:\n        reader = csv.DictReader(fin)\n        rows = []\n        for row in reader:\n            name = row['name'].strip().title()\n            if name:\n                rows.append({'name': name, 'email': row['email'].strip().lower()})\n                cleaned += 1\n            else:\n                errors += 1\n    with open(output_path, 'w', newline='', encoding='utf-8') as fout:\n        writer = csv.DictWriter(fout, fieldnames=['name', 'email'])\n        writer.writeheader()\n        writer.writerows(rows)\n    return cleaned, errors\n\nif __name__ == '__main__':\n    inp = sys.argv[1] if len(sys.argv) > 1 else 'input.csv'\n    out = sys.argv[2] if len(sys.argv) > 2 else 'output.csv'\n    c, e = process_csv(inp, out)\n    print(f'Done: {c} cleaned, {e} errors')"
+    exercise: "Viết script tự động: scan folder → tìm tất cả file .csv → clean mỗi file (strip, deduplicate) → ghi cleaned file vào folder output/ → in summary log."
+    hints:
+    - Ghép pathlib.glob + csv module + error handling.
+    - sys.argv cho argument từ terminal.
+    - In log rõ ràng cho từng file.
+    sources:
+    - tier: 1
+      title: Python sys module
+      url: https://docs.python.org/3/library/sys.html
+    - tier: 2
+      title: Real Python - Command Line Interfaces
+      url: https://realpython.com/command-line-interfaces-python-argparse/
+    video:
+    - tier: 2
+      title: Corey Schafer - Automate Rename
+      url: https://www.youtube.com/watch?v=ve2pmm5JqmI
+    real_world_examples:
+    - Script auto clean mọi CSV trong folder nhận từ khách.
+    - Script scan + organize + report folder hàng tháng.
+    best_practices:
+    - Tách logic xử lý thành function.
+    - Ghi log cho từng step.
+    - Luôn có dry-run mode.
+    project_applications:
+    - CSV batch cleaner.
+    - Folder automation script.
+    monetization:
+    - "Script automation hoàn chỉnh giá 500k-1.5m VND. Bạn đã ở Level 1 vững chắc, sẵn sàng nhận job."
+    duration_minutes: 30
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 32
+    - 33
+    - 35
+    - 36
+    - 37
+    - 38
+    - 39
+    - 40
+    - 42
+    first_money_drill:
+      enabled: true
+      task: "Viết auto_clean_folder.py: scan folder input/ → tìm mọi .csv → clean (strip, deduplicate, validate) → ghi vào output/ → in summary."
+      input_sample: "input/orders_jan.csv (20 dòng, 3 trùng)\ninput/orders_feb.csv (15 dòng, 1 lỗi encoding)\ninput/orders_mar.csv (25 dòng, 5 trùng)"
+      expected_output: "PROCESSING:\n- orders_jan.csv: 20 -> 17 rows (3 duplicates)\n- orders_feb.csv: 15 -> 14 rows (1 encoding fix)\n- orders_mar.csv: 25 -> 20 rows (5 duplicates)\n\nTOTAL: 60 -> 51 rows cleaned\nOutput: output/ folder"
+      deliverable: "auto_clean_folder.py"
+      delivery_package:
+      - script: "auto_clean_folder.py"
+      - sample_input: "input/"
+      - sample_output: "output/"
+      - readme: "README.md"
+      - test_command: "python auto_clean_folder.py input/ output/ --dry-run"
+      market_note: "Đây là DRILL để tập kỹ năng. Script automation batch processing có thể bán 1m-2m VND (coach observation). Nhưng cần dry-run mode + test command + log rõ ràng."
+      gate_status: "LEVEL 1-2 REHEARSAL — chưa phải post job, cần hoàn thành bài 44 + deliverable package"
+- id: 12
+  title: First Money Projects
+  description: "3 capstone projects hoàn chỉnh, mỗi project là 1 deliverable giao khách được ngay."
+  lessons:
+  - id: 45
+    title: "Project: merge_orders.py"
+    objective: "Capstone project: gộp nhiều file đơn hàng CSV/Excel thành 1 file tổng hợp có summary."
+    explanation: "Đây là CAPSTONE PROJECT cho Chapter 12. Hoàn thành project này = learner có deliverable package đầu tiên có thể post job được. Project merge_orders.py giá 500k-1.5m VND (verified signal: similar tasks on Upwork/Facebook groups)."
+    evidence:
+    - claim: "merge_orders.py có thể bán 500k-1.5m VND"
+      type: "verified signal"
+      source: "similar tasks observed on Facebook groups VN (freelance Python jobs) + coach market observation"
+    examples:
+    - "Full working merge_orders.py script (see market-grounding.md Case 1)"
+    exercise: "Build merge_orders.py hoàn chỉnh:\n1. Nhận 3 file CSV đơn hàng (shopee.csv, lazada.csv, tiki.csv)\n2. Normalize headers (mỗi sàn format khác nhau)\n3. Gộp thành 1 file combined_orders.csv\n4. In summary: số đơn mỗi sàn, tổng doanh thu\n5. Viết README.md với hướng dẫn chạy\n6. Tạo requirements.txt"
+    hints:
+    - DictReader cho mỗi file.
+    - Map headers về chuẩn chung.
+    - Ghi summary ở cuối hoặc file riêng.
+    sources:
+    - tier: 1
+      title: Python csv module
+      url: https://docs.python.org/3/library/csv.html
+    - tier: 2
+      title: Real Python - CSV
+      url: https://realpython.com/python-csv/
+    video:
+    - tier: 2
+      title: Corey Schafer - CSV Module
+      url: https://www.youtube.com/watch?v=q5uM4VKywbA
+    real_world_examples:
+    - "Gộp đơn hàng Shopee + Lazada + Tiki cho kế toán cuối tuần."
+    best_practices:
+    - Validate headers trước khi merge.
+    - Ghi log số dòng mỗi file.
+    - Giữ file gốc không sửa.
+    project_applications:
+    - Multi-platform order merger.
+    monetization:
+    - "PROJECT KIẾM TIỀN ĐẦU TIÊN. Giá 500k-1.5m VND. Deliverables: script + sample data + README + requirements.txt. Post lên Facebook groups ngay."
+    duration_minutes: 45
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 31
+    - 32
+    - 33
+    - 35
+    - 36
+    - 37
+    - 38
+    - 39
+    - 40
+    - 41
+    first_money_drill:
+      enabled: true
+      task: "Build merge_orders.py hoàn chỉnh với 3 file CSV mẫu, summary report, README, requirements.txt."
+      input_sample: "shopee.csv (15 đơn, headers: order_id,customer,amount,date)\nlazada.csv (10 đơn, headers: id,buyer,total,order_date)\ntiki.csv (8 đơn, headers: ma_don,ten_khach,so_tien,ngay)"
+      expected_output: "MERGE REPORT:\n- shopee.csv: 15 đơn\n- lazada.csv: 10 đơn\n- tiki.csv: 8 đơn\nTổng: 33 đơn\nTổng doanh thu: 12,500,000 VND\n\nFile: combined_orders.csv"
+      deliverable: "merge_orders.py"
+      delivery_package:
+      - script: "merge_orders.py"
+      - sample_input: ["shopee.csv", "lazada.csv", "tiki.csv"]
+      - sample_output: "combined_orders.csv"
+      - readme: "README.md"
+      - requirements: "requirements.txt"
+      - test_command: "python merge_orders.py shopee.csv lazada.csv tiki.csv combined_orders.csv"
+      market_note: "Đây là CAPSTONE PROJECT đầu tiên. Khi hoàn thành, learner CÓ THỂ post job merge orders. Giá market: 500k-1.5m VND (verified signal từ Facebook groups)."
+      gate_status: "LEVEL 1 READY — post job được sau khi có deliverable package đầy đủ"
+  - id: 46
+    title: "Project: clean_customer_data.py"
+    objective: "Capstone project: clean full CSV data — deduplicate, normalize, validate, report."
+    explanation: "Đây là CAPSTONE PROJECT thứ hai. Hoàn thành = learner có thêm 1 deliverable trong portfolio. Clean CSV là task phổ biến nhất, giá 300k-800k VND (verified signal từ Facebook groups)."
+    evidence:
+    - claim: "clean_customer_data.py có thể bán 300k-800k VND"
+      type: "verified signal"
+      source: "similar tasks observed on Facebook groups VN (freelance Python jobs) + coach market observation"
+    examples:
+    - "Full working clean_customer_data.py script"
+    exercise: "Build clean_customer_data.py hoàn chỉnh:\n1. Đọc dirty_customers.csv (100 dòng)\n2. Strip + normalize tên\n3. Validate email (có @ và .)\n4. Validate phone (10-11 digits)\n5. Deduplicate by email\n6. Ghi cleaned_customers.csv\n7. Ghi error_log.csv (dòng bị loại + lý do)\n8. In summary report"
+    hints:
+    - Tách logic thành function cho mỗi validation.
+    - Ghi cả dòng lỗi vào file riêng.
+    - Summary phải có trước/sau count.
+    sources:
+    - tier: 1
+      title: Python csv module
+      url: https://docs.python.org/3/library/csv.html
+    - tier: 2
+      title: Real Python - CSV
+      url: https://realpython.com/python-csv/
+    video:
+    - tier: 2
+      title: Corey Schafer - CSV Module
+      url: https://www.youtube.com/watch?v=q5uM4VKywbA
+    real_world_examples:
+    - Clean database khách hàng cho shop.
+    - Chuẩn hóa data trước khi import CRM.
+    best_practices:
+    - Giữ file gốc.
+    - Tách clean logic và error logic.
+    - Log mọi quyết định.
+    project_applications:
+    - Customer data cleaner.
+    monetization:
+    - "Clean CSV data = job thường xuyên, giá 300k-800k VND. Nếu maintain tháng = 500k-1m/tháng."
+    duration_minutes: 45
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 18
+    - 22
+    - 27
+    - 30
+    - 32
+    - 33
+    - 35
+    - 36
+    - 37
+    - 39
+    - 40
+    first_money_drill:
+      enabled: true
+      task: "Build clean_customer_data.py hoàn chỉnh: đọc file bẩn, clean, validate, deduplicate, ghi file sạch + error log + summary."
+      input_sample: "dirty_customers.csv with 100 rows: mixed case names, duplicate emails, invalid phones, missing fields"
+      expected_output: "CLEAN REPORT:\n- Input: 100 rows\n- Duplicates removed: 12\n- Invalid email: 5\n- Invalid phone: 8\n- Missing name: 3\n- Clean output: 72 rows\n\nFiles: cleaned_customers.csv, error_log.csv"
+      deliverable: "clean_customer_data.py"
+      delivery_package:
+      - script: "clean_customer_data.py"
+      - sample_input: "dirty_customers.csv"
+      - sample_output: "cleaned_customers.csv"
+      - error_log: "error_log.csv"
+      - readme: "README.md"
+      - test_command: "python clean_customer_data.py dirty_customers.csv cleaned_customers.csv"
+      market_note: "Đây là CAPSTONE PROJECT thứ hai. Khi hoàn thành, learner CÓ THỂ post job clean CSV. Giá market: 300k-800k VND (verified signal từ Facebook groups)."
+      gate_status: "LEVEL 1 READY — post job được sau khi có deliverable package đầy đủ"
+  - id: 47
+    title: "Project: organize_product_photos.py"
+    objective: "Capstone project: rename + organize photos cho shop online theo pattern chuẩn."
+    explanation: "Đây là CAPSTONE PROJECT thứ ba. Hoàn thành = learner có 3 deliverable trong portfolio. Rename/organize photos giá 300k-500k VND (verified signal từ Facebook groups), demand cao vì output nhìn thấy ngay."
+    evidence:
+    - claim: "organize_product_photos.py có thể bán 300k-500k VND"
+      type: "verified signal"
+      source: "similar tasks observed on Facebook groups VN (freelance Python jobs) + coach market observation"
+    examples:
+    - "Full working organize_product_photos.py script"
+    exercise: "Build organize_product_photos.py hoàn chỉnh:\n1. Scan folder photos/\n2. Lọc file ảnh (.jpg, .jpeg, .png)\n3. Sort theo tên hoặc date\n4. Rename theo pattern: product_001.jpg, product_002.jpg\n5. Tạo backup folder trước khi rename\n6. Dry-run mode mặc định\n7. In summary: bao nhiêu file, renamed, skipped"
+    hints:
+    - Luôn backup trước.
+    - Dry-run mặc định rồi user confirm mới rename thật.
+    - "glob('*.jpg') + glob('*.png')."
+    sources:
+    - tier: 1
+      title: Python pathlib module
+      url: https://docs.python.org/3/library/pathlib.html
+    - tier: 1
+      title: Python shutil module
+      url: https://docs.python.org/3/library/shutil.html
+    video:
+    - tier: 2
+      title: Corey Schafer - Automate Rename
+      url: https://www.youtube.com/watch?v=ve2pmm5JqmI
+    real_world_examples:
+    - Rename 500 ảnh sản phẩm cho shop Shopee.
+    - Organize photos theo category cho catalogue.
+    best_practices:
+    - BACKUP LÀ BẮT BUỘC.
+    - Dry-run trước mọi rename.
+    - Test trên 5 file trước cả folder.
+    project_applications:
+    - Product photo organizer.
+    - Bulk file renamer.
+    monetization:
+    - "Rename + organize photos = job rất dễ deal, output nhìn thấy ngay. Giá 300k-500k. Khách: shop online, photographer."
+    duration_minutes: 45
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 36
+    - 37
+    - 42
+    - 43
+    first_money_drill:
+      enabled: true
+      task: "Build organize_product_photos.py: scan folder, filter images, backup, dry-run, rename theo pattern, summary."
+      input_sample: "photos/ folder with: IMG_4521.jpg, photo_final.png, product_v2.jpeg, DSC_0001.jpg, ... (20 files)"
+      expected_output: "DRY-RUN MODE:\nIMG_4521.jpg -> product_001.jpg\nDSC_0001.jpg -> product_002.jpg\nphoto_final.png -> product_003.png\n...\n\n20 files to rename. Type 'yes' to confirm.\n\nRENAME COMPLETE:\n- Renamed: 20 files\n- Backup: photos_backup/\n- Pattern: product_NNN.ext"
+      deliverable: "organize_product_photos.py"
+      delivery_package:
+      - script: "organize_product_photos.py"
+      - backup_folder: "photos_backup/"
+      - readme: "README.md"
+      - test_command: "python organize_product_photos.py photos/ --dry-run"
+      market_note: "Đây là CAPSTONE PROJECT thứ ba. Khi hoàn thành, learner CÓ THỂ post job rename/organize photos. Giá market: 300k-500k VND (verified signal từ Facebook groups)."
+      gate_status: "LEVEL 1 READY — post job được sau khi có deliverable package đầy đủ"

@@ -1,0 +1,209 @@
+- id: 5
+  title: Python Conditional Statements
+  description: 'Viết điều kiện từ cơ bản đến nâng cao: if/elif/else, nested, inline if, match case.'
+  project_milestone:
+    projects:
+    - project: P2 — Expense Tracking System
+      step: "Step 2: Expense Validator"
+      task: |
+        Viết script expense_validator.py:
+        1. Nhận amount từ input(), convert sang float
+        2. Nhận category từ input()
+        3. if amount <= 0: in "Số tiền không hợp lệ"
+        4. elif category not in ["Food", "Transport", "Entertainment"]: in "Category không hợp lệ"
+        5. else: in "Expense hợp lệ: {category} - {amount} VND"
+      concepts_used: [if/elif/else, comparison, "not in", nested conditions]
+    - project: P3 — Mini Banking System
+      step: "Step 2: Transaction Menu"
+      task: |
+        Viết script banking_menu.py:
+        1. balance = 1000000
+        2. Nhận action từ input(): "deposit", "withdraw", "check"
+        3. if action == "deposit": nhận amount, balance += amount
+        4. elif action == "withdraw":
+           - Nhận amount
+           - if amount > balance: "Không đủ tiền"
+           - else: balance -= amount
+        5. elif action == "check": in balance
+        6. else: "Hành động không hợp lệ"
+      concepts_used: [if/elif/else, nested if, comparison operators]
+    note: "Chapter 6 sẽ dạy loop để user có thể thao tác nhiều lần liên tục."
+  lessons:
+  - id: 15
+    title: If, Else, Elif
+    objective: Viết điều kiện cơ bản bằng if, elif, else.
+    explanation: Conditional statements là nơi chương trình bắt đầu “ra quyết định”. Bài này tập trung vào cấu trúc if/elif/else rõ ràng, không lồng sâu vô ích, và dùng để biến dữ liệu đầu vào thành kết quả có ý nghĩa. Nếu learner làm vững bài này, từ đây có thể viết các rule rất gần với công việc thật.
+    examples:
+    - "score = 92\nif score >= 90:\n    print('A')\nelif score >= 80:\n    print('B')\nelse:\n    print('C hoặc thấp hơn')"
+    - "age = 17\nif age >= 18:\n    print('Adult')\nelse:\n    print('Minor')"
+    exercise: Viết chương trình nhận điểm số và xếp loại A/B/C/D/F.
+    hints:
+    - Xếp các điều kiện từ cao xuống thấp.
+    - Nhớ thụt lề 4 spaces.
+    sources:
+    - tier: 1
+      title: Python Tutorial - if Statements
+      url: https://docs.python.org/3/tutorial/controlflow.html#if-statements
+    - tier: 2
+      title: Real Python - Conditional Statements in Python
+      url: https://realpython.com/python-conditional-statements/
+    - tier: 1
+      title: CS50P Week 1
+      url: https://cs50.harvard.edu/python/2022/weeks/1/
+    video:
+    - tier: 2
+      title: Corey Schafer - If, Elif, Else
+      url: https://www.youtube.com/watch?v=DZwmZ8Usvnk
+    extra_practice: ''
+    real_world_examples:
+    - Xếp loại khách hàng theo điểm.
+    - Phân loại đơn hàng theo trạng thái thanh toán.
+    best_practices:
+    - Đặt rule từ cụ thể đến tổng quát.
+    - Giữ nhánh điều kiện ngắn, dễ đọc.
+    - Test với giá trị biên.
+    project_applications:
+    - Grade classifier.
+    - Order status classifier.
+    monetization:
+    - "Xếp loại đơn hàng, phân loại khách — logic này xuất hiện trong mọi script business. Còn 5 bài để ghép thành tool giao khách."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 12
+    - 13
+    solution_hint: ''
+    common_mistakes:
+    - Thụt lề sai.
+    - Viết điều kiện chồng chéo làm kết quả sai.
+  - id: 16
+    title: Nested & Advanced Conditions
+    objective: Viết nested conditions và conditions phức hợp mà vẫn đọc được.
+    explanation: 'Khi rule nghiệp vụ bắt đầu nhiều lớp, learner thường viết condition thành bức tường khó đọc. Bài này dạy hai hướng: nested conditions khi thật sự cần, và tách điều kiện thành biến trung gian để code bớt rối. Mục tiêu là giải bài toán thực chứ không khoe viết một dòng.'
+    examples:
+    - "age = 20\nemail_verified = True\nif age >= 18:\n    if email_verified:\n        print('Approved')\n    else:\n        print('Verify email first')"
+    - 'age = 20
+
+      email_verified = True
+
+      is_eligible = age >= 18 and email_verified
+
+      print(is_eligible)'
+    exercise: Viết chương trình duyệt tài khoản nếu người dùng đủ tuổi, đã xác thực email và không bị khóa.
+    hints:
+    - 'So sánh 2 cách: nested if và biến trung gian.'
+    - Nếu condition dài, tách ra biến.
+    sources:
+    - tier: 1
+      title: Python Tutorial - if Statements
+      url: https://docs.python.org/3/tutorial/controlflow.html#if-statements
+    - tier: 2
+      title: Real Python - Conditional Statements in Python
+      url: https://realpython.com/python-conditional-statements/
+    - tier: 1
+      title: CS50P Week 1
+      url: https://cs50.harvard.edu/python/2022/weeks/1/
+    video:
+    - tier: 2
+      title: Corey Schafer - Conditionals
+      url: https://www.youtube.com/watch?v=DZwmZ8Usvnk
+    extra_practice: ''
+    real_world_examples:
+    - Duyệt tài khoản user theo nhiều rule.
+    - Xác định khách đủ điều kiện hoàn tiền hay không.
+    best_practices:
+    - Ưu tiên readability hơn “gói một dòng”.
+    - Tách điều kiện business phức tạp thành biến có tên rõ.
+    - Chỉ nested khi thật sự có cấu trúc cha-con.
+    project_applications:
+    - Account approval checker.
+    - Refund eligibility checker.
+    monetization:
+    - "Duyệt tài khoản, kiểm tra hoàn tiền — logic nhiều lớp là đúng pattern job thật. Gate B locked in."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 12
+    - 13
+    - 15
+    solution_hint: ''
+    common_mistakes:
+    - Nested quá sâu mà không tách biến.
+    - Dùng or/and sai precedence.
+  - id: 17
+    title: Inline If & Match Case
+    objective: Dùng inline if và match-case ở mức thực dụng, không lạm dụng.
+    explanation: 'Conditional expression (`x if cond else y`) hữu ích khi logic ngắn và rõ. `match-case` mạnh khi bạn xử lý nhiều lựa chọn cố định như menu, command, trạng thái. Điểm quan trọng: chỉ dùng khi nó làm code rõ hơn, không phải để trông “pro” hơn. Bài này giúp learner biết khi nào nên dùng và khi nào nên giữ if/elif bình thường.'
+    examples:
+    - 'score = 8
+
+      label = ''pass'' if score >= 5 else ''fail''
+
+      print(label)'
+    - "command = 'start'\nmatch command:\n    case 'start':\n        print('Run')\n    case 'stop':\n        print('Stop')\n    case _:\n        print('Unknown')"
+    exercise: Dùng inline if để gán nhãn pass/fail cho điểm. Sau đó viết một menu đơn giản bằng match-case cho 4 lựa chọn.
+    hints:
+    - Inline if chỉ nên dùng khi rất ngắn.
+    - Dùng `case _` cho nhánh mặc định.
+    sources:
+    - tier: 1
+      title: Python Conditional Expressions
+      url: https://docs.python.org/3/reference/expressions.html#conditional-expressions
+    - tier: 1
+      title: Python Tutorial - match Statements
+      url: https://docs.python.org/3/tutorial/controlflow.html#match-statements
+    - tier: 2
+      title: Real Python - Structural Pattern Matching
+      url: https://realpython.com/structural-pattern-matching/
+    video:
+    - tier: 2
+      title: Real Python - Structural Pattern Matching
+      url: https://realpython.com/courses/structural-pattern-matching/
+    extra_practice: ''
+    real_world_examples:
+    - Xử lý command terminal nội bộ.
+    - Map trạng thái đơn hàng từ mã ngắn sang hành động.
+    best_practices:
+    - Không ép mọi if thành inline if.
+    - Dùng match-case cho enum-like values.
+    - Giữ mỗi case ngắn và rõ.
+    project_applications:
+    - Menu CLI mini.
+    - Status handler bằng match-case.
+    monetization:
+    - "Match-case xử lý menu/command — dùng trong CLI tool nội bộ. Nền đã vững, sắp bước vào loops."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 12
+    - 13
+    - 15
+    - 16
+    solution_hint: ''
+    common_mistakes:
+    - Dùng inline if cho logic dài khó đọc.
+    - Quên case mặc định `_`.
+    first_money_drill:
+      enabled: true
+      task: "Nhận danh sách đơn hàng với trạng thái và số tiền, phân loại thành: cần xử lý gấp (>1M + chưa thanh toán), bình thường, đã hoàn thành."
+      input_sample: "DH001:1500000:chua_thanh_toan\nDH002:300000:da_thanh_toan\nDH003:2000000:chua_thanh_toan\nDH004:500000:da_giao"
+      expected_output: "CẦN XỬ LÝ GẤP:\n- DH001: 1,500,000 VND\n- DH003: 2,000,000 VND\n\nĐÃ HOÀN THÀNH:\n- DH002: 300,000 VND\n- DH004: 500,000 VND"
+      deliverable: "order_classifier.py"
+      delivery_package: ["order_classifier.py", "orders.txt", "README.md"]
+      market_note: "Phân loại đơn hàng tự động — task rất phổ biến cho team vận hành shop, giá 500k-800k."
+      gate_status: "Gate A+B+partial C unlocked (đọc input + logic phân loại + xuất báo cáo text)"

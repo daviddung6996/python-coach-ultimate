@@ -1,0 +1,218 @@
+- id: 2
+  title: Python Strings
+  description: 'Làm chủ chuỗi: tạo chuỗi, truy cập ký tự, cắt chuỗi, tìm kiếm, validate, đổi chữ hoa/thường.'
+  project_milestone:
+    project: P1 — User Registration System
+    step: "Step 2: Name & Email Validation"
+    task: |
+      Mở rộng registration_form.py từ Chapter 1:
+      1. Kiểm tra name có >= 3 ký tự không (dùng len())
+      2. Kiểm tra email chứa "@" và "." (dùng "in" operator)
+      3. In "Name hợp lệ" / "Name quá ngắn" tương ứng
+      4. In "Email hợp lệ" / "Email sai format" tương ứng
+      5. Thử .strip() và .title() để chuẩn hóa name trước khi in
+    concepts_used:
+    - len()
+    - 'in" operator'
+    - string methods — strip(), title(), lower()
+    example: |
+      name = input("Tên: ")
+      if len(name) >= 3:
+          print("Name hợp lệ:", name.strip().title())
+      else:
+          print("Name quá ngắn, cần ít nhất 3 ký tự")
+    note: "Chapter 5 sẽ dạy if/else chính thức. Ở đây learner được 'nếm thử' để thấy ứng dụng thật."
+  lessons:
+  - id: 7
+    title: String Basics & Transformations
+    objective: Làm chủ tạo chuỗi, nối chuỗi, format chuỗi, và những biến đổi cơ bản với text.
+    explanation: 'String là kiểu dữ liệu bạn dùng liên tục: tên người dùng, email, file path, prompt, message, report. Bài này tập trung vào các thao tác cốt lõi nhất: tạo chuỗi, nối chuỗi, f-string, lower/upper/strip/replace. Nếu làm tốt bài này, learner bắt đầu viết được output đẹp, sạch, và đỡ xử lý text một cách vụng về.'
+    examples:
+    - 'first = ''Luc''
+
+      last = ''Nguyen''
+
+      print(first + '' '' + last)'
+    - 'name = ''luc''
+
+      print(name.upper())
+
+      print(name.title())'
+    - 'product = ''Bàn phím''
+
+      price = 450000
+
+      print(f''{product}: {price} VND'')'
+    exercise: Tạo một chuỗi giới thiệu sản phẩm gồm tên, giá, trạng thái còn hàng bằng f-string; đồng thời chuẩn hóa tên sản phẩm sang title case.
+    hints:
+    - Ưu tiên f-string thay vì nối chuỗi dài bằng +.
+    - Dùng `.strip()` nếu có khoảng trắng thừa.
+    sources:
+    - tier: 1
+      title: Python String Methods
+      url: https://docs.python.org/3/library/stdtypes.html#string-methods
+    - tier: 2
+      title: Real Python - Python Strings
+      url: https://realpython.com/python-strings/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - String Methods
+      url: https://www.youtube.com/watch?v=k9TUPpGqYTo
+    extra_practice: ''
+    real_world_examples:
+    - Chuẩn hóa tên khách hàng trước khi lưu file CSV.
+    - Tạo dòng tiêu đề cho báo cáo tự động gửi mỗi ngày.
+    best_practices:
+    - Dùng f-string cho output mới.
+    - Normalize input text trước khi so sánh.
+    - Tránh tạo chuỗi khó đọc bằng quá nhiều dấu +.
+    project_applications:
+    - Product label formatter.
+    - Simple profile summary generator.
+    monetization:
+    - "Kỹ năng format text dùng trực tiếp trong clean_names.py — task phổ biến nhất trên freelance. Tiến độ: 2/6 bước đến first-money script."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    solution_hint: ''
+    common_mistakes:
+    - Nối string với number mà không ép kiểu hoặc f-string.
+    - Không strip khoảng trắng đầu/cuối trước khi xử lý.
+  - id: 8
+    title: Indexing & Slicing
+    objective: Truy cập ký tự bằng index, cắt chuỗi bằng slice, và đảo chuỗi khi cần.
+    explanation: Indexing và slicing giúp bạn đọc đúng phần dữ liệu mình cần thay vì xử lý cả chuỗi. Đây là kỹ năng rất thực dụng khi làm username, mã đơn hàng, file extension, hay text parsing đơn giản. Bài này không chỉ là cú pháp `[start:end]` mà còn là tư duy “tôi muốn lấy đúng phần nào của chuỗi”.
+    examples:
+    - 'text = ''Python''
+
+      print(text[0])
+
+      print(text[-1])'
+    - 'sku = ''SKU-2026-001''
+
+      print(sku[:3])
+
+      print(sku[-3:])'
+    - 'word = "level"
+    # Đảo ngược chuỗi bằng hàm reversed() (cách viết rõ ràng)
+    print("".join(reversed(word)))'
+    exercise: Cho một username, in ra ký tự đầu, 3 ký tự cuối, và chuỗi đảo ngược của username.
+    hints:
+    - Index âm đếm từ cuối chuỗi.
+    - Slice end là loại trừ.
+    sources:
+    - tier: 1
+      title: Python Text Sequence Type str
+      url: https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str
+    - tier: 2
+      title: Real Python - Python String Slicing
+      url: https://realpython.com/lessons/string-slicing/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - String Slicing
+      url: https://www.youtube.com/watch?v=k9TUPpGqYTo
+    extra_practice: ''
+    real_world_examples:
+    - Lấy 4 ký tự cuối để kiểm tra đuôi file `.csv`.
+    - Tách mã sản phẩm từ một chuỗi có format cố định.
+    best_practices:
+    - Viết ví dụ nhỏ để tự kiểm tra slice.
+    - Đọc kỹ quy tắc start inclusive, end exclusive.
+    - Dùng tên biến rõ phần bạn đang cắt.
+    project_applications:
+    - Username analyzer.
+    - Simple file extension checker.
+    monetization:
+    - "Slicing dùng để tách mã đơn hàng, mã sản phẩm từ chuỗi. Tiến độ: Gate A đang mở (đọc và xử lý text input)."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    solution_hint: ''
+    common_mistakes:
+    - Quên rằng end bị loại trừ.
+    - Nhầm index âm với index dương.
+  - id: 9
+    title: Search, Validation & Case Conversion
+    objective: Tìm kiếm trong chuỗi, validate dữ liệu text cơ bản, và chuyển đổi hoa/thường đúng chỗ.
+    explanation: Xử lý text thực tế không chỉ là in đẹp mà còn là kiểm tra dữ liệu có hợp lệ không. Bài này tập trung vào `in`, `.find()`, `.startswith()`, `.endswith()`, `.isalpha()`, `.isdigit()`, lower/upper/title. Đây là lớp kỹ năng rất gần thực tế vì form nhập liệu, search keyword, email, username đều cần validation cơ bản.
+    examples:
+    - 'email = ''luc@example.com''
+
+      print(''@'' in email)'
+    - 'name = ''  lUc nGuYeN  ''
+
+      print(name.strip().title())'
+    - 'code = ''A123''
+
+      print(code.startswith(''A''))'
+    exercise: Viết chương trình nhận một email, kiểm tra có chứa `@` và dấu `.` hay không, rồi chuẩn hóa tên người dùng về lower case.
+    hints:
+    - Validation ở đây là cơ bản, chưa phải regex.
+    - Dùng `.strip()` trước khi xử lý text người dùng nhập.
+    sources:
+    - tier: 1
+      title: Python String Methods
+      url: https://docs.python.org/3/library/stdtypes.html#string-methods
+    - tier: 2
+      title: Real Python - How to Confirm a String Contains Another String
+      url: https://realpython.com/python-string-contains-substring/
+    - tier: 2
+      title: Real Python - Python String Formatting and Manipulation
+      url: https://realpython.com/python-strings/
+    video:
+    - tier: 2
+      title: Corey Schafer - String Methods
+      url: https://www.youtube.com/watch?v=k9TUPpGqYTo
+    extra_practice: ''
+    real_world_examples:
+    - Validate email đơn giản trước khi lưu lead khách hàng.
+    - Chuẩn hóa tên sản phẩm từ nhiều nguồn nhập tay.
+    best_practices:
+    - Luôn normalize dữ liệu text trước khi compare.
+    - Bắt đầu bằng validation cơ bản trước khi dùng regex.
+    - Tách rõ bước kiểm tra và bước biến đổi.
+    project_applications:
+    - Email sanity checker.
+    - Keyword search tool cho tiêu đề sản phẩm.
+    monetization:
+    - "Validation text = bước đầu tiên của mọi data cleaning job. Tiến độ: Gate A+B đã mở (đọc input + xử lý có điều kiện)."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    solution_hint: ''
+    common_mistakes:
+    - Dùng `.find()` nhưng quên -1 nghĩa là không thấy.
+    - Không strip dữ liệu trước khi validate.
+    first_money_drill:
+      enabled: true
+      task: "Nhận file text chứa danh sách tên khách hàng bẩn (thừa space, viết hoa lung tung), chuẩn hóa tất cả về Title Case, bỏ khoảng trắng thừa."
+      input_sample: "  nguyen van a \nTRAN THI B\n  le van c  \n PHAM   THI   D "
+      expected_output: "Nguyen Van A\nTran Thi B\nLe Van C\nPham Thi D"
+      deliverable: "clean_names.py"
+      delivery_package: ["clean_names.py", "sample_input.txt", "README.md"]
+      market_note: "Task này giá 300k-500k trên Facebook groups. Khách hàng: shop nhỏ cần chuẩn hóa danh sách khách/sản phẩm."
+      gate_status: "Gate A+B unlocked (đọc input text + xử lý chuỗi có điều kiện)"

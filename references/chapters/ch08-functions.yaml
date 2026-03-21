@@ -1,0 +1,281 @@
+- id: 8
+  title: Python Functions
+  description: Tách logic thành hàm sạch, có tham số, trả về giá trị, và viết code dễ tái sử dụng.
+  project_milestone:
+    projects:
+    - project: P1 — User Registration System
+      step: "Step 6 (FINAL): Complete System với Functions + Exception Handling"
+      task: |
+        Hoàn thiện registration_system.py:
+        1. validate_name(name) → return True/False
+        2. validate_email(email) → return True/False
+        3. validate_password(password) → return True/False (dùng any())
+        4. validate_user_data(name, email, password) → gọi 3 hàm trên, raise ValueError nếu fail
+        5. create_user_account(name, email, password) → try/except, check duplicate, return dict hoặc None
+        6. run_tests() → test 5 case: valid, duplicate, invalid name/email/password
+      concepts_used: [functions, parameters, return, raise ValueError, try/except, clean function design]
+      solution_ref: "references/project-step-solutions.md#chapter-8--p1-final-complete-user-registration-system"
+    - project: P2 — Expense Tracking System
+      step: "Step 5 (FINAL): Complete System với Functions"
+      task: |
+        Hoàn thiện expense_system.py:
+        1. add_expense(amount, category, description) → validate amount > 0, raise ValueError, return dict
+        2. calculate_total_expenses() → loop + return total
+        3. calculate_total_by_category(category) → filter + return total
+        4. show_expenses() → enumerate + formatted output
+        5. run_tests() → thêm expenses (gồm 1 invalid), in tổng, in theo category, show all
+      concepts_used: [functions, validation, raise/try-except, aggregation in functions]
+      solution_ref: "references/project-step-solutions.md#chapter-8--p2-final-complete-expense-tracking-system"
+    - project: P3 — Mini Banking System
+      step: "Step 5 (FINAL): Complete System với Functions + Helper Functions"
+      task: |
+        Hoàn thiện banking_system.py:
+        1. find_account(name) → helper, return dict hoặc None
+        2. create_account(name, initial_balance) → validate, check duplicate, return dict
+        3. deposit(name, amount) → validate, find account, update balance + transactions
+        4. withdraw(name, amount) → validate, check sufficient funds, update
+        5. show_account(name) → in summary + tất cả transactions
+        6. run_tests() → tạo account, deposit, withdraw, test overdraft, test duplicate
+      concepts_used: [functions, helper functions, raise/try-except, nested data mutation, clean design]
+      solution_ref: "references/project-step-solutions.md#chapter-8--p3-final-complete-mini-banking-system"
+    note: "Xong Chapter 8 = hoàn thành cả 3 project. So sánh code của bạn với solution file."
+  lessons:
+  - id: 32
+    title: Functions Introduction
+    objective: Hiểu vì sao cần hàm và biết định nghĩa/gọi hàm cơ bản.
+    explanation: Functions là bước chuyển từ code chắp vá sang code có cấu trúc. Khi bạn thấy mình copy-paste cùng một logic nhiều lần, đó là tín hiệu cần hàm. Bài này phải giúp learner hiểu function không phải “trang trí”, mà là cách đóng gói một công việc có tên và tái sử dụng được.
+    examples:
+    - "def greet():\n    print('Xin chào')\n\ngreet()"
+    - "def show_total():\n    total = 10 + 5\n    print(total)\n\nshow_total()"
+    exercise: 'Viết 2 hàm: `greet()` in lời chào và `show_goal()` in mục tiêu học Python của bạn. Gọi cả hai hàm.'
+    hints:
+    - Bắt đầu bằng `def ten_ham():`.
+    - Muốn chạy hàm thì phải gọi tên hàm kèm `()`.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Defining Functions
+      url: https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+    - tier: 2
+      title: Real Python - Defining Your Own Python Function
+      url: https://realpython.com/defining-your-own-python-function/
+    - tier: 1
+      title: CS50P Week 4
+      url: https://cs50.harvard.edu/python/2022/weeks/4/
+    video:
+    - tier: 2
+      title: Corey Schafer - Functions
+      url: https://www.youtube.com/watch?v=9Os0o3wzS_I
+    extra_practice: ''
+    real_world_examples:
+    - Đóng gói logic in báo cáo để dùng lại.
+    - Tạo hàm xử lý từng bước trong tool nội bộ.
+    best_practices:
+    - Tên hàm nên là động từ.
+    - Một hàm làm một việc.
+    - Gọi hàm để test ngay sau khi viết.
+    project_applications:
+    - Greeting function pack.
+    - Mini helper functions script.
+    monetization:
+    - "Function = đóng gói logic tái sử dụng. Từ đây bạn viết script có cấu trúc, giao được cho khách. Level 1 cận kề."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 15
+    - 18
+    solution_hint: ''
+    common_mistakes:
+    - Viết hàm xong quên gọi.
+    - Nhét quá nhiều việc vào một hàm.
+  - id: 33
+    title: Function Parameters & Return
+    objective: Dùng parameters, return, default values, keyword arguments đúng cách.
+    explanation: 'Một hàm chỉ thật sự mạnh khi nhận input và trả output. Bài này là mốc rất quan trọng vì từ đây learner có thể viết những khối logic tái sử dụng cho bài toán thật: tính tiền, format dữ liệu, validate đầu vào. `return` là điểm cần làm chắc: hàm không chỉ in ra, mà còn trả dữ liệu về cho phần khác dùng tiếp.'
+    examples:
+    - "def add(a, b):\n    return a + b\n\nprint(add(2, 3))"
+    - "def calculate_total(price, qty, discount=0):\n    return price * qty * (1 - discount)\n\nprint(calculate_total(100, 2, 0.1))"
+    - "def greet(name, city='Hanoi'):\n    return f'Xin chào {name} từ {city}'"
+    exercise: Viết hàm `calculate_total(price, qty, discount=0)` và dùng nó để tính tiền cho 3 đơn hàng khác nhau.
+    hints:
+    - Nếu muốn dùng kết quả tiếp, phải `return` thay vì chỉ `print`.
+    - Default parameter nên đặt ở cuối.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Defining Functions
+      url: https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+    - tier: 2
+      title: Real Python - The Python return Statement
+      url: https://realpython.com/python-return-statement/
+    - tier: 2
+      title: Real Python - Python Optional Arguments
+      url: https://realpython.com/python-optional-arguments/
+    video:
+    - tier: 2
+      title: Corey Schafer - Functions
+      url: https://www.youtube.com/watch?v=9Os0o3wzS_I
+    extra_practice: ''
+    real_world_examples:
+    - Viết hàm tính tổng đơn hàng để dùng lại nhiều nơi.
+    - Viết hàm format dữ liệu CSV trước khi xuất file.
+    best_practices:
+    - Dùng return cho dữ liệu, print cho debug/output cuối.
+    - Parameter name phải nói rõ ý nghĩa.
+    - Default args phải an toàn, đừng dùng mutable mặc định.
+    project_applications:
+    - Order total calculator function.
+    - Reusable discount function pack.
+    monetization:
+    - "Parameters + return = hàm nhận input, trả output. Đây là cột mốc: bạn đã viết được khối logic tái sử dụng cho script hoàn chỉnh. Level 1 đã mở nếu hoàn thành 1 project."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 32
+    solution_hint: ''
+    common_mistakes:
+    - Quên return nên kết quả là None.
+    - Đặt mutable object làm default arg.
+  - id: 34
+    title: Types of Python Functions
+    objective: Phân biệt các kiểu hàm phổ biến trong Python và dùng chúng đúng ngữ cảnh.
+    explanation: Không phải hàm nào cũng giống nhau. Có hàm không tham số, hàm có tham số, hàm trả về giá trị, hàm có default args, *args, **kwargs, và hàm nhận hàm khác làm đối số. Bài này giúp learner nhìn bức tranh tổng quát nhưng vẫn bám practical, không đi lan man vào functional programming nặng đầu.
+    examples:
+    - "def say_hi():\n    return 'hi'"
+    - "def total(*numbers):\n    return sum(numbers)"
+    - "def profile(**info):\n    return info\n\nprint(profile(name='Luc', role='Learner'))"
+    exercise: Viết 1 hàm không tham số, 1 hàm nhận *args để tính tổng, và 1 hàm nhận **kwargs để in hồ sơ user.
+    hints:
+    - '*args gom positional args, **kwargs gom named args.'
+    - Không cần dùng mấy kiểu này nếu function thường đã đủ.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Arbitrary Argument Lists
+      url: https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists
+    - tier: 2
+      title: Real Python - *args and **kwargs in Python
+      url: https://realpython.com/python-kwargs-and-args/
+    - tier: 2
+      title: Real Python - Defining Your Own Python Function
+      url: https://realpython.com/defining-your-own-python-function/
+    video:
+    - tier: 2
+      title: Corey Schafer - Args and Kwargs Tutorial
+      url: https://www.youtube.com/watch?v=84IOtc05TuA
+    extra_practice: ''
+    real_world_examples:
+    - Viết hàm gộp nhiều cột dữ liệu linh hoạt.
+    - Viết helper nhận nhiều config tùy chọn.
+    best_practices:
+    - Chỉ dùng *args/**kwargs khi thật sự cần linh hoạt.
+    - Ưu tiên signature rõ ràng với beginner.
+    - Giữ ví dụ nhỏ để hiểu bản chất.
+    project_applications:
+    - Flexible total calculator.
+    - Profile builder with kwargs.
+    monetization:
+    - "*args/**kwargs = hàm mềm dẻo hơn cho tool thật. Nâng tay nghề function = dễ maintain, dễ mở rộng."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 32
+    - 33
+    solution_hint: ''
+    common_mistakes:
+    - Dùng *args/**kwargs quá sớm làm code khó hiểu.
+    - Không biết hàm thật sự nhận gì.
+  - id: 35
+    title: Writing Clean Functions
+    objective: 'Viết hàm sạch: ngắn, rõ tên, rõ input/output, dễ test và dễ ghép thành script hoàn chỉnh.'
+    explanation: 'Đây là bài chốt phần functions. “Clean functions” nghe có vẻ mềm, nhưng thực ra là kỹ năng cực thực dụng: hàm ngắn hơn, bug ít hơn, test dễ hơn, bàn giao cho người khác đỡ khổ hơn. Nếu learner muốn tiến tới script nhận job nhỏ, đây là mindset bắt buộc.'
+    examples:
+    - "def normalize_name(name):\n    return name.strip().title()"
+    - "def calculate_line_total(price, qty):\n    return price * qty"
+    - "def build_order_summary(customer_name, total):\n    return f'{customer_name}: {total} VND'"
+    exercise: 'Refactor một đoạn script dài tính đơn hàng thành 3 hàm nhỏ: chuẩn hóa tên khách, tính tổng tiền, tạo summary output.'
+    hints:
+    - Mỗi hàm chỉ nên làm một việc duy nhất.
+    - Tên hàm phải nói rõ hàm đó làm gì.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Defining Functions
+      url: https://docs.python.org/3/tutorial/controlflow.html#defining-functions
+    - tier: 2
+      title: Real Python - Defining Your Own Python Function
+      url: https://realpython.com/defining-your-own-python-function/
+    video:
+    - tier: 2
+      title: Corey Schafer - Functions
+      url: https://www.youtube.com/watch?v=9Os0o3wzS_I
+    extra_practice: ''
+    real_world_examples:
+    - Viết script báo cáo đơn hàng gọn, dễ bàn giao.
+    - Refactor code cũ thành hàm nhỏ để maintain.
+    best_practices:
+    - Một hàm = một việc.
+    - Tên hàm là động từ mô tả hành động.
+    - Return dữ liệu thay vì print trực tiếp.
+    project_applications:
+    - Order report generator.
+    - Clean function refactoring exercise.
+    monetization:
+    - "Clean functions = code ngắn, rõ, dễ test, dễ bàn giao. Mindset bắt buộc để nhận job. Xong chapter này → sẵn sàng File I/O."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 32
+    - 33
+    - 34
+    solution_hint: ''
+    common_mistakes:
+    - Hàm quá dài, làm nhiều việc.
+    - Tên hàm không rõ nghĩa.
+    first_money_drill:
+      enabled: true
+      task: "Refactor script tính đơn hàng thành 3 hàm sạch: normalize_name(), calculate_total(), build_report(). Nhận file đơn hàng, xuất report text."
+      input_sample: "  nguyen van a |Chuot:2:350000|Ban_phim:1:850000\n TRAN THI B  |Tai_nghe:1:1200000"
+      expected_output: "BÁO CÁO ĐƠN HÀNG:\n\nKhách: Nguyen Van A\n- Chuot x2: 700,000 VND\n- Ban_phim x1: 850,000 VND\nTổng: 1,550,000 VND\n\nKhách: Tran Thi B\n- Tai_nghe x1: 1,200,000 VND\nTổng: 1,200,000 VND\n\nTỔNG DOANH THU: 2,750,000 VND"
+      deliverable: "report_generator.py"
+      delivery_package: ["report_generator.py", "orders.txt", "README.md"]
+      market_note: "Script báo cáo đơn hàng = task Level 1 hoàn chỉnh, giá 500k-1m VND. Đây là first real deliverable."
+      gate_status: "ALL GATES UNLOCKED — ready for first-money job"
+
+# ============================================================
+# PRACTICE PROJECTS — Progressive Build across Chapters 1-8
+# Mỗi chapter có project_milestone riêng. Learner xây dần
+# từng phần nhỏ, đến hết Chapter 8 thì hoàn thành cả 3 project.
+#
+# Progression Map:
+#   Ch.1 → P1 Step 1: Registration form (input/print)
+#   Ch.2 → P1 Step 2: Name & email validation (string methods)
+#   Ch.3 → P2 Step 1: Expense calculator (numbers/math)
+#   Ch.4 → P1 Step 3 + P3 Step 1: Password check + balance check (booleans)
+#   Ch.5 → P2 Step 2 + P3 Step 2: Validators + banking menu (conditionals)
+#   Ch.6 → P1 Step 4 + P2 Step 3 + P3 Step 3: Multi-iteration loops
+#   Ch.7 → P1 Step 5 + P2 Step 4 + P3 Step 4: List of dicts assembly
+#   Ch.8 → P1 Step 6 + P2 Step 5 + P3 Step 5: Functions + exception handling (FINAL)
+#
+# Solution files:
+#   P1: Project 1 Building a Secure User Registration System/158. Project Solution.md
+#   P2: Project 2 Building an Expense Tracking System/160. Project Solution.md
+#   P3: Project 3 Building a Mini Banking System/162. Project Solution.md
+# ============================================================
+

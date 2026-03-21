@@ -1,0 +1,179 @@
+- id: 9
+  title: File I/O
+  description: "Đọc, ghi, và xử lý file text — kỹ năng bắt buộc để làm job thật."
+  lessons:
+  - id: 36
+    title: Reading & Writing Text Files
+    objective: "Đọc file text bằng open()/with, ghi file mới, hiểu context manager."
+    explanation: "Đây là bài mở cửa first-money. Mọi job data cleaning, report, automation đều bắt đầu từ đọc file. `with open()` là pattern an toàn mặc định. Bài này phải giúp learner đọc được file thật, ghi được output thật, không chỉ print ra terminal."
+    evidence:
+    - claim: "Đọc/ghi file = kỹ năng bắt buộc cho mọi job data"
+      type: "coach heuristic"
+      source: "internal market observation from Luc + Facebook groups freelance listings"
+    - claim: "Corey Schafer File Objects video"
+      type: "verified direct"
+      source: "https://www.youtube.com/watch?v=Uh2ebFW8OYM — 2M views, 24:00, verified 2026-03-21"
+    examples:
+    - "with open('input.txt', 'r', encoding='utf-8') as f:\n content = f.read()\nprint(content)"
+    - "with open('output.txt', 'w', encoding='utf-8') as f:\n f.write('Dong 1\\n')\n f.write('Dong 2\\n')"
+    - "with open('data.txt', 'r', encoding='utf-8') as f:\n for line in f:\n print(line.strip())"
+    exercise: "Đọc file chứa danh sách tên khách hàng (mỗi dòng 1 tên), chuẩn hóa về Title Case, ghi ra file mới."
+    hints:
+    - Luôn dùng with open.
+    - "Nhớ encoding='utf-8' cho tiếng Việt."
+    - strip() mỗi dòng trước khi xử lý.
+    sources:
+    - tier: 1
+    title: Python Tutorial - Reading and Writing Files
+    url: https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+    - tier: 2
+    title: Real Python - Reading and Writing Files
+    url: https://realpython.com/read-write-files-python/
+    - tier: 1
+    title: CS50P Week 6
+    url: https://cs50.harvard.edu/python/2022/weeks/6/
+    video:
+    - tier: 2
+    title: Corey Schafer - File Objects
+    url: https://www.youtube.com/watch?v=Uh2ebFW8OYM
+    views: "2M"
+    duration: "24:00"
+    real_world_examples:
+    - Đọc danh sách khách hàng từ file text.
+    - Ghi báo cáo kết quả ra file text.
+    best_practices:
+    - Luôn dùng context manager (with).
+    - Chỉ định encoding rõ ràng.
+    - Đóng file tự động bằng with thay vì f.close().
+    project_applications:
+    - Customer name cleaner.
+    - Text file processor.
+    monetization:
+      framing: "pre-money rehearsal"
+      note: "Đây là bài mở khóa kỹ năng đọc/ghi file. MỌI job first-money đều cần skill này. Nhưng bài 36-41 là rehearsal — chưa phải lúc post job. Mốc thật: hoàn thành bài 40-41 (CSV processing) thì mới đủ package giao khách."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 15
+    - 18
+    - 32
+    - 33
+    first_money_drill:
+      enabled: true
+      task: "Đọc file chứa 30 tên khách hàng bẩn, strip + Title Case, ghi ra file sạch."
+      input_sample: " nguyen van a \nTRAN THI B\n le van c \n PHAM THI D "
+      expected_output: "Nguyen Van A\nTran Thi B\nLe Van C\nPham Thi D"
+      deliverable: "read_and_clean_names.py"
+      delivery_package:
+      - script: "read_and_clean_names.py"
+      - sample_input: "raw_names.txt"
+      - sample_output: "cleaned_names.txt"
+      - readme: "README.md"
+      - test_command: "python read_and_clean_names.py raw_names.txt cleaned_names.txt"
+      market_note: "Đây là DRILL, chưa phải job post được. Job thật bắt đầu từ bài 40-41 (CSV cleaning). Giá market cho task loại này: 300k-500k VND (coach observation)."
+      gate_status: "Gate A+B+C UNLOCKED — đọc file + xử lý text + ghi file output"
+  - id: 37
+    title: File Encoding & Error Handling
+    objective: "Xử lý encoding UTF-8/BOM, try/except cơ bản cho file operations."
+    explanation: "File tiếng Việt hay bị lỗi encoding. File từ Excel save CSV thường có BOM. Bài này dạy cách xử lý những vấn đề thực tế khi đọc file từ khách hàng — không phải lý thuyết encoding mà là \"làm sao để script không crash khi nhận file lạ\"."
+    examples:
+    - "try:\n    with open('data.txt', 'r', encoding='utf-8') as f:\n        content = f.read()\nexcept FileNotFoundError:\n    print('File khong ton tai')\nexcept UnicodeDecodeError:\n    print('Loi encoding, thu utf-8-sig')"
+    - "with open('data.csv', 'r', encoding='utf-8-sig') as f:\n    content = f.read()\nprint(content[:100])"
+    - "import os\nif os.path.exists('input.txt'):\n    print('File ton tai')\nelse:\n    print('Khong tim thay file')"
+    exercise: "Viết script đọc file CSV tiếng Việt, xử lý cả trường hợp file không tồn tại và lỗi encoding. In 5 dòng đầu nếu thành công, in thông báo lỗi rõ ràng nếu fail."
+    hints:
+    - utf-8-sig xử lý BOM.
+    - try/except bắt lỗi cụ thể trước khi bắt Exception chung.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Errors and Exceptions
+      url: https://docs.python.org/3/tutorial/errors.html
+    - tier: 2
+      title: Real Python - Python Exceptions
+      url: https://realpython.com/python-exceptions/
+    video:
+    - tier: 2
+      title: Corey Schafer - File Objects
+      url: https://www.youtube.com/watch?v=Uh2ebFW8OYM
+    real_world_examples:
+    - Đọc CSV tiếng Việt từ Excel export.
+    - Xử lý file không tồn tại khi chạy script cho khách.
+    best_practices:
+    - Bắt lỗi cụ thể.
+    - Luôn test với file thật từ khách.
+    - Ghi log lỗi thay vì im lặng.
+    project_applications:
+    - Robust file reader.
+    - CSV encoding fixer.
+    monetization:
+    - "Script không crash khi nhận file lạ = chuyên nghiệp. Đây là điểm khác biệt giữa script amateur và script giao khách được."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 36
+  - id: 38
+    title: Working with Multiple Files
+    objective: "Đọc nhiều file, gộp nội dung, ghi file tổng hợp."
+    explanation: "Job thật hiếm khi chỉ có 1 file. Shop có 3 file đơn hàng từ 3 sàn, kế toán có 12 file report tháng. Bài này dạy pattern đọc nhiều file + gộp + ghi output — đây chính là merge_orders.py mà market đang cần."
+    examples:
+    - "files = ['file1.txt', 'file2.txt', 'file3.txt']\nall_lines = []\nfor fname in files:\n    with open(fname, 'r', encoding='utf-8') as f:\n        all_lines.extend(f.readlines())\nprint(f'Tong: {len(all_lines)} dong')"
+    - "with open('merged.txt', 'w', encoding='utf-8') as out:\n    for fname in files:\n        with open(fname, 'r', encoding='utf-8') as f:\n            out.write(f'--- {fname} ---\\n')\n            out.write(f.read())\n            out.write('\\n')"
+    exercise: "Gộp 3 file text báo cáo (report_jan.txt, report_feb.txt, report_mar.txt) thành 1 file merged_report.txt, mỗi section có header tên file gốc."
+    hints:
+    - Dùng loop qua list file names.
+    - Dùng extend() hoặc write() tùy mục đích.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Reading and Writing Files
+      url: https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+    - tier: 2
+      title: Real Python - Working with Files
+      url: https://realpython.com/working-with-files-in-python/
+    video:
+    - tier: 2
+      title: Corey Schafer - File Objects
+      url: https://www.youtube.com/watch?v=Uh2ebFW8OYM
+    real_world_examples:
+    - Gộp báo cáo từ nhiều chi nhánh.
+    - "Gộp đơn hàng từ Shopee + Lazada + Tiki."
+    best_practices:
+    - Validate file tồn tại trước khi đọc.
+    - Ghi header/separator giữa các file để dễ trace.
+    - Test với 2-3 file trước khi chạy 100 file.
+    project_applications:
+    - Multi-file merger.
+    - Report consolidator.
+    monetization:
+    - "Gộp nhiều file = pattern chính của merge_orders.py. Task này giá 500k-1.5m VND tùy complexity. Bạn gần như đã đủ skill."
+    duration_minutes: 25
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 36
+    - 37
+    first_money_drill:
+      enabled: true
+      task: "Gộp 3 file báo cáo text thành 1 file tổng hợp, mỗi section có header gốc, cuối file có tổng số dòng."
+      input_sample: "report_jan.txt (10 dòng)\nreport_feb.txt (8 dòng)\nreport_mar.txt (12 dòng)"
+      expected_output: "--- report_jan.txt ---\n[10 dòng nội dung]\n--- report_feb.txt ---\n[8 dòng nội dung]\n--- report_mar.txt ---\n[12 dòng nội dung]\n\nTổng: 30 dòng từ 3 file"
+      deliverable: "merge_reports.py"
+      delivery_package: ["merge_reports.py", "report_jan.txt", "report_feb.txt", "report_mar.txt", "README.md"]
+      market_note: "Gộp báo cáo = job rất phổ biến cho kế toán, vận hành shop. Giá 500k-1m."
+      gate_status: "Gate A+B+C FULLY UNLOCKED — đọc nhiều file + xử lý + ghi output tổng hợp"

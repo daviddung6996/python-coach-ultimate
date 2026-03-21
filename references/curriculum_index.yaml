@@ -1,0 +1,336 @@
+curriculum_version: 4
+curriculum_name: Python Core Track 2026
+delivery_mode: chapter_based_full_content
+total_lessons: 50
+usage: Load this index for navigation/trigger. For full lesson content, read the chapter
+  file listed in each chapter.file field.
+chapters:
+- id: 1
+  title: Python Fundamentals
+  description: Nền tảng để hiểu Python là gì, chạy code, nhập dữ liệu, và nắm các
+    kiểu dữ liệu cơ bản.
+  file: chapters/ch01-fundamentals.yaml
+  lessons:
+  - id: 1
+    title: Python Fundamentals
+    objective: ''
+    duration_minutes: 0
+  - id: 1
+    title: What Is Python & How It Works
+    objective: Hiểu Python là gì, interpreter chạy code ra sao, và vì sao Python mạnh
+      ở automation, web, data, AI.
+    duration_minutes: 20
+  - id: 2
+    title: Installing Python
+    objective: Cài Python đúng cách, kiểm tra phiên bản, chạy file .py trong terminal
+      hoặc VS Code.
+    duration_minutes: 15
+  - id: 3
+    title: Comments & print()
+    objective: Biết dùng comment để ghi chú và dùng print() để xuất dữ liệu ra màn
+      hình.
+    duration_minutes: 20
+  - id: 4
+    title: Variables
+    objective: Tạo biến, gán lại giá trị, đặt tên biến đúng chuẩn, và hiểu biến chỉ
+      là nhãn trỏ tới dữ liệu.
+    duration_minutes: 20
+  - id: 5
+    title: User input()
+    objective: Lấy dữ liệu từ người dùng bằng input() và chuyển kiểu đúng để dùng
+      tiếp.
+    duration_minutes: 20
+  - id: 6
+    title: Python Data Types
+    objective: Phân biệt các kiểu dữ liệu cơ bản trong Python và biết khi nào nên
+      dùng từng kiểu.
+    duration_minutes: 20
+- id: 2
+  title: Python Strings
+  description: 'Làm chủ chuỗi: tạo chuỗi, truy cập ký tự, cắt chuỗi, tìm kiếm, validate,
+    đổi chữ hoa/thường.'
+  file: chapters/ch02-strings.yaml
+  lessons:
+  - id: 2
+    title: Python Strings
+    objective: ''
+    duration_minutes: 0
+  - id: 7
+    title: String Basics & Transformations
+    objective: Làm chủ tạo chuỗi, nối chuỗi, format chuỗi, và những biến đổi cơ bản
+      với text.
+    duration_minutes: 20
+  - id: 8
+    title: Indexing & Slicing
+    objective: Truy cập ký tự bằng index, cắt chuỗi bằng slice, và đảo chuỗi khi cần.
+    duration_minutes: 20
+  - id: 9
+    title: Search, Validation & Case Conversion
+    objective: Tìm kiếm trong chuỗi, validate dữ liệu text cơ bản, và chuyển đổi hoa/thường
+      đúng chỗ.
+    duration_minutes: 20
+- id: 3
+  title: Python Numbers
+  description: Hiểu số trong Python, phép toán, làm tròn, và module math cho tác vụ
+    thường gặp.
+  file: chapters/ch03-numbers.yaml
+  lessons:
+  - id: 3
+    title: Python Numbers
+    objective: ''
+    duration_minutes: 0
+  - id: 10
+    title: Numeric Data Types & Math Operators
+    objective: Hiểu int, float, các toán tử số học, và dùng chúng để tính toán đúng.
+    duration_minutes: 20
+  - id: 11
+    title: Rounding & Advanced Math
+    objective: Biết làm tròn, lấy giá trị tuyệt đối, căn bậc hai, và dùng math cho
+      tính toán sạch hơn.
+    duration_minutes: 20
+- id: 4
+  title: Python Booleans
+  description: Nắm True/False, so sánh, logic, membership, identity để chuẩn bị cho
+    conditionals.
+  file: chapters/ch04-booleans.yaml
+  lessons:
+  - id: 4
+    title: Python Booleans
+    objective: ''
+    duration_minutes: 0
+  - id: 12
+    title: Boolean Values
+    objective: Hiểu True/False, truthy/falsy và biết Python đánh giá điều kiện ra
+      sao.
+    duration_minutes: 20
+  - id: 13
+    title: Comparison & Logical Operators
+    objective: Dùng toán tử so sánh và logic để viết điều kiện nhiều bước một cách
+      rõ ràng.
+    duration_minutes: 20
+  - id: 14
+    title: Membership & Identity Operators
+    objective: Phân biệt membership operators với identity operators và dùng chúng
+      đúng ngữ cảnh.
+    duration_minutes: 20
+- id: 5
+  title: Python Conditional Statements
+  description: 'Viết điều kiện từ cơ bản đến nâng cao: if/elif/else, nested, inline
+    if, match case.'
+  file: chapters/ch05-conditionals.yaml
+  lessons:
+  - id: 5
+    title: Python Conditional Statements
+    objective: ''
+    duration_minutes: 0
+  - id: 15
+    title: If, Else, Elif
+    objective: Viết điều kiện cơ bản bằng if, elif, else.
+    duration_minutes: 20
+  - id: 16
+    title: Nested & Advanced Conditions
+    objective: Viết nested conditions và conditions phức hợp mà vẫn đọc được.
+    duration_minutes: 20
+  - id: 17
+    title: Inline If & Match Case
+    objective: Dùng inline if và match-case ở mức thực dụng, không lạm dụng.
+    duration_minutes: 20
+- id: 6
+  title: Python Loops
+  description: Lặp dữ liệu với for/while và kiểm soát vòng lặp bằng break, continue,
+    pass, for-else.
+  file: chapters/ch06-loops.yaml
+  lessons:
+  - id: 6
+    title: Python Loops
+    objective: ''
+    duration_minutes: 0
+  - id: 18
+    title: For Loops
+    objective: Dùng for loop để lặp qua range và iterable phổ biến.
+    duration_minutes: 20
+  - id: 19
+    title: Break, Continue, Pass
+    objective: Biết khi nào dùng break, continue, pass để kiểm soát vòng lặp.
+    duration_minutes: 20
+  - id: 20
+    title: For-Else & Nested Loops
+    objective: Hiểu for-else và nested loops ở mức thực dụng.
+    duration_minutes: 20
+  - id: 21
+    title: While Loops
+    objective: Dùng while loop đúng chỗ, đặc biệt cho menu và input lặp lại.
+    duration_minutes: 20
+- id: 7
+  title: Python Data Structures
+  description: Làm chủ list, tuple, set, dict và các pattern xử lý dữ liệu thực dụng.
+  file: chapters/ch07-data-structures.yaml
+  lessons:
+  - id: 7
+    title: Python Data Structures
+    objective: ''
+    duration_minutes: 0
+  - id: 22
+    title: Lists Overview
+    objective: Hiểu list là gì, khi nào dùng list, và vì sao nó là cấu trúc dữ liệu
+      cơ bản nhất cho beginner.
+    duration_minutes: 20
+  - id: 23
+    title: Creating & Accessing Lists
+    objective: Tạo list và truy cập phần tử bằng index dương/âm một cách chắc chắn.
+    duration_minutes: 20
+  - id: 24
+    title: Unpacking & Analyzing
+    objective: Biết unpack list và phân tích list bằng len, count, index, membership.
+    duration_minutes: 20
+  - id: 25
+    title: Add, Remove & Update
+    objective: Thêm, xóa, sửa phần tử trong list đúng cách và hiểu sự khác nhau giữa
+      append, insert, remove, pop, del.
+    duration_minutes: 20
+  - id: 26
+    title: Sorting & Combining
+    objective: Biết sort, reverse, copy, và combine lists cho nhu cầu xử lý dữ liệu
+      thường gặp.
+    duration_minutes: 20
+  - id: 27
+    title: Iterables & Filtering
+    objective: Hiểu iterable là gì và lọc dữ liệu bằng loop, condition, và các pattern
+      cơ bản.
+    duration_minutes: 20
+  - id: 28
+    title: Lambda & List Comprehension
+    objective: Dùng list comprehension và lambda ở mức practical, không màu mè.
+    duration_minutes: 20
+  - id: 29
+    title: Tuples
+    objective: Hiểu tuple dùng cho dữ liệu cố định và unpack tuple cơ bản.
+    duration_minutes: 20
+  - id: 30
+    title: Sets
+    objective: Dùng set để bỏ trùng, kiểm tra membership nhanh, và làm toán tập hợp
+      cơ bản.
+    duration_minutes: 20
+  - id: 31
+    title: Dictionaries
+    objective: Dùng dict để lưu dữ liệu key-value và truy cập/cập nhật dữ liệu theo
+      khóa.
+    duration_minutes: 20
+- id: 8
+  title: Python Functions
+  description: Tách logic thành hàm sạch, có tham số, trả về giá trị, và viết code
+    dễ tái sử dụng.
+  file: chapters/ch08-functions.yaml
+  lessons:
+  - id: 8
+    title: Python Functions
+    objective: ''
+    duration_minutes: 0
+  - id: 32
+    title: Functions Introduction
+    objective: Hiểu vì sao cần hàm và biết định nghĩa/gọi hàm cơ bản.
+    duration_minutes: 20
+  - id: 33
+    title: Function Parameters & Return
+    objective: Dùng parameters, return, default values, keyword arguments đúng cách.
+    duration_minutes: 20
+  - id: 34
+    title: Types of Python Functions
+    objective: Phân biệt các kiểu hàm phổ biến trong Python và dùng chúng đúng ngữ
+      cảnh.
+    duration_minutes: 20
+  - id: 35
+    title: Writing Clean Functions
+    objective: 'Viết hàm sạch: ngắn, rõ tên, rõ input/output, dễ test và dễ ghép thành
+      script hoàn chỉnh.'
+    duration_minutes: 20
+- id: 9
+  title: File I/O
+  description: Đọc, ghi, và xử lý file text — kỹ năng bắt buộc để làm job thật.
+  file: chapters/ch09-file-io.yaml
+  lessons:
+  - id: 9
+    title: File I/O
+    objective: ''
+    duration_minutes: 0
+  - id: 36
+    title: Reading & Writing Text Files
+    objective: Đọc file text bằng open()/with, ghi file mới, hiểu context manager.
+    duration_minutes: 20
+  - id: 37
+    title: File Encoding & Error Handling
+    objective: Xử lý encoding UTF-8/BOM, try/except cơ bản cho file operations.
+    duration_minutes: 20
+  - id: 38
+    title: Working with Multiple Files
+    objective: Đọc nhiều file, gộp nội dung, ghi file tổng hợp.
+    duration_minutes: 25
+- id: 10
+  title: CSV & Data Processing
+  description: Đọc, ghi, clean CSV — kỹ năng gần tiền nhất cho beginner Python.
+  file: chapters/ch10-csv-processing.yaml
+  lessons:
+  - id: 10
+    title: CSV & Data Processing
+    objective: ''
+    duration_minutes: 0
+  - id: 39
+    title: Reading CSV Files
+    objective: Dùng csv module và DictReader đọc file CSV đúng cách.
+    duration_minutes: 20
+  - id: 40
+    title: Writing & Cleaning CSV
+    objective: Ghi CSV sạch, clean data (strip, deduplicate, validate rows).
+    duration_minutes: 25
+  - id: 41
+    title: CSV Analysis & Simple Reports
+    objective: Tính tổng, trung bình, đếm, group từ CSV. Xuất báo cáo text/CSV.
+    duration_minutes: 25
+- id: 11
+  title: File System & Automation
+  description: Thao tác file system bằng os/pathlib — rename, organize, automate.
+  file: chapters/ch11-file-automation.yaml
+  lessons:
+  - id: 11
+    title: File System & Automation
+    objective: ''
+    duration_minutes: 0
+  - id: 42
+    title: os & pathlib Basics
+    objective: Duyệt folder, kiểm tra file tồn tại, lấy thông tin file bằng os và
+      pathlib.
+    duration_minutes: 20
+  - id: 43
+    title: Renaming & Organizing Files
+    objective: Rename file hàng loạt, tạo folder theo pattern, di chuyển file tự động.
+    duration_minutes: 25
+  - id: 44
+    title: Building Automation Scripts
+    objective: Ghép file I/O + CSV + os thành script automation hoàn chỉnh có argument,
+      logging, error handling.
+    duration_minutes: 30
+- id: 12
+  title: First Money Projects
+  description: 3 capstone projects hoàn chỉnh, mỗi project là 1 deliverable giao khách
+    được ngay.
+  file: chapters/ch12-first-money.yaml
+  lessons:
+  - id: 12
+    title: First Money Projects
+    objective: ''
+    duration_minutes: 0
+  - id: 45
+    title: 'Project: merge_orders.py'
+    objective: 'Capstone project: gộp nhiều file đơn hàng CSV/Excel thành 1 file tổng
+      hợp có summary.'
+    duration_minutes: 45
+  - id: 46
+    title: 'Project: clean_customer_data.py'
+    objective: 'Capstone project: clean full CSV data — deduplicate, normalize, validate,
+      report.'
+    duration_minutes: 45
+  - id: 47
+    title: 'Project: organize_product_photos.py'
+    objective: 'Capstone project: rename + organize photos cho shop online theo pattern
+      chuẩn.'
+    duration_minutes: 45

@@ -1,0 +1,258 @@
+- id: 6
+  title: Python Loops
+  description: Lặp dữ liệu với for/while và kiểm soát vòng lặp bằng break, continue, pass, for-else.
+  project_milestone:
+    projects:
+    - project: P2 — Expense Tracking System
+      step: "Step 3: Expense Aggregator"
+      task: |
+        Viết script expense_aggregator.py:
+        1. Tạo list expenses (hardcoded): [50000, 20000, 100000, 15000, 30000]
+        2. Tạo list categories: ["Food", "Transport", "Food", "Coffee", "Food"]
+        3. Dùng for loop tính tổng tất cả expenses
+        4. Dùng for loop + if đếm số expense thuộc "Food"
+        5. Dùng for + enumerate in: "1. Food - 50000 VND"
+      concepts_used: [for loop, enumerate, accumulator pattern, loop + if filter]
+    - project: P3 — Mini Banking System
+      step: "Step 3: Multi-Transaction Loop"
+      task: |
+        Mở rộng banking_menu.py thành banking_loop.py:
+        1. balance = 1000000
+        2. transactions = [] (list rỗng, sẽ append string mô tả mỗi giao dịch)
+        3. while True: hỏi action
+        4. if action == "exit": break
+        5. Xử lý deposit/withdraw/check như Chapter 5
+        6. Mỗi giao dịch thành công: transactions.append("Deposit 500000")
+        7. Khi exit: for loop in tất cả transactions
+      concepts_used: [while True + break, for loop, list.append(), accumulator]
+    - project: P1 — User Registration System
+      step: "Step 4: Multi-User Registration Loop"
+      task: |
+        Mở rộng registration_form.py thành registration_loop.py:
+        1. while True: hỏi user muốn đăng ký hay thoát
+        2. Nếu đăng ký: nhập name/email/password, validate (dùng code từ Ch.2 + Ch.4)
+        3. Nếu hợp lệ: in "Đăng ký thành công"
+        4. Nếu không: in lý do fail
+        5. Nếu thoát: break và in tổng số lần đăng ký thành công/thất bại
+      concepts_used: [while True + break, counter variables, loop + conditionals]
+    note: "Bây giờ 3 project đều chạy được nhiều lần. Chapter 7 sẽ nâng cấp lên lưu data bằng dicts."
+  lessons:
+  - id: 18
+    title: For Loops
+    objective: Dùng for loop để lặp qua range và iterable phổ biến.
+    explanation: For loop là công cụ mặc định khi bạn biết mình cần duyệt qua một tập phần tử. Đây là xương sống của xử lý danh sách, file lines, rows, API items. Bài này tập trung vào range, strings, lists, và tư duy “mỗi vòng lặp thì đang xử lý phần tử nào?”.
+    examples:
+    - "for i in range(5):\n    print(i)"
+    - "for ch in 'abc':\n    print(ch)"
+    - "products = ['chuột', 'bàn phím', 'tai nghe']\nfor product in products:\n    print(product)"
+    exercise: In danh sách 5 khách hàng có đánh số thứ tự bắt đầu từ 1.
+    hints:
+    - Bạn có thể dùng `range` hoặc `enumerate`.
+    - Tên biến loop phải có nghĩa.
+    sources:
+    - tier: 1
+      title: Python Tutorial - for Statements
+      url: https://docs.python.org/3/tutorial/controlflow.html#for-statements
+    - tier: 2
+      title: Real Python - Python for Loops
+      url: https://realpython.com/python-for-loop/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - For Loops and Iterables
+      url: https://www.youtube.com/watch?v=6iF8Xb7Z3wQ
+    extra_practice: ''
+    real_world_examples:
+    - Duyệt tất cả đơn hàng trong ngày để in báo cáo.
+    - Duyệt danh sách file cần đổi tên.
+    best_practices:
+    - Đặt tên biến loop có nghĩa.
+    - Mỗi vòng lặp chỉ làm một việc rõ.
+    - In debug giá trị loop khi chưa hiểu code chạy thế nào.
+    project_applications:
+    - Numbered customer list.
+    - Bulk product name printer.
+    monetization:
+    - "For loop = xử lý hàng loạt. Mọi job rename files, clean CSV, scan data đều bắt đầu từ đây. Gate B+C đang mở."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 13
+    - 15
+    solution_hint: ''
+    common_mistakes:
+    - Dùng range sai biên.
+    - Đặt tên biến loop mơ hồ rồi tự rối.
+  - id: 19
+    title: Break, Continue, Pass
+    objective: Biết khi nào dùng break, continue, pass để kiểm soát vòng lặp.
+    explanation: Ba từ khóa này nhìn nhỏ nhưng cực thực dụng. `break` dừng vòng lặp ngay; `continue` bỏ qua lượt hiện tại; `pass` giữ chỗ khi chưa viết gì. Nếu không hiểu rõ ba thứ này, learner sẽ viết loop hoặc quá vụng hoặc quá dài. Điểm quan trọng là dùng đúng chỗ và có lý do rõ ràng.
+    examples:
+    - "for n in [1, 2, 0, 3]:\n    if n == 0:\n        break\n    print(n)"
+    - "for n in [1, -2, 3]:\n    if n < 0:\n        continue\n    print(n)"
+    - "for item in []:\n    pass"
+    exercise: 'Duyệt danh sách số: bỏ qua số âm, dừng khi gặp số 0, in các số dương trước đó.'
+    hints:
+    - break là stop hẳn.
+    - continue là skip lượt hiện tại rồi lặp tiếp.
+    sources:
+    - tier: 1
+      title: Python Tutorial - break and continue
+      url: https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops
+    - tier: 2
+      title: Real Python - break, continue, and pass
+      url: https://realpython.com/python-break/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - Break Continue Pass
+      url: https://www.youtube.com/watch?v=HGOBQPFzWKo
+    extra_practice: ''
+    real_world_examples:
+    - Dừng quét file khi tìm thấy đúng file cần.
+    - Bỏ qua dòng dữ liệu lỗi nhưng vẫn xử lý phần còn lại.
+    best_practices:
+    - Chỉ dùng break/continue khi làm luồng rõ hơn.
+    - Comment ngắn nếu continue/break xuất hiện ở logic khó.
+    - Test nhiều nhánh dữ liệu để chắc loop chạy đúng.
+    project_applications:
+    - Positive-number scanner.
+    - First-match finder in a list.
+    monetization:
+    - "Break/continue = kiểm soát flow xử lý dữ liệu. Biết dừng đúng lúc khi scan 10k dòng."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    solution_hint: ''
+    common_mistakes:
+    - Dùng break nhầm chỗ làm mất dữ liệu cần xử lý.
+    - Dùng continue mà quên logic sau nó sẽ không chạy.
+  - id: 20
+    title: For-Else & Nested Loops
+    objective: Hiểu for-else và nested loops ở mức thực dụng.
+    explanation: '`for-else` trong Python ít người dùng nhưng rất hợp cho bài toán “tìm thấy thì break, không thấy thì else”. Nested loops thì cần khi xử lý bảng, ma trận, hoặc mọi cặp kết hợp. Bài này không nhằm làm learner code phức tạp hơn, mà để thấy đúng pattern cho đúng bài toán.'
+    examples:
+    - "items = ['a', 'b', 'c']\ntarget = 'd'\nfor item in items:\n    if item == target:\n        print('Found')\n        break\nelse:\n    print('Not found')"
+    - "for row in range(2):\n    for col in range(3):\n        print(row, col)"
+    exercise: Viết chương trình tìm một sản phẩm trong list bằng for-else; nếu không thấy thì in thông báo. Sau đó in bảng cửu chương 2x3 bằng nested loops.
+    hints:
+    - Else của for chỉ chạy nếu không break.
+    - 'Nested loop cần tên biến rõ: row, col.'
+    sources:
+    - tier: 1
+      title: Python Tutorial - break and continue with else on loops
+      url: https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops
+    - tier: 2
+      title: Real Python - Nested Loops in Python
+      url: https://realpython.com/nested-loops-python/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - Loops
+      url: https://www.youtube.com/watch?v=6iF8Xb7Z3wQ
+    extra_practice: ''
+    real_world_examples:
+    - Tìm khách hàng đầu tiên khớp điều kiện.
+    - Duyệt từng hàng và từng cột của bảng dữ liệu.
+    best_practices:
+    - Dùng for-else đúng pattern search.
+    - Tránh nested loop sâu nếu chưa thật cần.
+    - Đặt biến loop theo ý nghĩa bảng/hàng/cột.
+    project_applications:
+    - Product searcher.
+    - Mini grid printer.
+    monetization:
+    - "For-else tìm item, nested loop duyệt bảng — pattern thật của scan data. Gate B+C locked in."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 19
+    solution_hint: ''
+    common_mistakes:
+    - Không hiểu else của for chạy khi nào.
+    - Nested loop nhưng không biết vòng trong phụ thuộc gì vào vòng ngoài.
+  - id: 21
+    title: While Loops
+    objective: Dùng while loop đúng chỗ, đặc biệt cho menu và input lặp lại.
+    explanation: While loop phù hợp khi bạn chưa biết trước số lần lặp, ví dụ menu lặp tới khi user thoát, retry nhập liệu, hoặc đọc dữ liệu tới khi gặp điều kiện dừng. Đây là công cụ mạnh nhưng cũng là nơi beginner hay tạo infinite loop. Bài này phải giúp learner kiểm soát điều kiện dừng thật rõ.
+    examples:
+    - "count = 0\nwhile count < 3:\n    print(count)\n    count += 1"
+    - "while True:\n    cmd = input('Nhập q để thoát: ')\n    if cmd == 'q':\n        break"
+    exercise: Viết menu lặp lại cho tới khi user nhập `q`; mỗi lượt in ra lời nhắc và số lần đã nhập.
+    hints:
+    - Phải có điều kiện thoát rõ ràng.
+    - Nếu dùng biến đếm, nhớ cập nhật nó trong loop.
+    sources:
+    - tier: 1
+      title: Python Tutorial - First Steps Towards Programming
+      url: https://docs.python.org/3/tutorial/introduction.html#first-steps-towards-programming
+    - tier: 2
+      title: Real Python - Python while Loops
+      url: https://realpython.com/python-while-loop/
+    - tier: 1
+      title: CS50P Week 2
+      url: https://cs50.harvard.edu/python/2022/weeks/2/
+    video:
+    - tier: 2
+      title: Corey Schafer - While Loops
+      url: https://www.youtube.com/watch?v=6iF8Xb7Z3wQ
+    extra_practice: ''
+    real_world_examples:
+    - Viết menu terminal cho công cụ nội bộ.
+    - Cho phép nhập lại dữ liệu đến khi hợp lệ.
+    best_practices:
+    - Luôn chỉ rõ điều kiện thoát trước khi code while.
+    - In debug trạng thái loop khi cần.
+    - Không dùng while khi for/range đã đủ.
+    project_applications:
+    - Retry-until-valid input tool.
+    - Simple CLI menu.
+    monetization:
+    - "While loop = menu tool, retry input — script tương tác cần. Xong loops = đã đủ logic cho script đơn giản."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 19
+    - 20
+    solution_hint: ''
+    common_mistakes:
+    - Infinite loop do quên update biến.
+    - Dùng while khi for đơn giản hơn nhiều.
+    first_money_drill:
+      enabled: true
+      task: "Nhận danh sách 50 dòng dữ liệu đơn hàng, tìm dòng lỗi (thiếu tên, số âm, email sai format), in danh sách dòng lỗi kèm lý do."
+      input_sample: "Nguyen Van A|500000|a@gmail.com\n|300000|b@gmail.com\nTran B|-100000|c@yahoo.com\nLe C|200000|invalid_email"
+      expected_output: "DÒNG LỖI:\n- Dòng 2: thiếu tên khách\n- Dòng 3: số tiền âm (-100000)\n- Dòng 4: email không hợp lệ (invalid_email)\n\nTổng: 3/4 dòng lỗi"
+      deliverable: "find_invalid_rows.py"
+      delivery_package: ["find_invalid_rows.py", "sample_orders.txt", "README.md"]
+      market_note: "Tìm dòng lỗi trong data — task cực phổ biến khi nhận file bẩn từ khách, giá 300k-500k."
+      gate_status: "Gate A+B+C unlocked (đọc input + lặp + kiểm tra + xuất report)"

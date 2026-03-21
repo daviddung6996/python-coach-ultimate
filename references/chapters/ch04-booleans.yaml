@@ -1,0 +1,201 @@
+- id: 4
+  title: Python Booleans
+  description: Nắm True/False, so sánh, logic, membership, identity để chuẩn bị cho conditionals.
+  project_milestone:
+    projects:
+    - project: P1 — User Registration System
+      step: "Step 3: Password Strength Check"
+      task: |
+        Mở rộng registration_form.py:
+        1. Kiểm tra len(password) >= 8
+        2. Kiểm tra có chữ hoa: any(c.isupper() for c in password)
+        3. Kiểm tra có chữ số: any(c.isdigit() for c in password)
+        4. Kết hợp: is_valid = has_length and has_upper and has_digit
+        5. In True/False cho từng điều kiện và kết quả cuối
+      concepts_used: [bool, comparison operators, logical operators (and), any()]
+    - project: P3 — Mini Banking System
+      step: "Step 1: Balance Check"
+      task: |
+        Viết script balance_check.py:
+        1. Tạo biến balance = 1000000
+        2. Tạo biến withdraw_amount = 500000
+        3. Kiểm tra: can_withdraw = balance >= withdraw_amount
+        4. Kiểm tra: is_positive = withdraw_amount > 0
+        5. In kết quả True/False cho mỗi check
+      concepts_used: ["bool", "comparison (>=, >)", "logical operators"]
+    note: "Bây giờ chỉ in True/False. Chapter 5 sẽ dạy if/else để phản ứng theo kết quả."
+  lessons:
+  - id: 12
+    title: Boolean Values
+    objective: Hiểu True/False, truthy/falsy và biết Python đánh giá điều kiện ra sao.
+    explanation: Boolean là xương sống của mọi quyết định trong code. Bài này giúp learner hiểu `True`, `False`, và những giá trị bị Python xem là falsy như `0`, `""`, `[]`, `None`. Không cần đi quá triết học; chỉ cần hiểu giá trị nào làm điều kiện pass hay fail và vì sao.
+    examples:
+    - 'print(True)
+
+      print(False)'
+    - 'print(bool(0))
+
+      print(bool(1))'
+    - 'print(bool(''''))
+
+      print(bool(''hello''))'
+    exercise: Dự đoán rồi kiểm tra kết quả của `bool(0)`, `bool(1)`, `bool("")`, `bool("python")`, `bool([])`, `bool([1])`.
+    hints:
+    - Falsy không có nghĩa là “xấu”, chỉ nghĩa là Python coi là False trong condition.
+    - Dùng `bool()` để tự test nhanh.
+    sources:
+    - tier: 1
+      title: Python Truth Value Testing
+      url: https://docs.python.org/3/library/stdtypes.html#truth-value-testing
+    - tier: 2
+      title: Real Python - Python Booleans
+      url: https://realpython.com/python-boolean/
+    - tier: 1
+      title: CS50P Week 1
+      url: https://cs50.harvard.edu/python/2022/weeks/1/
+    video:
+    - tier: 1
+      title: CS50P 2022 Lecture 1
+      url: https://www.youtube.com/watch?v=_b6NgY_pMdw
+    extra_practice: ''
+    real_world_examples:
+    - Kiểm tra giỏ hàng rỗng hay không trước khi checkout.
+    - Kiểm tra user có nhập nội dung hay bỏ trống form.
+    best_practices:
+    - Hiểu falsy để viết condition ngắn gọn nhưng vẫn rõ.
+    - Đừng lạm dụng truthy nếu làm code khó đọc.
+    - Tự test bool() với nhiều kiểu dữ liệu.
+    project_applications:
+    - Empty input checker.
+    - Cart validation mini script.
+    monetization:
+    - "Kiểm tra giỏ hàng rỗng, form bỏ trống — logic nền của mọi validation tool. Gate B đang mở."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm `"False"` là False thật.
+    - Không hiểu vì sao list rỗng vào if lại fail.
+  - id: 13
+    title: Comparison & Logical Operators
+    objective: Dùng toán tử so sánh và logic để viết điều kiện nhiều bước một cách rõ ràng.
+    explanation: Khi business rule bắt đầu có điều kiện, bạn cần so sánh và kết hợp logic. Bài này tập trung vào `==`, `!=`, `>`, `<`, `>=`, `<=`, `and`, `or`, `not`. Mục tiêu không phải viết condition thật ngắn, mà là viết condition đúng và đọc được. Code logic mơ hồ sẽ thành ổ bug rất nhanh.
+    examples:
+    - 'age = 20
+
+      print(age >= 18)'
+    - 'score = 85
+
+      print(score >= 80 and score <= 100)'
+    - 'email_verified = False
+
+      print(not email_verified)'
+    exercise: Viết chương trình kiểm tra user có đủ điều kiện nhận voucher nếu tuổi >= 18 và điểm >= 80 hoặc là thành viên VIP.
+    hints:
+    - Tách điều kiện ra biến nếu biểu thức dài.
+    - Dùng ngoặc nếu muốn làm rõ ý.
+    sources:
+    - tier: 1
+      title: Python Expressions - Comparisons
+      url: https://docs.python.org/3/reference/expressions.html#comparisons
+    - tier: 2
+      title: Real Python - Operators and Expressions in Python
+      url: https://realpython.com/python-operators-expressions/
+    - tier: 1
+      title: CS50P Week 1
+      url: https://cs50.harvard.edu/python/2022/weeks/1/
+    video:
+    - tier: 2
+      title: Corey Schafer - Conditionals and Booleans
+      url: https://www.youtube.com/watch?v=DZwmZ8Usvnk
+    extra_practice: ''
+    real_world_examples:
+    - Xét điều kiện duyệt ưu đãi cho khách hàng.
+    - Kiểm tra đơn hàng có hợp lệ theo nhiều rule.
+    best_practices:
+    - Ưu tiên rõ ràng hơn ngắn gọn.
+    - Dùng biến trung gian cho logic business phức tạp.
+    - Test với input biên như 17, 18, 80, 81.
+    project_applications:
+    - Voucher eligibility checker.
+    - Simple login rule validator.
+    monetization:
+    - "Logic so sánh và kết hợp = xương sống của filter dữ liệu. Mốc gần nhất: filter_orders.py."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 12
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm `=` với `==`.
+    - Viết điều kiện dài mà không dùng ngoặc hoặc biến trung gian.
+  - id: 14
+    title: Membership & Identity Operators
+    objective: Phân biệt membership operators với identity operators và dùng chúng đúng ngữ cảnh.
+    explanation: '`in` kiểm tra một giá trị có nằm trong collection hay chuỗi không. `is` kiểm tra hai biến có trỏ cùng object hay không. Beginner rất hay dùng `is` để so sánh string/number vì thấy “chạy được vài lần”, nhưng đó là thói quen nguy hiểm. Bài này phải giúp learner hiểu đúng từ đầu để không mang bug lặt vặt vào code sau này.'
+    examples:
+    - 'skills = [''python'', ''sql'']
+
+      print(''python'' in skills)'
+    - 'text = ''python coach''
+
+      print(''coach'' in text)'
+    - 'value = None
+
+      print(value is None)'
+    exercise: Viết chương trình kiểm tra một keyword có nằm trong tiêu đề sản phẩm hay không; đồng thời kiểm tra một biến có phải None hay không bằng cách đúng.
+    hints:
+    - Dùng `in` cho membership.
+    - Dùng `is None` khi kiểm tra None.
+    sources:
+    - tier: 1
+      title: Python Membership Test Operations
+      url: https://docs.python.org/3/reference/expressions.html#membership-test-operations
+    - tier: 1
+      title: Python Identity Comparisons
+      url: https://docs.python.org/3/reference/expressions.html#is-not
+    - tier: 2
+      title: Real Python - Python Identity vs Equality
+      url: https://realpython.com/python-is-identity-vs-equality/
+    video:
+    - tier: 2
+      title: Real Python - is vs ==
+      url: https://realpython.com/courses/python-is-identity-vs-equality/
+    extra_practice: ''
+    real_world_examples:
+    - Kiểm tra từ khóa có nằm trong title sản phẩm.
+    - Kiểm tra cấu hình có thiếu giá trị hay đang là None.
+    best_practices:
+    - Chỉ dùng `is` với None/True/False trong các case rõ ràng.
+    - Dùng `in` cho strings, lists, sets, dict keys.
+    - Tự test sự khác nhau giữa `==` và `is`.
+    project_applications:
+    - Keyword checker for product titles.
+    - Config validator for optional values.
+    monetization:
+    - "Kiểm tra keyword trong title, check None trong config — thao tác hàng ngày của data cleaning."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 12
+    - 13
+    solution_hint: ''
+    common_mistakes:
+    - Dùng `is` để so sánh string hoặc số.
+    - Không hiểu dict dùng `in` để kiểm tra key, không phải value.

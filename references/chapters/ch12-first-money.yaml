@@ -1,0 +1,214 @@
+- id: 12
+  title: First Money Projects
+  description: "3 capstone projects hoàn chỉnh, mỗi project là 1 deliverable giao khách được ngay."
+  lessons:
+  - id: 45
+    title: "Project: merge_orders.py"
+    objective: "Capstone project: gộp nhiều file đơn hàng CSV/Excel thành 1 file tổng hợp có summary."
+    explanation: "Đây là CAPSTONE PROJECT cho Chapter 12. Hoàn thành project này = learner có deliverable package đầu tiên có thể post job được. Project merge_orders.py giá 500k-1.5m VND (verified signal: similar tasks on Upwork/Facebook groups)."
+    evidence:
+    - claim: "merge_orders.py có thể bán 500k-1.5m VND"
+      type: "verified signal"
+      source: "similar tasks observed on Facebook groups VN (freelance Python jobs) + coach market observation"
+    examples:
+    - "Full working merge_orders.py script (see market-grounding.md Case 1)"
+    exercise: "Build merge_orders.py hoàn chỉnh:\n1. Nhận 3 file CSV đơn hàng (shopee.csv, lazada.csv, tiki.csv)\n2. Normalize headers (mỗi sàn format khác nhau)\n3. Gộp thành 1 file combined_orders.csv\n4. In summary: số đơn mỗi sàn, tổng doanh thu\n5. Viết README.md với hướng dẫn chạy\n6. Tạo requirements.txt"
+    hints:
+    - DictReader cho mỗi file.
+    - Map headers về chuẩn chung.
+    - Ghi summary ở cuối hoặc file riêng.
+    sources:
+    - tier: 1
+      title: Python csv module
+      url: https://docs.python.org/3/library/csv.html
+    - tier: 2
+      title: Real Python - CSV
+      url: https://realpython.com/python-csv/
+    video:
+    - tier: 2
+      title: Corey Schafer - CSV Module
+      url: https://www.youtube.com/watch?v=q5uM4VKywbA
+    real_world_examples:
+    - "Gộp đơn hàng Shopee + Lazada + Tiki cho kế toán cuối tuần."
+    best_practices:
+    - Validate headers trước khi merge.
+    - Ghi log số dòng mỗi file.
+    - Giữ file gốc không sửa.
+    project_applications:
+    - Multi-platform order merger.
+    monetization:
+    - "PROJECT KIẾM TIỀN ĐẦU TIÊN. Giá 500k-1.5m VND. Deliverables: script + sample data + README + requirements.txt. Post lên Facebook groups ngay."
+    duration_minutes: 45
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 31
+    - 32
+    - 33
+    - 35
+    - 36
+    - 37
+    - 38
+    - 39
+    - 40
+    - 41
+    first_money_drill:
+      enabled: true
+      task: "Build merge_orders.py hoàn chỉnh với 3 file CSV mẫu, summary report, README, requirements.txt."
+      input_sample: "shopee.csv (15 đơn, headers: order_id,customer,amount,date)\nlazada.csv (10 đơn, headers: id,buyer,total,order_date)\ntiki.csv (8 đơn, headers: ma_don,ten_khach,so_tien,ngay)"
+      expected_output: "MERGE REPORT:\n- shopee.csv: 15 đơn\n- lazada.csv: 10 đơn\n- tiki.csv: 8 đơn\nTổng: 33 đơn\nTổng doanh thu: 12,500,000 VND\n\nFile: combined_orders.csv"
+      deliverable: "merge_orders.py"
+      delivery_package:
+      - script: "merge_orders.py"
+      - sample_input: ["shopee.csv", "lazada.csv", "tiki.csv"]
+      - sample_output: "combined_orders.csv"
+      - readme: "README.md"
+      - requirements: "requirements.txt"
+      - test_command: "python merge_orders.py shopee.csv lazada.csv tiki.csv combined_orders.csv"
+      market_note: "Đây là CAPSTONE PROJECT đầu tiên. Khi hoàn thành, learner CÓ THỂ post job merge orders. Giá market: 500k-1.5m VND (verified signal từ Facebook groups)."
+      gate_status: "LEVEL 1 READY — post job được sau khi có deliverable package đầy đủ"
+  - id: 46
+    title: "Project: clean_customer_data.py"
+    objective: "Capstone project: clean full CSV data — deduplicate, normalize, validate, report."
+    explanation: "Đây là CAPSTONE PROJECT thứ hai. Hoàn thành = learner có thêm 1 deliverable trong portfolio. Clean CSV là task phổ biến nhất, giá 300k-800k VND (verified signal từ Facebook groups)."
+    evidence:
+    - claim: "clean_customer_data.py có thể bán 300k-800k VND"
+      type: "verified signal"
+      source: "similar tasks observed on Facebook groups VN (freelance Python jobs) + coach market observation"
+    examples:
+    - "Full working clean_customer_data.py script"
+    exercise: "Build clean_customer_data.py hoàn chỉnh:\n1. Đọc dirty_customers.csv (100 dòng)\n2. Strip + normalize tên\n3. Validate email (có @ và .)\n4. Validate phone (10-11 digits)\n5. Deduplicate by email\n6. Ghi cleaned_customers.csv\n7. Ghi error_log.csv (dòng bị loại + lý do)\n8. In summary report"
+    hints:
+    - Tách logic thành function cho mỗi validation.
+    - Ghi cả dòng lỗi vào file riêng.
+    - Summary phải có trước/sau count.
+    sources:
+    - tier: 1
+      title: Python csv module
+      url: https://docs.python.org/3/library/csv.html
+    - tier: 2
+      title: Real Python - CSV
+      url: https://realpython.com/python-csv/
+    video:
+    - tier: 2
+      title: Corey Schafer - CSV Module
+      url: https://www.youtube.com/watch?v=q5uM4VKywbA
+    real_world_examples:
+    - Clean database khách hàng cho shop.
+    - Chuẩn hóa data trước khi import CRM.
+    best_practices:
+    - Giữ file gốc.
+    - Tách clean logic và error logic.
+    - Log mọi quyết định.
+    project_applications:
+    - Customer data cleaner.
+    monetization:
+    - "Clean CSV data = job thường xuyên, giá 300k-800k VND. Nếu maintain tháng = 500k-1m/tháng."
+    duration_minutes: 45
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 18
+    - 22
+    - 27
+    - 30
+    - 32
+    - 33
+    - 35
+    - 36
+    - 37
+    - 39
+    - 40
+    first_money_drill:
+      enabled: true
+      task: "Build clean_customer_data.py hoàn chỉnh: đọc file bẩn, clean, validate, deduplicate, ghi file sạch + error log + summary."
+      input_sample: "dirty_customers.csv with 100 rows: mixed case names, duplicate emails, invalid phones, missing fields"
+      expected_output: "CLEAN REPORT:\n- Input: 100 rows\n- Duplicates removed: 12\n- Invalid email: 5\n- Invalid phone: 8\n- Missing name: 3\n- Clean output: 72 rows\n\nFiles: cleaned_customers.csv, error_log.csv"
+      deliverable: "clean_customer_data.py"
+      delivery_package:
+      - script: "clean_customer_data.py"
+      - sample_input: "dirty_customers.csv"
+      - sample_output: "cleaned_customers.csv"
+      - error_log: "error_log.csv"
+      - readme: "README.md"
+      - test_command: "python clean_customer_data.py dirty_customers.csv cleaned_customers.csv"
+      market_note: "Đây là CAPSTONE PROJECT thứ hai. Khi hoàn thành, learner CÓ THỂ post job clean CSV. Giá market: 300k-800k VND (verified signal từ Facebook groups)."
+      gate_status: "LEVEL 1 READY — post job được sau khi có deliverable package đầy đủ"
+  - id: 47
+    title: "Project: organize_product_photos.py"
+    objective: "Capstone project: rename + organize photos cho shop online theo pattern chuẩn."
+    explanation: "Đây là CAPSTONE PROJECT thứ ba. Hoàn thành = learner có 3 deliverable trong portfolio. Rename/organize photos giá 300k-500k VND (verified signal từ Facebook groups), demand cao vì output nhìn thấy ngay."
+    evidence:
+    - claim: "organize_product_photos.py có thể bán 300k-500k VND"
+      type: "verified signal"
+      source: "similar tasks observed on Facebook groups VN (freelance Python jobs) + coach market observation"
+    examples:
+    - "Full working organize_product_photos.py script"
+    exercise: "Build organize_product_photos.py hoàn chỉnh:\n1. Scan folder photos/\n2. Lọc file ảnh (.jpg, .jpeg, .png)\n3. Sort theo tên hoặc date\n4. Rename theo pattern: product_001.jpg, product_002.jpg\n5. Tạo backup folder trước khi rename\n6. Dry-run mode mặc định\n7. In summary: bao nhiêu file, renamed, skipped"
+    hints:
+    - Luôn backup trước.
+    - Dry-run mặc định rồi user confirm mới rename thật.
+    - "glob('*.jpg') + glob('*.png')."
+    sources:
+    - tier: 1
+      title: Python pathlib module
+      url: https://docs.python.org/3/library/pathlib.html
+    - tier: 1
+      title: Python shutil module
+      url: https://docs.python.org/3/library/shutil.html
+    video:
+    - tier: 2
+      title: Corey Schafer - Automate Rename
+      url: https://www.youtube.com/watch?v=ve2pmm5JqmI
+    real_world_examples:
+    - Rename 500 ảnh sản phẩm cho shop Shopee.
+    - Organize photos theo category cho catalogue.
+    best_practices:
+    - BACKUP LÀ BẮT BUỘC.
+    - Dry-run trước mọi rename.
+    - Test trên 5 file trước cả folder.
+    project_applications:
+    - Product photo organizer.
+    - Bulk file renamer.
+    monetization:
+    - "Rename + organize photos = job rất dễ deal, output nhìn thấy ngay. Giá 300k-500k. Khách: shop online, photographer."
+    duration_minutes: 45
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 36
+    - 37
+    - 42
+    - 43
+    first_money_drill:
+      enabled: true
+      task: "Build organize_product_photos.py: scan folder, filter images, backup, dry-run, rename theo pattern, summary."
+      input_sample: "photos/ folder with: IMG_4521.jpg, photo_final.png, product_v2.jpeg, DSC_0001.jpg, ... (20 files)"
+      expected_output: "DRY-RUN MODE:\nIMG_4521.jpg -> product_001.jpg\nDSC_0001.jpg -> product_002.jpg\nphoto_final.png -> product_003.png\n...\n\n20 files to rename. Type 'yes' to confirm.\n\nRENAME COMPLETE:\n- Renamed: 20 files\n- Backup: photos_backup/\n- Pattern: product_NNN.ext"
+      deliverable: "organize_product_photos.py"
+      delivery_package:
+      - script: "organize_product_photos.py"
+      - backup_folder: "photos_backup/"
+      - readme: "README.md"
+      - test_command: "python organize_product_photos.py photos/ --dry-run"
+      market_note: "Đây là CAPSTONE PROJECT thứ ba. Khi hoàn thành, learner CÓ THỂ post job rename/organize photos. Giá market: 300k-500k VND (verified signal từ Facebook groups)."
+      gate_status: "LEVEL 1 READY — post job được sau khi có deliverable package đầy đủ"

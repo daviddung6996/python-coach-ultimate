@@ -1,0 +1,326 @@
+- id: 1
+  title: Python Fundamentals
+  description: Nền tảng để hiểu Python là gì, chạy code, nhập dữ liệu, và nắm các kiểu dữ liệu cơ bản.
+  project_milestone:
+    project: P1 — User Registration System
+    step: "Step 1: Registration Form"
+    task: |
+      Viết script registration_form.py:
+      1. Dùng input() nhận name, email, password từ user
+      2. In lại thông tin đã nhập dạng gọn: "Tên: ..., Email: ..., Password: ..."
+      3. In thông báo "Đăng ký thành công!" (chưa cần validate)
+    concepts_used: [variables, input(), print(), data types]
+    note: "Đây là bộ khung sẽ thêm validation ở các chapter sau."
+  lessons:
+  - id: 1
+    title: What Is Python & How It Works
+    objective: Hiểu Python là gì, interpreter chạy code ra sao, và vì sao Python mạnh ở automation, web, data, AI.
+    explanation: 'Python là ngôn ngữ thông dịch, bạn viết code trong file .py rồi chạy `python file.py`. Interpreter đọc từng dòng, parse cú pháp, thực thi. Vòng lặp học hiệu quả: viết -> chạy -> đọc output -> sửa lỗi. Python có cú pháp đọc gần tiếng Anh, hệ sinh thái mạnh cho automation, web, data, AI.'
+    examples:
+    - print('Hello, Python')
+    - 'message = ''Tôi đang học Python''
+
+      print(message)'
+    - 'x = 10
+
+      y = 5
+
+      print(x + y)'
+    exercise: 'Viết file intro.py in ra 2 dòng: dòng 1 giới thiệu bạn, dòng 2 nói bạn muốn dùng Python để làm gì.'
+    hints:
+    - Chỉ cần dùng print(), chưa cần input().
+    - 'Chạy: `python intro.py` hoặc `python3 intro.py`.'
+    sources:
+    - tier: 1
+      title: Python Tutorial - Whetting Your Appetite
+      url: https://docs.python.org/3/tutorial/appetite.html
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    - tier: 2
+      title: Real Python - What Is Python?
+      url: https://realpython.com/what-can-i-do-with-python/
+    video:
+    - tier: 1
+      title: CS50P 2022 Lecture 0
+      url: https://www.youtube.com/watch?v=U5KRaW30r9M
+    real_world_examples:
+    - Script đổi tên file hàng loạt cho shop online.
+    - Tool nhỏ xử lý dữ liệu báo cáo từ CSV.
+    best_practices:
+    - Tập thói quen chạy code thật, không chỉ đọc.
+    - Mỗi lần học khái niệm, tự gõ lại ví dụ.
+    - Đọc lỗi terminal thay vì panic.
+    project_applications:
+    - Mini hello app in terminal.
+    - Script tính tổng 2 số và in kết quả.
+    monetization:
+    - "Bước 1/6 mở khóa nền tảng. Bạn vừa hiểu Python chạy thế nào — còn 5 bài nữa để viết script đầu tiên bán được."
+    duration_minutes: 20
+    prerequisites: []
+    solution_hint: ''
+    common_mistakes:
+    - Tưởng Python là IDE, không phải ngôn ngữ.
+    - Không phân biệt file .py với terminal command.
+  - id: 2
+    title: Installing Python
+    objective: Cài Python đúng cách, kiểm tra phiên bản, chạy file .py trong terminal hoặc VS Code.
+    explanation: Bạn cần biết Python đã cài chưa, phiên bản bao nhiêu, command nào hoạt động (`python` hay `python3`), và cách chạy file .py. Nếu mơ hồ, sau này bạn sẽ tưởng sai cú pháp nhưng thực tế chỉ chạy sai interpreter hoặc thư mục.
+    examples:
+    - python --version
+    - python3 --version
+    - python hello.py
+    exercise: Cài Python, mở terminal, chạy lệnh kiểm tra version, tạo file hello.py và chạy file đó thành công.
+    hints:
+    - Nếu `python` không chạy, thử `python3`.
+    - Đứng đúng thư mục chứa file rồi mới chạy.
+    sources:
+    - tier: 1
+      title: Python Downloads
+      url: https://www.python.org/downloads/
+    - tier: 1
+      title: Python Docs - Using Python
+      url: https://docs.python.org/3/using/index.html
+    - tier: 2
+      title: VS Code Python Setup
+      url: https://code.visualstudio.com/docs/python/python-tutorial
+    video:
+    - tier: 2
+      title: freeCodeCamp - Python Setup + First Program
+      url: https://www.youtube.com/watch?v=rfscVS0vtbw
+    real_world_examples:
+    - Cài môi trường đúng giúp tự chạy script automation.
+    - Biết terminal là điều kiện nhận job sửa script cho người khác.
+    best_practices:
+    - Luôn kiểm tra version trước khi debug lỗi lạ.
+    - Dùng một interpreter rõ ràng cho mỗi project.
+    - Biết thư mục hiện tại của terminal trước khi chạy file.
+    project_applications:
+    - Tạo thư mục học-python và chạy 3 file .py trong đó.
+    - Thiết lập VS Code để chạy Python bằng một nút bấm.
+    monetization:
+    - "Bước 2/6 mở khóa nền tảng. Máy đã chạy Python = bạn đã vượt qua rào cản đầu tiên mà 50% người mới bỏ cuộc."
+    duration_minutes: 15
+    prerequisites: []
+    solution_hint: ''
+    common_mistakes:
+    - Chạy file khi terminal đang ở sai thư mục.
+    - Cài Python xong nhưng không biết command nào đúng trên máy.
+  - id: 3
+    title: Comments & print()
+    objective: Biết dùng comment để ghi chú và dùng print() để xuất dữ liệu ra màn hình.
+    explanation: '`print()` là công cụ output và debug. Comment giúp ghi chú ý tưởng hoặc giải thích logic. Với beginner, print in giá trị giữa chừng giúp biết code đang chạy tới đâu, biến đang chứa gì.'
+    examples:
+    - print('Xin chào')
+    - 'name = ''Luc''
+
+      print(''Tên:'', name)'
+    - '# đây là comment
+
+      price = 150000
+
+      print(price)'
+    exercise: 'Viết chương trình có ít nhất 2 comment và 3 lệnh print: in tên, mục tiêu học Python, và một phép tính đơn giản.'
+    hints:
+    - 'Comment bắt đầu bằng dấu #.'
+    - print có thể in cả text lẫn biến.
+    sources:
+    - tier: 1
+      title: Python Docs - Input and Output
+      url: https://docs.python.org/3/tutorial/inputoutput.html
+    - tier: 1
+      title: Python Built-in print()
+      url: https://docs.python.org/3/library/functions.html#print
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    video:
+    - tier: 1
+      title: CS50P 2022 Lecture 0
+      url: https://www.youtube.com/watch?v=U5KRaW30r9M
+    real_world_examples:
+    - In log đơn giản khi xử lý đơn hàng.
+    - Debug script đổi tên file bằng cách in đường dẫn.
+    best_practices:
+    - Dùng print để debug sớm.
+    - Comment giải thích lý do, không viết điều hiển nhiên.
+    - Format output dễ đọc, có nhãn rõ.
+    project_applications:
+    - Mini profile printer in terminal.
+    - Script in bảng giá 3 sản phẩm.
+    monetization:
+    - "Bước 3/6 mở khóa nền tảng. print() + comment = debug tool. Mọi script kiếm tiền đều cần 2 thứ này."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    solution_hint: ''
+    common_mistakes:
+    - Quên dấu nháy cho text.
+    - Comment quá nhiều thứ vô nghĩa.
+  - id: 4
+    title: Variables
+    objective: Tạo biến, gán lại giá trị, đặt tên biến đúng chuẩn, và hiểu biến chỉ là nhãn trỏ tới dữ liệu.
+    explanation: Biến lưu dữ liệu để dùng lại. Tên biến tốt giúp code đọc như tiếng Anh; tên mơ hồ khiến code rối. Beginner hay đặt tên mơ hồ hoặc đè built-in (`list`, `sum`, `str`). Biến không phải hộp thần bí, là nhãn trỏ dữ liệu.
+    examples:
+    - 'username = ''luc''
+
+      age = 25
+
+      print(username, age)'
+    - 'price = 120000
+
+      price = price - 20000
+
+      print(price)'
+    - 'total_orders = 15
+
+      print(total_orders)'
+    exercise: Tạo biến lưu tên, tuổi, nghề nghiệp, mục tiêu học Python và in ra thành 1 đoạn giới thiệu gọn.
+    hints:
+    - 'Tên biến nên đọc được: `user_name`, `birth_year`.'
+    - Đừng dùng `sum`, `list`, `str` làm tên biến.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Using Python as a Calculator
+      url: https://docs.python.org/3/tutorial/introduction.html#using-python-as-a-calculator
+    - tier: 2
+      title: Real Python - Variables in Python
+      url: https://realpython.com/python-variables/
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    video:
+    - tier: 2
+      title: Corey Schafer - Python Variables
+      url: https://www.youtube.com/watch?v=Z1Yd7upQsXY
+    real_world_examples:
+    - Lưu thông tin khách hàng tạm thời trong script xử lý form.
+    - Lưu giá, số lượng, discount để tính tiền đơn hàng.
+    best_practices:
+    - Tên biến phải mô tả ý nghĩa, không phải kiểu dữ liệu.
+    - Giảm hardcode bằng biến có tên rõ.
+    - Không lạm dụng tên quá ngắn trừ loop rất ngắn.
+    project_applications:
+    - Mini order summary calculator.
+    - Script lưu và in profile người dùng.
+    monetization:
+    - "Bước 4/6 mở khóa nền tảng. Variables = lưu data. Từ đây mỗi bài đều build lên script hoàn chỉnh dần."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    solution_hint: ''
+    common_mistakes:
+    - Đặt tên biến có dấu gạch ngang.
+    - Dùng tên built-in làm tên biến.
+  - id: 5
+    title: User input()
+    objective: Lấy dữ liệu từ người dùng bằng input() và chuyển kiểu đúng để dùng tiếp.
+    explanation: '`input()` là lúc chương trình bắt đầu tương tác thật. Quan trọng: `input()` luôn trả về chuỗi. Nếu muốn cộng số, tính tuổi, tính tiền, phải ép kiểu sang `int` hoặc `float`. Bài này là cầu nối từ code tĩnh sang script có input -> xử lý -> output.'
+    examples:
+    - 'name = input(''Tên của bạn: '')
+
+      print(''Xin chào'', name)'
+    - 'age = int(input(''Tuổi: ''))
+
+      print(age + 1)'
+    - 'price = float(input(''Giá: ''))
+
+      print(price * 0.9)'
+    exercise: Viết chương trình hỏi tên và năm sinh, sau đó in ra lời chào và tuổi dự kiến của người dùng.
+    hints:
+    - Nhớ ép `year` sang int nếu muốn tính toán.
+    - Bạn có thể dùng f-string để in đẹp hơn.
+    sources:
+    - tier: 1
+      title: Python Built-in input()
+      url: https://docs.python.org/3/library/functions.html#input
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    - tier: 2
+      title: Real Python - User Input in Python
+      url: https://realpython.com/python-input-output/
+    video:
+    - tier: 1
+      title: CS50P 2022 Lecture 0
+      url: https://www.youtube.com/watch?v=U5KRaW30r9M
+    real_world_examples:
+    - Tạo terminal form nhập tên khách và số điện thoại.
+    - Viết script hỏi số lượng sản phẩm rồi tính tổng tiền.
+    best_practices:
+    - Luôn nhớ input trả về str.
+    - Validate input số khi chuẩn bị học error handling.
+    - Prompt của input phải rõ để user không nhập sai.
+    project_applications:
+    - Age calculator.
+    - Discount calculator with user input.
+    monetization:
+    - "Bước 5/6 mở khóa nền tảng. input() = nhận data từ user. Script tương tác là nền của tool nội bộ."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    solution_hint: ''
+    common_mistakes:
+    - Quên ép kiểu trước khi tính toán.
+    - Prompt nhập quá mơ hồ khiến người dùng nhập sai.
+  - id: 6
+    title: Python Data Types
+    objective: Phân biệt các kiểu dữ liệu cơ bản trong Python và biết khi nào nên dùng từng kiểu.
+    explanation: Data type quyết định dữ liệu có thể làm gì. Số nguyên khác số thực, chuỗi khác boolean, list khác dict. Nếu không nắm type, sẽ viết code đoán mò và dính TypeError liên tục. Bài này giúp learner nhìn dữ liệu và đoán đúng kiểu, hiểu tại sao type quan trọng, và biết dùng `type()` chỉ để học/debug.
+    examples:
+    - 'name = ''Luc''
+
+      print(type(name))'
+    - 'score = 8.5
+
+      print(type(score))'
+    - 'is_active = True
+
+      print(type(is_active))'
+    exercise: 'Tạo 8 biến đại diện cho: tên, tuổi, chiều cao, trạng thái đang học, danh sách môn học, tuple tọa độ, set tag, dict hồ sơ. In type của từng biến.'
+    hints:
+    - str là text, int là số nguyên, float là số thập phân, bool là True/False.
+    - list, tuple, set, dict là collection types.
+    sources:
+    - tier: 1
+      title: Python Standard Types
+      url: https://docs.python.org/3/library/stdtypes.html
+    - tier: 2
+      title: Real Python - Python Data Types
+      url: https://realpython.com/python-data-types/
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    video:
+    - tier: 2
+      title: Corey Schafer - Python Data Types
+      url: https://www.youtube.com/watch?v=khKv-8q7YmY
+    real_world_examples:
+    - Biết type giúp parse dữ liệu API đúng cách.
+    - Phân biệt list/dict giúp xử lý JSON dễ hơn rất nhiều.
+    best_practices:
+    - Nhìn dữ liệu rồi đoán type trước khi code.
+    - Dùng `type()` để học và debug, không phải giải pháp kiến trúc.
+    - Tránh trộn string với number nếu chưa ép kiểu rõ ràng.
+    project_applications:
+    - Profile inspector script.
+    - Simple typed data summary.
+    monetization:
+    - "Bước 6/6 — XONG NỀN TẢNG! Bạn đã hiểu types, variables, input/output. Từ bài tiếp theo bắt đầu ghép thành script gần job thật."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm `"10"` với `10`.
+    - Không phân biệt bool với string `"True"`.

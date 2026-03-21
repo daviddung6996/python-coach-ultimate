@@ -1,0 +1,191 @@
+- id: 10
+  title: CSV & Data Processing
+  description: "Đọc, ghi, clean CSV — kỹ năng gần tiền nhất cho beginner Python."
+  lessons:
+  - id: 39
+    title: Reading CSV Files
+    objective: "Dùng csv module và DictReader đọc file CSV đúng cách."
+    explanation: "CSV là format phổ biến nhất khi nhận data từ khách. csv.reader đọc theo row, DictReader đọc theo column name — sạch hơn và dễ dùng hơn cho beginner. Bài này phải giúp learner mở được file CSV thật, hiểu header, lấy được data cần thiết."
+    examples:
+    - "import csv\nwith open('orders.csv', 'r', encoding='utf-8') as f:\n    reader = csv.reader(f)\n    header = next(reader)\n    print('Columns:', header)\n    for row in reader:\n        print(row)"
+    - "import csv\nwith open('orders.csv', 'r', encoding='utf-8') as f:\n    reader = csv.DictReader(f)\n    for row in reader:\n        print(row['name'], row['total'])"
+    exercise: "Đọc file orders.csv (có header: name, product, quantity, price), in 5 dòng đầu dạng đẹp, in tổng số đơn hàng."
+    hints:
+    - DictReader dùng header row làm key tự động.
+    - Nhớ encoding cho tiếng Việt.
+    sources:
+    - tier: 1
+      title: Python csv module
+      url: https://docs.python.org/3/library/csv.html
+    - tier: 2
+      title: Real Python - Reading and Writing CSV Files
+      url: https://realpython.com/python-csv/
+    video:
+    - tier: 2
+      title: Corey Schafer - CSV Module
+      url: https://www.youtube.com/watch?v=q5uM4VKywbA
+    real_world_examples:
+    - Đọc file đơn hàng từ Shopee export.
+    - Đọc danh sách sản phẩm từ Excel save as CSV.
+    best_practices:
+    - Dùng DictReader cho code dễ đọc hơn.
+    - Luôn kiểm tra header trước khi xử lý.
+    - Test với 5 dòng trước khi chạy cả file.
+    project_applications:
+    - CSV viewer.
+    - Order data reader.
+    monetization:
+    - "Đọc CSV = bước 1 của MỌI job data cleaning. Bạn đã đủ skill để nhận job clean CSV nhỏ. Mốc: clean_csv.py ở bài sau."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 31
+    - 36
+    - 37
+  - id: 40
+    title: Writing & Cleaning CSV
+    objective: "Ghi CSV sạch, clean data (strip, deduplicate, validate rows)."
+    explanation: "Đây là bài tập trung kỹ năng để làm first-money task. Clean CSV = nhận file bẩn từ khách → bỏ trùng, strip spaces, validate data → ghi ra file sạch. Nhưng chưa phải lúc post job. Hoàn thành package script + sample input/output + README + test command thì mới giao được."
+    evidence:
+    - claim: "Corey Schafer CSV Module video"
+      type: "verified direct"
+      source: "https://www.youtube.com/watch?v=q5uM4VKywbA — 1.4M views, 16:00, verified 2026-03-21"
+    examples:
+    - "import csv\nwith open('clean.csv', 'w', newline='', encoding='utf-8') as f:\n writer = csv.writer(f)\n writer.writerow(['name', 'email', 'total'])\n writer.writerow(['Luc', 'luc@example.com', 500000])"
+    - "import csv\nrows_seen = set()\ncleaned = []\nwith open('dirty.csv', 'r', encoding='utf-8') as f:\n reader = csv.DictReader(f)\n for row in reader:\n key = row['email'].strip().lower()\n if key not in rows_seen:\n rows_seen.add(key)\n cleaned.append({\n 'name': row['name'].strip().title(),\n 'email': key,\n 'total': row['total'].strip()\n })\nprint(f'Cleaned: {len(cleaned)} rows (removed {len(rows_seen)} duplicates)')"
+    exercise: "Nhận file dirty_orders.csv có data bẩn (tên thừa space, email trùng, số âm), clean và ghi ra cleaned_orders.csv. In summary: bao nhiêu dòng gốc, bao nhiêu dòng sạch, bao nhiêu dòng bị loại."
+    hints:
+    - Dùng set() để track duplicates.
+    - strip() + lower() cho normalize.
+    - Validate số > 0 trước khi giữ.
+    sources:
+    - tier: 1
+      title: Python csv module
+      url: https://docs.python.org/3/library/csv.html
+    - tier: 2
+      title: Real Python - Reading and Writing CSV Files
+      url: https://realpython.com/python-csv/
+    video:
+    - tier: 2
+      title: Corey Schafer - CSV Module
+      url: https://www.youtube.com/watch?v=q5uM4VKywbA
+    real_world_examples:
+    - Clean danh sách khách hàng cho shop.
+    - Loại đơn hàng trùng trước khi nhập hệ thống.
+    best_practices:
+    - Giữ file gốc, ghi ra file mới.
+    - In summary trước/sau clean.
+    - Test với sample nhỏ trước.
+    project_applications:
+    - CSV cleaner.
+    - Data deduplicator.
+    monetization:
+      framing: "pre-money rehearsal"
+      note: "Đây là DRILL để tập kỹ năng. Script clean CSV hoàn chỉnh có thể bán 300k-800k VND (coach observation từ Facebook groups). Nhưng learner cần hoàn thành bài 40-41, có deliverable package đầy đủ (script + sample input/output + README + test command) mới nên post job."
+    duration_minutes: 25
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 18
+    - 22
+    - 27
+    - 30
+    - 36
+    - 37
+    - 39
+    first_money_drill:
+      enabled: true
+      task: "Nhận file dirty_customers.csv (50 dòng, có trùng email, tên bẩn, phone sai format), clean và ghi ra cleaned_customers.csv với summary."
+      input_sample: "name,email,phone\n Nguyen Van A ,a@gmail.com,0901234567\nTRAN THI B,b@gmail.com,+849****4568\n nguyen van a ,a@gmail.com,0901234567\nLe Van C,invalid_email,abc"
+      expected_output: "SUMMARY:\n- Gốc: 4 dòng\n- Trùng: 1\n- Email lỗi: 1\n- Phone lỗi: 1\n- Sạch: 2 dòng\n\nFile cleaned_customers.csv đã ghi."
+      deliverable: "clean_customers.py"
+      delivery_package:
+      - script: "clean_customers.py"
+      - sample_input: "dirty_customers.csv"
+      - sample_output: "cleaned_customers.csv"
+      - error_log: "error_log.csv"
+      - readme: "README.md"
+      - test_command: "python clean_customers.py dirty_customers.csv cleaned_customers.csv"
+      market_note: "Đây là DRILL để tập kỹ năng. Khi hoàn thành package đầy đủ, learner có thể post job clean CSV. Giá market: 300k-800k VND (coach observation)."
+      gate_status: "LEVEL 1 REHEARSAL — chưa phải post job, cần hoàn thành bài 41 + deliverable package"
+  - id: 41
+    title: CSV Analysis & Simple Reports
+    objective: "Tính tổng, trung bình, đếm, group từ CSV. Xuất báo cáo text/CSV."
+    explanation: "Sau khi clean data, bước tiếp là phân tích và tạo report. Bài này dạy tính toán cơ bản trên CSV data + xuất report có format rõ ràng. Đây là upgrade từ clean → analyze → report, mỗi bước tăng giá trị deliverable."
+    examples:
+    - "import csv\ntotal = 0\ncount = 0\nwith open('orders.csv', 'r', encoding='utf-8') as f:\n    reader = csv.DictReader(f)\n    for row in reader:\n        total += int(row['amount'])\n        count += 1\nprint(f'Tong: {total:,} VND')\nprint(f'Trung binh: {total//count:,} VND')"
+    - "# Group by date\nfrom collections import defaultdict\nimport csv\ndaily = defaultdict(int)\nwith open('orders.csv', 'r', encoding='utf-8') as f:\n    for row in csv.DictReader(f):\n        daily[row['date']] += int(row['amount'])\nfor date, total in sorted(daily.items()):\n    print(f'{date}: {total:,} VND')"
+    exercise: "Từ file orders.csv, tạo báo cáo: tổng doanh thu, trung bình/đơn, ngày cao nhất, top 3 khách mua nhiều nhất. Ghi report ra file."
+    hints:
+    - defaultdict giúp group dễ.
+    - sorted() + key để sort dict.
+    - "Format số bằng f'{x:,}'."
+    sources:
+    - tier: 1
+      title: Python csv module
+      url: https://docs.python.org/3/library/csv.html
+    - tier: 1
+      title: Python collections module
+      url: https://docs.python.org/3/library/collections.html
+    - tier: 2
+      title: Real Python - defaultdict
+      url: https://realpython.com/python-defaultdict/
+    video:
+    - tier: 2
+      title: Corey Schafer - CSV Module
+      url: https://www.youtube.com/watch?v=q5uM4VKywbA
+    real_world_examples:
+    - Báo cáo doanh thu ngày cho shop.
+    - Thống kê đơn hàng theo khách hàng.
+    best_practices:
+    - Validate data trước khi tính.
+    - Format số có dấu phẩy cho VND.
+    - Ghi cả report text lẫn CSV nếu khách cần.
+    project_applications:
+    - Daily revenue report.
+    - Customer analytics.
+    monetization:
+    - "Script report từ CSV giá 500k-1.5m VND. Bạn đã có thể nhận job: clean data + tạo báo cáo. Package: script + sample + README."
+    duration_minutes: 25
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 18
+    - 22
+    - 31
+    - 36
+    - 37
+    - 39
+    - 40
+    first_money_drill:
+      enabled: true
+      task: "Từ file orders.csv (100 dòng), tạo daily_report.txt: tổng doanh thu, trung bình/đơn, top 3 ngày bán chạy nhất, top 5 khách mua nhiều nhất."
+      input_sample: "date,customer,product,amount\n2026-03-01,Nguyen A,Chuot,350000\n2026-03-01,Tran B,Ban phim,850000\n2026-03-02,Nguyen A,Tai nghe,1200000"
+      expected_output: "BÁO CÁO DOANH THU\n\nTổng: 2,400,000 VND\nTrung bình/đơn: 800,000 VND\n\nTOP 3 NGÀY:\n1. 2026-03-02: 1,200,000 VND\n2. 2026-03-01: 1,200,000 VND\n\nTOP 5 KHÁCH:\n1. Nguyen A: 1,550,000 VND (2 đơn)\n2. Tran B: 850,000 VND (1 đơn)"
+      deliverable: "daily_report.py"
+      delivery_package:
+      - script: "daily_report.py"
+      - sample_input: "orders.csv"
+      - sample_output: "daily_report.txt"
+      - readme: "README.md"
+      - test_command: "python daily_report.py orders.csv daily_report.txt"
+      market_note: "Đây là DRILL để tập kỹ năng. Script report CSV có thể bán 500k-1.5m VND (coach observation). Nhưng cần hoàn thành bài 41 + deliverable package."
+      gate_status: "LEVEL 1 REHEARSAL — chưa phải post job, cần hoàn thành bài 41 + deliverable package"

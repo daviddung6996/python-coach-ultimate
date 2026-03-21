@@ -1,0 +1,154 @@
+- id: 3
+  title: Python Numbers
+  description: Hiểu số trong Python, phép toán, làm tròn, và module math cho tác vụ thường gặp.
+  project_milestone:
+    project: P2 — Expense Tracking System
+    step: "Step 1: Expense Calculator"
+    task: |
+      Viết script expense_calc.py:
+      1. Tạo 4-5 biến expense: food = 50000, transport = 20000, coffee = 15000, ...
+      2. Tính tổng tất cả expenses
+      3. Tính trung bình (tổng / số expense)
+      4. Làm tròn trung bình bằng round()
+      5. In: "Tổng chi: X VND", "Trung bình: Y VND"
+    concepts_used: [int, float, math operators (+, /, //), round()]
+    example: |
+      food = 50000
+      transport = 20000
+      coffee = 15000
+      total = food + transport + coffee
+      average = round(total / 3)
+      print(f"Tổng chi: {total} VND")
+      print(f"Trung bình: {average} VND")
+    note: "Chapter 6 sẽ dạy loop để tự động tính tổng list. Bây giờ tính bằng tay trước."
+  lessons:
+  - id: 10
+    title: Numeric Data Types & Math Operators
+    objective: Hiểu int, float, các toán tử số học, và dùng chúng để tính toán đúng.
+    explanation: Numbers là phần lõi của hầu hết script tính tiền, tính điểm, phần trăm, tồn kho. Bài này dạy int/float, cộng trừ nhân chia, chia lấy dư, lũy thừa, và tư duy đọc biểu thức. Không cần thần thánh hóa toán học; điều cần là learner viết được phép tính đúng và hiểu dữ liệu đầu ra là gì.
+    examples:
+    - 'a = 7
+
+      b = 3
+
+      print(a + b, a - b, a * b)'
+    - 'print(7 / 3)
+
+      print(7 // 3)
+
+      print(7 % 3)'
+    - 'price = 120000
+
+      discount = 0.1
+
+      print(price * (1 - discount))'
+    exercise: Viết mini calculator nhận 2 số từ user và in ra tổng, hiệu, tích, thương, chia lấy dư.
+    hints:
+    - Phân biệt `/` và `//`.
+    - Nếu nhận input, nhớ ép kiểu.
+    sources:
+    - tier: 1
+      title: Python Tutorial - Numbers
+      url: https://docs.python.org/3/tutorial/introduction.html#numbers
+    - tier: 2
+      title: Real Python - Numbers in Python
+      url: https://realpython.com/python-numbers/
+    - tier: 1
+      title: CS50P Week 0
+      url: https://cs50.harvard.edu/python/2022/weeks/0/
+    video:
+    - tier: 2
+      title: Corey Schafer - Operators and Expressions
+      url: https://www.youtube.com/watch?v=v5Jkf4PD3fQ
+    extra_practice: ''
+    real_world_examples:
+    - Tính tiền sau giảm giá.
+    - Tính số hộp cần đóng gói nếu mỗi hộp chứa tối đa N sản phẩm.
+    best_practices:
+    - Đặt tên biến cho ý nghĩa business chứ không chỉ a, b.
+    - Test với số âm và số lẻ.
+    - Đọc kỹ ý nghĩa phép chia lấy dư trong bài toán thực tế.
+    project_applications:
+    - Discount calculator.
+    - Packaging calculator.
+    monetization:
+    - "Tính giá, tổng đơn, phần trăm — mọi script báo cáo đều cần. Tiến độ: 4/6 bước đến first-money."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    solution_hint: ''
+    common_mistakes:
+    - Nhầm giữa `/` và `//`.
+    - Không ép kiểu input trước khi tính.
+  - id: 11
+    title: Rounding & Advanced Math
+    objective: Biết làm tròn, lấy giá trị tuyệt đối, căn bậc hai, và dùng math cho tính toán sạch hơn.
+    explanation: Trong thực tế, số liệu hiếm khi đẹp. Bạn sẽ cần làm tròn giá, tỷ lệ, trung bình, đo khoảng cách, hoặc tính toán có căn/mũ. Bài này giúp learner dùng `round()`, `abs()`, `pow()`, và module `math` để viết các phép tính đàng hoàng hơn thay vì tự chế công thức rối.
+    examples:
+    - print(round(3.14159, 2))
+    - 'print(abs(-15))
+
+      print(pow(2, 3))'
+    - 'import math
+
+      print(math.sqrt(49))
+
+      print(math.ceil(3.2))'
+    exercise: Tính diện tích hình tròn từ bán kính nhập vào, làm tròn 2 chữ số; sau đó in thêm chu vi.
+    hints:
+    - Nhớ `import math` nếu dùng `math.pi`.
+    - Dùng `round(value, 2)` cho 2 chữ số thập phân.
+    sources:
+    - tier: 1
+      title: Python Built-in round()
+      url: https://docs.python.org/3/library/functions.html#round
+    - tier: 1
+      title: Python math module
+      url: https://docs.python.org/3/library/math.html
+    - tier: 2
+      title: Real Python - Python Rounding
+      url: https://realpython.com/python-rounding/
+    video:
+    - tier: 2
+      title: Corey Schafer - Math Module
+      url: https://www.youtube.com/watch?v=GxB-ZXk8Q1Y
+    extra_practice: ''
+    real_world_examples:
+    - Làm tròn báo giá cho khách hàng.
+    - Tính phần trăm tăng trưởng và làm tròn để lên dashboard.
+    best_practices:
+    - Làm tròn ở lớp output, không làm tròn sớm nếu còn tính tiếp.
+    - Dùng module math thay vì tự viết công thức dễ sai.
+    - Đặt rõ đơn vị của số liệu.
+    project_applications:
+    - Circle calculator.
+    - Profit margin calculator.
+    monetization:
+    - "Làm tròn báo giá, tính margin — kỹ năng cần cho script report. Tiến độ: 5/6 bước."
+    duration_minutes: 20
+    prerequisites:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 10
+    solution_hint: ''
+    common_mistakes:
+    - Làm tròn quá sớm gây sai số.
+    - Quên import math.
+    first_money_drill:
+      enabled: true
+      task: "Nhận danh sách sản phẩm với giá gốc và % giảm giá, tính giá sau giảm và tổng đơn hàng, làm tròn 0 chữ số thập phân."
+      input_sample: "Chuot:350000:10\nBan_phim:850000:15\nTai_nghe:1200000:5"
+      expected_output: "Chuot: 315,000 VND\nBan_phim: 722,500 VND\nTai_nghe: 1,140,000 VND\nTong: 2,177,500 VND"
+      deliverable: "price_calculator.py"
+      delivery_package: ["price_calculator.py", "products.txt", "README.md"]
+      market_note: "Script tính giá/báo giá tự động — task phổ biến cho shop online, giá 300k-500k."
+      gate_status: "Gate A+B unlocked (đọc input số + tính toán có công thức)"
