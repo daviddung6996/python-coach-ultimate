@@ -24,20 +24,20 @@
     - strip() mỗi dòng trước khi xử lý.
     sources:
     - tier: 1
-    title: Python Tutorial - Reading and Writing Files
-    url: https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
+      title: Python Tutorial - Reading and Writing Files
+      url: https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
     - tier: 2
-    title: Real Python - Reading and Writing Files
-    url: https://realpython.com/read-write-files-python/
+      title: Real Python - Reading and Writing Files
+      url: https://realpython.com/read-write-files-python/
     - tier: 1
-    title: CS50P Week 6
-    url: https://cs50.harvard.edu/python/2022/weeks/6/
+      title: CS50P Week 6
+      url: https://cs50.harvard.edu/python/2022/weeks/6/
     video:
     - tier: 2
-    title: Corey Schafer - File Objects
-    url: https://www.youtube.com/watch?v=Uh2ebFW8OYM
-    views: "2M"
-    duration: "24:00"
+      title: Corey Schafer - File Objects
+      url: https://www.youtube.com/watch?v=Uh2ebFW8OYM
+      views: "2M"
+      duration: "24:00"
     real_world_examples:
     - Đọc danh sách khách hàng từ file text.
     - Ghi báo cáo kết quả ra file text.

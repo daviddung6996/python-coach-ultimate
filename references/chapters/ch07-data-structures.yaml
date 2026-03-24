@@ -15,7 +15,12 @@
         6. Append vào failed_registrations
         7. Check duplicate email: dùng for loop qua registered_users
         8. Khi thoát: in toàn bộ registered_users và failed_registrations
-      concepts_used: [list of dicts, dict creation, list.append(), for loop search, "in" check]
+      concepts_used:
+      - list of dicts
+      - dict creation
+      - list.append()
+      - for loop search
+      - '"in" check'
     - project: P2 — Expense Tracking System
       step: "Step 4: Structured Expenses"
       task: |
@@ -26,7 +31,11 @@
         4. Loop qua expenses tính tổng
         5. Loop + filter: tổng theo category (so sánh .lower())
         6. Dùng enumerate in bảng chi tiêu có đánh số
-      concepts_used: [list of dicts, dict access ["key"], loop + filter, enumerate]
+      concepts_used:
+      - list of dicts
+      - 'dict access ["key"]'
+      - loop + filter
+      - enumerate
     - project: P3 — Mini Banking System
       step: "Step 4: Account với Nested Data"
       task: |
@@ -37,7 +46,10 @@
         4. Khi deposit/withdraw: append transaction dict vào account["transactions"]
         5. show_account: in name, balance, rồi loop in tất cả transactions
         6. Tìm account bằng for loop qua accounts, so sánh name.lower()
-      concepts_used: [nested data — dict chứa list of dicts, dict mutation, list.append() nested]
+      concepts_used:
+      - nested data — dict chứa list of dicts
+      - dict mutation
+      - list.append() nested
     note: "Cả 3 project giờ đã có data structure hoàn chỉnh. Chapter 8 sẽ wrap thành functions sạch + exception handling."
   lessons:
   - id: 22
@@ -77,21 +89,21 @@
     - Phân biệt list với string ngay từ đầu.
     - Đặt tên list ở số nhiều nếu hợp lý.
     - Tự hỏi dữ liệu có cần giữ thứ tự không.
-  project_applications:
-  - Favorite items list.
-  - Simple product list display.
-  first_money_drill:
-    enabled: true
-    task: "Tạo list sản phẩm shop từ input, lọc sản phẩm hết hàng (stock=0), in danh sách còn hàng."
-    input_sample: "Chuot:5\nBan_phim:0\nTai_nghe:3\nLoa:0\nWebcam:2"
-    expected_output: "CÒN HÀNG:\n- Chuot (5)\n- Tai_nghe (3)\n- Webcam (2)\n\nHẾT HÀNG: Ban_phim, Loa"
-    deliverable: "filter_stock.py"
-    delivery_package: ["filter_stock.py", "products.txt", "README.md"]
-    market_note: "Filter stock = task cơ bản nhất cho shop online, giá 300k."
-    gate_status: "Gate A+B+C approaching (đọc input + list + xuất kết quả)"
-  monetization:
-  - "List = nền của mọi script xử lý nhiều dòng dữ liệu. Bạn đang ở mốc có thể viết filter_orders.py. Tiến độ: 3/5 gates."
-  duration_minutes: 20
+    project_applications:
+    - Favorite items list.
+    - Simple product list display.
+    first_money_drill:
+      enabled: true
+      task: "Tạo list sản phẩm shop từ input, lọc sản phẩm hết hàng (stock=0), in danh sách còn hàng."
+      input_sample: "Chuot:5\nBan_phim:0\nTai_nghe:3\nLoa:0\nWebcam:2"
+      expected_output: "CÒN HÀNG:\n- Chuot (5)\n- Tai_nghe (3)\n- Webcam (2)\n\nHẾT HÀNG: Ban_phim, Loa"
+      deliverable: "filter_stock.py"
+      delivery_package: ["filter_stock.py", "products.txt", "README.md"]
+      market_note: "Filter stock = task cơ bản nhất cho shop online, giá 300k."
+      gate_status: "Gate A+B+C approaching (đọc input + list + xuất kết quả)"
+    monetization:
+    - "List = nền của mọi script xử lý nhiều dòng dữ liệu. Bạn đang ở mốc có thể viết filter_orders.py. Tiến độ: 3/5 gates."
+    duration_minutes: 20
     prerequisites:
     - 1
     - 2
@@ -143,21 +155,21 @@
     - Tự vẽ index trên giấy nếu còn rối.
     - Test với list ngắn trước khi code dài.
     - Cẩn thận lỗi out of range.
-  project_applications:
-  - Product picker by index.
-  - Last-order viewer.
-  first_money_drill:
-    enabled: true
-    task: "Nhận list 20 mã đơn hàng, in 5 đơn mới nhất, 5 đơn cũ nhất, kiểm tra mã đơn X có tồn tại không."
-    input_sample: "DH001\nDH002\n...\nDH020"
-    expected_output: "5 ĐƠN MỚI NHẤT: DH020, DH019, DH018, DH017, DH016\n5 ĐƠN CŨ NHẤT: DH001, DH002, DH003, DH004, DH005\nDH015: CÓ trong hệ thống"
-    deliverable: "order_lookup.py"
-    delivery_package: ["order_lookup.py", "orders.txt", "README.md"]
-    market_note: "Tra cứu đơn hàng nhanh — task hỗ trợ vận hành, giá 300k."
-    gate_status: "Gate A+B unlocked (đọc input + truy cập list)"
-  monetization:
-  - "Truy cập phần tử = lấy đơn hàng mới nhất, sản phẩm cần xử lý. Mốc gần nhất: filter_orders.py — giá 300k-500k VND."
-  duration_minutes: 20
+    project_applications:
+    - Product picker by index.
+    - Last-order viewer.
+    first_money_drill:
+      enabled: true
+      task: "Nhận list 20 mã đơn hàng, in 5 đơn mới nhất, 5 đơn cũ nhất, kiểm tra mã đơn X có tồn tại không."
+      input_sample: "DH001\nDH002\n...\nDH020"
+      expected_output: "5 ĐƠN MỚI NHẤT: DH020, DH019, DH018, DH017, DH016\n5 ĐƠN CŨ NHẤT: DH001, DH002, DH003, DH004, DH005\nDH015: CÓ trong hệ thống"
+      deliverable: "order_lookup.py"
+      delivery_package: ["order_lookup.py", "orders.txt", "README.md"]
+      market_note: "Tra cứu đơn hàng nhanh — task hỗ trợ vận hành, giá 300k."
+      gate_status: "Gate A+B unlocked (đọc input + truy cập list)"
+    monetization:
+    - "Truy cập phần tử = lấy đơn hàng mới nhất, sản phẩm cần xử lý. Mốc gần nhất: filter_orders.py — giá 300k-500k VND."
+    duration_minutes: 20
     prerequisites:
     - 1
     - 2
@@ -212,21 +224,21 @@
     - Dùng unpack khi cấu trúc dữ liệu ngắn, rõ.
     - Dùng `in` trước khi `index()` nếu không chắc phần tử tồn tại.
     - Giữ code phân tích list tách biệt khỏi code render output.
-  project_applications:
-  - Top-3 viewer.
-  - Blacklist membership checker.
-  first_money_drill:
-    enabled: true
-    task: "Phân tích danh sách đơn hàng: unpack top 3, đếm số đơn theo trạng thái, tìm vị trí đơn cần xử lý."
-    input_sample: "DH001:da_giao\nDH002:chua_thanh_toan\nDH003:da_giao\nDH004:chua_thanh_toan\nDH005:dang_xu_ly"
-    expected_output: "TOP 3: DH001 (da_giao), DH002 (chua_thanh_toan), DH003 (da_giao)\nĐã giao: 2 | Chưa TT: 2 | Đang XL: 1\nĐơn cần xử lý đầu tiên: vị trí 2 (DH002)"
-    deliverable: "analyze_orders.py"
-    delivery_package: ["analyze_orders.py", "orders.txt", "README.md"]
-    market_note: "Phân tích nhanh đơn hàng — task hỗ trợ kế toán/vận hành, giá 300k-500k."
-    gate_status: "Gate A+B unlocked (đọc + unpack + phân tích list)"
-  monetization:
-  - "Unpack + phân tích list = đọc nhanh data thật. Đủ ghép thành script phân tích đơn hàng nhỏ."
-  duration_minutes: 20
+    project_applications:
+    - Top-3 viewer.
+    - Blacklist membership checker.
+    first_money_drill:
+      enabled: true
+      task: "Phân tích danh sách đơn hàng: unpack top 3, đếm số đơn theo trạng thái, tìm vị trí đơn cần xử lý."
+      input_sample: "DH001:da_giao\nDH002:chua_thanh_toan\nDH003:da_giao\nDH004:chua_thanh_toan\nDH005:dang_xu_ly"
+      expected_output: "TOP 3: DH001 (da_giao), DH002 (chua_thanh_toan), DH003 (da_giao)\nĐã giao: 2 | Chưa TT: 2 | Đang XL: 1\nĐơn cần xử lý đầu tiên: vị trí 2 (DH002)"
+      deliverable: "analyze_orders.py"
+      delivery_package: ["analyze_orders.py", "orders.txt", "README.md"]
+      market_note: "Phân tích nhanh đơn hàng — task hỗ trợ kế toán/vận hành, giá 300k-500k."
+      gate_status: "Gate A+B unlocked (đọc + unpack + phân tích list)"
+    monetization:
+    - "Unpack + phân tích list = đọc nhanh data thật. Đủ ghép thành script phân tích đơn hàng nhỏ."
+    duration_minutes: 20
     prerequisites:
     - 1
     - 2
